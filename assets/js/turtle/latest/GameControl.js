@@ -1,5 +1,4 @@
 import GameEnv from './GameEnv.js';
-import GameLevelSquares from './GameLevelSquares.js';
 import GameLevelWater from './GameLevelWater.js';
 
 /**
