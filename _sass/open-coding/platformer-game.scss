@@ -18,7 +18,7 @@
 /// 
 $spacing-unit: 2rem;
 
-/* Press Start 2P font loaded globally via head-custom.html */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 #score {
     position: relative;
@@ -292,7 +292,6 @@ body {
 }
 
 .fun_facts {
-    visibility: hidden; // Hide by default, show with JavaScript like #cut-story
     min-width: 250px;
     background-color: rgb(12, 235, 255);
     color: rgb(9, 107, 78);
@@ -306,7 +305,6 @@ body {
     width: 90%;
     padding: 10px;
     bottom: 0px;
-    z-index: 1; // Below game elements which use z-index: 2-3
 }
 
 .fun_facts h3,
