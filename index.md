@@ -68,17 +68,20 @@ Hi! My name is Vayun Shekhar
 > Here is my game progress through coding, click to see these in the browser
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <a href="{{site.baseurl}}/snake" class="btn">
-        Snake
+    <a href="{{site.baseurl}}/snake" style="text-decoration: none;">
+        <div style="background-color: #00FF00; color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Snake
+        </div>
     </a>
-    <a href="{{site.baseurl}}/gamify/parallax" class="btn" style="background-color: var(--green); ">
-        Fish
+    <a href="{{site.baseurl}}/gamify/parallax" style="text-decoration: none;">
+        <div style="background-color: #3c1de8; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+           Fish
+        </div>
     </a>
-    <a href="{{site.baseurl}}/gamify" class="btn" style="background-color: var(--teal);">
-       Gamify
-    </a>
-    <a href="{{site.baseurl}}/cs-pathway" class="btn" style="background-color: var(--orange);">
-       CS Pathway
+    <a href="{{site.baseurl}}/gamify/water" style="text-decoration: none;">
+        <div style="background-color: #b71dc5; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+           Squid
+        </div>
     </a>
 </div>
 
