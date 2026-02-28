@@ -31,7 +31,11 @@ ctx.fillStyle = 'red';
 ctx.fillRect(100, 100, 200, 200);
 {% endcapture %}
 
+<<<<<<< HEAD
 {% include runners/ui.html 
+=======
+{% include ui-runner.html 
+>>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
    runner_id="visual1"
    challenge=challenge1
    code=code1
@@ -50,7 +54,11 @@ ctx.fillRect(100, 100, 200, 200);
 
 #### HTML Component
 
+<<<<<<< HEAD
 - File: `_includes/runners/ui.html`
+=======
+- File: `_includes/ui-runner.html`
+>>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
 - Reusable component for visual JavaScript output
 - Uses CodeMirror for syntax highlighting (JavaScript mode only)
 - Provides `outputElement` variable for DOM manipulation
@@ -107,7 +115,11 @@ ctx.fillStyle = 'red';
 ctx.fillRect(100, 100, 200, 200);
 {% endcapture %}
 
+<<<<<<< HEAD
 {% include runners/ui.html
+=======
+{% include ui-runner.html
+>>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
    runner_id="visual1"
    challenge=challenge1
    code=code1
@@ -183,7 +195,11 @@ draw();
 update();
 {% endcapture %}
 
+<<<<<<< HEAD
 {% include runners/ui.html
+=======
+{% include ui-runner.html
+>>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
    runner_id="visual2"
    challenge=challenge2
    code=code2
@@ -230,7 +246,11 @@ button.addEventListener('click', () => {
 outputElement.appendChild(button);
 {% endcapture %}
 
+<<<<<<< HEAD
 {% include runners/ui.html
+=======
+{% include ui-runner.html
+>>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
    runner_id="visual3"
    challenge=challenge3
    code=code3

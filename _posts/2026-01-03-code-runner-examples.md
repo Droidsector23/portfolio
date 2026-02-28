@@ -1,6 +1,5 @@
 ---
 layout: post
-courses: { csse: {week: 4}, csp: {week: 17}, csa: {week: 17 } }
 codemirror: true
 title: Code Runner - Examples
 description: Build a lesson using multiple code runners on a page.  This modular approach allows you to create interactive lessons, more code -- less words.
@@ -17,7 +16,7 @@ Fix the syntax error. Run the code to get a hint!
 print('Hello World'
 {% endcapture %}
 
-{% include runners/code.html
+{% include code-runner.html
    runner_id="exercise1"
    language="python"
    challenge=challenge1
@@ -42,7 +41,7 @@ print(calculate_area(5, 3))
 print(calculate_area(10, 2))
 {% endcapture %}
 
-{% include runners/code.html
+{% include code-runner.html
    runner_id="exercise2"
    language="python"
    challenge=challenge2
@@ -66,7 +65,7 @@ public class Main {
 }
 {% endcapture %}
 
-{% include runners/code.html
+{% include code-runner.html
    runner_id="exercise3"
    language="java"
    challenge=challenge3
@@ -88,7 +87,7 @@ for (let i = ???; i <= ???; i++) {
 }
 {% endcapture %}
 
-{% include runners/code.html
+{% include code-runner.html
    runner_id="exercise4"
    language="javascript"
    challenge=challenge4
@@ -99,7 +98,7 @@ for (let i = ???; i <= ???; i++) {
 
 ## Code Runner Reference
 
-Code runner requires defining and passing liquid variables for **challenge** and **code** to the include file `runners/code.html`. Study the source of this markdown file to see how the liquid variables are defined for each example above.
+Code runner requires defining and passing liquid variables for **challenge** and **code** to the include file `code-runner.html`. Study the source of this markdown file to see how the liquid variables are defined for each example above.
 
 ### Parameters
 
@@ -113,7 +112,7 @@ Code runner requires defining and passing liquid variables for **challenge** and
 
 #### HTML Component
 
-- File: `_includes/runners/code.html`
+- File: `_includes/code-runner.html`
 - Reusable component with parameters for customization
 - Uses CodeMirror for syntax highlighting
 
