@@ -1,47 +1,34 @@
 ---
 layout: opencs
-title: RPG Water Example 
-permalink: /gamify/water
+title: End Game
+permalink: /gamify/end
 ---
 
 <div id="gameContainer">
     <div id="promptDropDown" class="promptDropDown" style="z-index: 9999"></div>
-<<<<<<< HEAD
-    <!-- GameEnv will create canvas dynamically -->
-=======
     <canvas id='gameCanvas'></canvas>
->>>>>>> 72bd9be (massive update to latest tech)
 </div>
 
 <script type="module">
     // Adnventure Game assets locations
-<<<<<<< HEAD
-    import Core from "{{site.baseurl}}/assets/js/GameEnginev1/essentials/Game.js";
-    import GameControl from "{{site.baseurl}}/assets/js/GameEnginev1/essentials/GameControl.js";
-    import GameLevelWater from "{{site.baseurl}}/assets/js/GameEnginev1/GameLevelWater.js";
-=======
     import Core from "/assets/js/GameEnginev1/essentials/Game.js";
     import GameControl from "/assets/js/GameEnginev1/essentials/GameControl.js";
-    import GameLevelWater from "/assets/js/GameEnginev1/GameLevelWater.js";
->>>>>>> 72bd9be (massive update to latest tech)
+    import GameLevelEnd from "/assets/js/GameEnginev1/GameLevelEnd.js";
     import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api/config.js';
 
-    const gameLevelClasses = [GameLevelWater];
+    const gameLevelClasses = [GameLevelEnd];
 
     // Web Server Environment data
     const environment = {
-        path:"{{site.baseurl}}",
+        path: "{{site.baseurl}}",
         pythonURI: pythonURI,
         javaURI: javaURI,
         fetchOptions: fetchOptions,
         gameContainer: document.getElementById("gameContainer"),
-<<<<<<< HEAD
-=======
         gameCanvas: document.getElementById("gameCanvas"),
->>>>>>> 72bd9be (massive update to latest tech)
         gameLevelClasses: gameLevelClasses
-
     }
+
     // Launch Adventure Game using the central core and adventure GameControl
     Core.main(environment, GameControl);
 </script>

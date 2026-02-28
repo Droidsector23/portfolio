@@ -3,6 +3,7 @@ import GameObject from './GameObject.js';
 class Barrier extends GameObject {
     constructor(data, gameEnv) {
         super(gameEnv);
+<<<<<<< HEAD
         
         // Handle position with relative (0-1) or absolute pixel values
         const xVal = data.x !== undefined ? data.x : 0;
@@ -42,6 +43,13 @@ class Barrier extends GameObject {
         this.relativeWidth = wVal;
         this.relativeHeight = hVal;
         
+=======
+        // Position and size in game coordinates
+        this.x = data.x || 0;
+        this.y = data.y || 0;
+        this.width = data.width || 0;
+        this.height = data.height || 0;
+>>>>>>> 72bd9be (massive update to latest tech)
         this.color = data.color || 'rgba(255, 0, 0, 0.3)';
         this.visible = data.visible !== undefined ? data.visible : true;
         this.hitbox = data.hitbox || { widthPercentage: 0.0, heightPercentage: 0.0 };
@@ -52,7 +60,11 @@ class Barrier extends GameObject {
         this.canvas.width = Math.max(1, this.width);
         this.canvas.height = Math.max(1, this.height);
         this.ctx = this.canvas.getContext('2d', { willReadFrequently: true });
+<<<<<<< HEAD
         const container = this.gameEnv?.container;
+=======
+        const container = document.getElementById('gameContainer') || this.gameEnv?.gameContainer;
+>>>>>>> 72bd9be (massive update to latest tech)
         if (container) container.appendChild(this.canvas);
         this.canvas.style.imageRendering = 'pixelated';
         this.canvas.style.zIndex = (data.zIndex !== undefined) ? String(data.zIndex) : '11';
@@ -89,6 +101,7 @@ class Barrier extends GameObject {
     }
 
     resize() {
+<<<<<<< HEAD
         // Reposition relative to new game size
         if (!this.gameEnv) return;
         
@@ -128,6 +141,25 @@ class Barrier extends GameObject {
         this.canvas.width = Math.max(1, this.width);
         this.canvas.height = Math.max(1, this.height);
         
+=======
+        // Reposition relative to new game size proportionally
+        if (!this.gameEnv) return;
+        const newW = this.gameEnv.innerWidth;
+        const newH = this.gameEnv.innerHeight;
+        // Simple proportional scaling to keep placement relative; safe if env changes
+        if (this.canvas && this.canvas.width && this.canvas.height) {
+            const prevW = parseFloat(this.canvas.style.width) || this.canvas.width;
+            const prevH = parseFloat(this.canvas.style.height) || this.canvas.height;
+            const scaleX = newW / (this.gameEnv.canvas?.width || newW);
+            const scaleY = newH / (this.gameEnv.canvas?.height || newH);
+            this.x = Math.round(this.x * scaleX);
+            this.y = Math.round(this.y * scaleY);
+            this.width = Math.round(this.width * scaleX);
+            this.height = Math.round(this.height * scaleY);
+            this.canvas.width = Math.max(1, this.width);
+            this.canvas.height = Math.max(1, this.height);
+        }
+>>>>>>> 72bd9be (massive update to latest tech)
         this.update();
     }
 

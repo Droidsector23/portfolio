@@ -37,7 +37,11 @@ export class Background extends GameObject {
             this.alignCanvas();
 
             // Append the canvas to the DOM
+<<<<<<< HEAD
             this.gameEnv.container.appendChild(this.canvas);
+=======
+            document.getElementById("gameContainer").appendChild(this.canvas);
+>>>>>>> 72bd9be (massive update to latest tech)
             this.isInitialized = true; // Mark as initialized
         };
     }
@@ -47,7 +51,11 @@ export class Background extends GameObject {
      */
     alignCanvas() {
         // align the canvas to the gameCanvas, Layered
+<<<<<<< HEAD
         const gameCanvas = this.gameEnv.canvas;
+=======
+        const gameCanvas = document.getElementById("gameCanvas");
+>>>>>>> 72bd9be (massive update to latest tech)
         if (!gameCanvas) {
             console.error("Game canvas not found");
             return;

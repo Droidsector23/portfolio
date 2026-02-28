@@ -41,7 +41,11 @@ export class BackgroundParallax extends Background {
             this.canvas.style.opacity = data.opacity || "0.3";
             
             // Reposition canvas to be first in container (behind everything)
+<<<<<<< HEAD
             const gameContainer = this.gameEnv.container;
+=======
+            const gameContainer = document.getElementById("gameContainer");
+>>>>>>> 72bd9be (massive update to latest tech)
             if (gameContainer && this.canvas.parentNode) {
                 if (gameContainer.firstChild !== this.canvas) {
                     gameContainer.insertBefore(this.canvas, gameContainer.firstChild);
