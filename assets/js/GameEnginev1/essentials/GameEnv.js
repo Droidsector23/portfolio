@@ -70,6 +70,9 @@ class GameEnv {
         this.setTop();
         this.setBottom();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f33cb5f (boundaries)
         
         // Check if dimensions are overridden in environment (for game-runner/builder)
         // Otherwise use window dimensions
@@ -85,10 +88,13 @@ class GameEnv {
             this.innerHeight = window.innerHeight - this.top - this.bottom;
         }
         
+<<<<<<< HEAD
 =======
         this.innerWidth = window.innerWidth;
         this.innerHeight = window.innerHeight - this.top - this.bottom;
 >>>>>>> 72bd9be (massive update to latest tech)
+=======
+>>>>>>> f33cb5f (boundaries)
         this.size();
     }
 
