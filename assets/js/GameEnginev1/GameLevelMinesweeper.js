@@ -13,10 +13,14 @@ class GameLevelMinesweeper {
         this.width = this.gameEnv.innerWidth;
         this.height = this.gameEnv.innerHeight;
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.canvas = this.gameEnv.canvas; // Use canvas created by GameEnv
 =======
         this.canvas = this.gameEnv.gameCanvas;
 >>>>>>> 72bd9be (massive update to latest tech)
+=======
+        this.canvas = this.gameEnv.canvas; // Use canvas created by GameEnv
+>>>>>>> d6775f0 (canvas issue)
         this.ctx = this.canvas.getContext('2d');
 
         // Game settings

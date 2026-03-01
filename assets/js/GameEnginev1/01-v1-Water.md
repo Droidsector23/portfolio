@@ -7,10 +7,14 @@ permalink: /gamify/water
 <div id="gameContainer">
     <div id="promptDropDown" class="promptDropDown" style="z-index: 9999"></div>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!-- GameEnv will create canvas dynamically -->
 =======
     <canvas id='gameCanvas'></canvas>
 >>>>>>> 72bd9be (massive update to latest tech)
+=======
+    <!-- GameEnv will create canvas dynamically -->
+>>>>>>> d6775f0 (canvas issue)
 </div>
 
 <script type="module">
@@ -42,9 +46,12 @@ permalink: /gamify/water
         fetchOptions: fetchOptions,
         gameContainer: document.getElementById("gameContainer"),
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         gameCanvas: document.getElementById("gameCanvas"),
 >>>>>>> 72bd9be (massive update to latest tech)
+=======
+>>>>>>> d6775f0 (canvas issue)
         gameLevelClasses: gameLevelClasses
 
     }

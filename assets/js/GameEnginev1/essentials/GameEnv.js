@@ -19,23 +19,33 @@
  * @property {number} top - The top offset of the game area.
  * @property {number} bottom - The bottom offset of the game area.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d6775f0 (canvas issue)
  * @property {string} canvasId - The unique ID of the canvas element for this instance.
  */
 class GameEnv {
     static canvasCounter = 0; // Static counter for unique canvas IDs
     
+<<<<<<< HEAD
 =======
  */
 class GameEnv {
 >>>>>>> 72bd9be (massive update to latest tech)
+=======
+>>>>>>> d6775f0 (canvas issue)
     constructor() {
         this.container = null;
         this.canvas = null;
         this.ctx = null;
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.canvasId = null;
 =======
 >>>>>>> 72bd9be (massive update to latest tech)
+=======
+        this.canvasId = null;
+>>>>>>> d6775f0 (canvas issue)
         this.innerWidth = 0;
         this.innerHeight = 0;
         this.top = 0;
@@ -85,6 +95,7 @@ class GameEnv {
     /**
      * Sets the canvas element and its 2D rendering context.
 <<<<<<< HEAD
+<<<<<<< HEAD
      * Creates a new canvas dynamically with a unique ID to avoid conflicts.
      * Uses the container reference passed from environment, or searches for 'gameContainer' as fallback.
      */
@@ -98,12 +109,24 @@ class GameEnv {
         this.canvas.id = this.canvasId;
         this.container.appendChild(this.canvas);
 =======
+=======
+     * Creates a new canvas dynamically with a unique ID to avoid conflicts.
+>>>>>>> d6775f0 (canvas issue)
      */
     setCanvas() {
         // Prefer builder container if present
         this.container = document.getElementById('gameContainer') || document.body;
+<<<<<<< HEAD
         this.canvas = document.getElementById('gameCanvas');
 >>>>>>> 72bd9be (massive update to latest tech)
+=======
+        
+        // Create canvas dynamically with unique ID
+        this.canvasId = `gameCanvas-${GameEnv.canvasCounter++}`;
+        this.canvas = document.createElement('canvas');
+        this.canvas.id = this.canvasId;
+        this.container.appendChild(this.canvas);
+>>>>>>> d6775f0 (canvas issue)
         this.ctx = this.canvas.getContext('2d', { willReadFrequently: true });
     }
 
@@ -156,6 +179,9 @@ class GameEnv {
         this.ctx.clearRect(0, 0, this.innerWidth, this.innerHeight);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d6775f0 (canvas issue)
 
     /**
      * Destroy the game environment and clean up the canvas.
@@ -172,8 +198,11 @@ class GameEnv {
         this.ctx = null;
         this.canvasId = null;
     }
+<<<<<<< HEAD
 =======
 >>>>>>> 72bd9be (massive update to latest tech)
+=======
+>>>>>>> d6775f0 (canvas issue)
 }
 
 export default GameEnv;

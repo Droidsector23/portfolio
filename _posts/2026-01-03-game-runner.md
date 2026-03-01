@@ -72,10 +72,14 @@ export const gameLevelClasses = [GameLevelBasic];
 ---
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Basic Game: Background, Custom Player
 =======
 ## Basic Game: Copied from GameBuilder
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+## Basic Game: Background, Custom Player
+>>>>>>> d6775f0 (canvas issue)
 
 {% capture challenge1 %}
 Run the basic game. Use WASD or arrow keys to move Chill Guy around the desert. Walk up to R2D2 to trigger an interaction!
@@ -109,6 +113,9 @@ class CustomLevel {
       orientation: { rows: 4, columns: 3 },
       down: { row: 0, start: 0, columns: 3 },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d6775f0 (canvas issue)
       downRight: { row: 1, start: 0, columns: 3, rotate: Math.PI/16 },
       downLeft: { row: 2, start: 0, columns: 3, rotate: -Math.PI/16 },
       right: { row: 1, start: 0, columns: 3 },
@@ -116,6 +123,7 @@ class CustomLevel {
       up: { row: 3, start: 0, columns: 3 },
       upRight: { row: 1, start: 0, columns: 3, rotate: -Math.PI/16 },
       upLeft: { row: 2, start: 0, columns: 3, rotate: Math.PI/16 },
+<<<<<<< HEAD
 =======
       downRight: { row: Math.min(1, 4 - 1), start: 0, columns: 3, rotate: Math.PI/16 },
       downLeft: { row: Math.min(2, 4 - 1), start: 0, columns: 3, rotate: -Math.PI/16 },
@@ -125,6 +133,8 @@ class CustomLevel {
       upRight: { row: Math.min(1, 4 - 1), start: 0, columns: 3, rotate: -Math.PI/16 },
       upLeft: { row: Math.min(2, 4 - 1), start: 0, columns: 3, rotate: Math.PI/16 },
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+>>>>>>> d6775f0 (canvas issue)
       hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
       keypress: { up: 87, left: 65, down: 83, right: 68 }
     };
@@ -152,6 +162,9 @@ export { GameControl };
 %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d6775f0 (canvas issue)
 ## Combine Game Levels: Connected levels via ESC key
 
 {% capture challenge2 %}
@@ -166,14 +179,21 @@ export const gameLevelClasses = [GameLevelWater, GameLevelParallaxFish];
 export { GameControl };
 {% endcapture %}
 
+<<<<<<< HEAD
 {% include runners/game.html
+=======
+{% include game-runner.html
+>>>>>>> d6775f0 (canvas issue)
    runner_id="game2"
    challenge=challenge2
    code=code2
 %}
 
+<<<<<<< HEAD
 =======
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+>>>>>>> d6775f0 (canvas issue)
 ## Best Practices
 
 ### Import Structure
