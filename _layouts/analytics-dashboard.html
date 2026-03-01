@@ -29,12 +29,15 @@ active_tab: analytics
                         Grade Predictor
                     </a>
                 </li>
+<<<<<<< HEAD
                 <li class="me-2">
                     <a href="#" id="tab-skill-passport"
                         class="tab-btn inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:border-neutral-300 hover:text-neutral-300">
                         Skill Passport
                     </a>
                 </li>
+=======
+>>>>>>> 207ae43 (update system and sidebar elements)
             </ul>
             <!-- sliding underline indicator -->
             <div id="tab-underline"
@@ -268,6 +271,7 @@ score += gists * 0.5
                     </details>
                 </div>
             </div>
+<<<<<<< HEAD
 
             <div id="tab-content-skill-passport" class="tab-content hidden px-6 py-4 text-neutral-200">
                 <div class="mb-6">
@@ -333,12 +337,15 @@ score += gists * 0.5
                 </div>
             </div>                
 
+=======
+>>>>>>> 207ae43 (update system and sidebar elements)
         </div>
     </div>
 </div>
 
 <!-- Modal for info details -->
 <div id="dataModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60" aria-hidden="true" role="dialog" aria-modal="true">
+<<<<<<< HEAD
     <div class="bg-neutral-900 border border-neutral-700 rounded-xl p-6 w-full max-w-3xl relative max-h-96 flex flex-col">
         <span class="close absolute top-3 right-3 text-neutral-400 hover:text-white text-2xl cursor-pointer" title="Close modal">&times;</span>
         <div class="flex-1 overflow-y-auto mb-4">
@@ -347,6 +354,11 @@ score += gists * 0.5
         <button id="modal-load-more" class="px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white font-semibold self-start" style="display:none;">
             Load More
         </button>
+=======
+    <div class="bg-neutral-900 border border-neutral-700 rounded-xl p-6 w-full max-w-3xl relative">
+        <span class="close absolute top-3 right-3 text-neutral-400 hover:text-white text-2xl cursor-pointer" title="Close modal">&times;</span>
+        <pre id="modalData" class="text-neutral-200 overflow-auto max-h-96"></pre>
+>>>>>>> 207ae43 (update system and sidebar elements)
     </div>
 </div>
 
@@ -630,6 +642,7 @@ score += gists * 0.5
         if (commitCount >= 5) return "75% (C)";
         return "55% (F)";
     }
+<<<<<<< HEAD
     async function loadSkillPassport() {
         const loading = document.getElementById('passport-loading');
         const empty = document.getElementById('passport-empty');
@@ -737,27 +750,40 @@ score += gists * 0.5
             console.warn("Recommendation failed:", e);
     }
     }
+=======
+
+>>>>>>> 207ae43 (update system and sidebar elements)
     // Modal code
     const dataModal = document.getElementById("dataModal");
     const modalData = document.getElementById("modalData");
     const closeModal = dataModal.querySelector(".close");
 
+<<<<<<< HEAD
     let currentModalData = null;
     let currentItemsDisplayed = 0;
     const ITEMS_PER_PAGE = 20;
 
+=======
+>>>>>>> 207ae43 (update system and sidebar elements)
     function setupInfoModal(elementId, data) {
         const el = document.getElementById(elementId);
         if (el) {
             el.addEventListener("click", (e) => {
                 e.preventDefault();
+<<<<<<< HEAD
                 currentModalData = data;
                 currentItemsDisplayed = 0;
                 displayModalData();
+=======
+                modalData.textContent = JSON.stringify(data, null, 2);
+                dataModal.classList.remove("hidden");
+                dataModal.setAttribute("aria-hidden", "false");
+>>>>>>> 207ae43 (update system and sidebar elements)
             });
         }
     }
 
+<<<<<<< HEAD
     function displayModalData() {
         if (!currentModalData) return;
 
@@ -819,14 +845,22 @@ score += gists * 0.5
         dataModal.setAttribute("aria-hidden", "true");
         currentModalData = null;
         currentItemsDisplayed = 0;
+=======
+    closeModal.onclick = () => {
+        dataModal.classList.add("hidden");
+        dataModal.setAttribute("aria-hidden", "true");
+>>>>>>> 207ae43 (update system and sidebar elements)
     };
 
     window.onclick = (event) => {
         if (event.target === dataModal) {
             dataModal.classList.add("hidden");
             dataModal.setAttribute("aria-hidden", "true");
+<<<<<<< HEAD
             currentModalData = null;
             currentItemsDisplayed = 0;
+=======
+>>>>>>> 207ae43 (update system and sidebar elements)
         }
     };
 
@@ -859,9 +893,12 @@ score += gists * 0.5
                     await window.OCSAnalytics.loadAnalyticsSummary();
                 }
             }
+<<<<<<< HEAD
             if (targetId === "tab-content-skill-passport") {
                 await loadSkillPassport();
 }
+=======
+>>>>>>> 207ae43 (update system and sidebar elements)
         });
     });
 
