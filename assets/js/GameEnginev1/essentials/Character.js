@@ -61,11 +61,8 @@ class Character extends GameObject {
         this.canvas.height = data.pixels?.height || PIXELS.height;
         this.hitbox = data?.hitbox || {};
         this.ctx = this.canvas.getContext('2d', { willReadFrequently: true });
-<<<<<<< HEAD
         this.gameEnv.container.appendChild(this.canvas);
-=======
-        document.getElementById("gameContainer").appendChild(this.canvas);
->>>>>>> 72bd9be (massive update to latest tech)
+
         this.canvas.style = "image-rendering: pixelated;";
 
         // Set initial object properties 
@@ -78,7 +75,6 @@ class Character extends GameObject {
         this.scaleFactor = data.SCALE_FACTOR || SCALE_FACTOR;
         this.stepFactor = data.STEP_FACTOR || STEP_FACTOR;
         this.animationRate = data.ANIMATION_RATE || ANIMATION_RATE;
-<<<<<<< HEAD
         
         // Handle INIT_POSITION with percentage support (0.0-1.0 decimal)
         const initPos = data.INIT_POSITION || INIT_POSITION;
@@ -94,8 +90,6 @@ class Character extends GameObject {
             this.position = { ...initPos };
         }
 =======
-        this.position = data.INIT_POSITION || INIT_POSITION;
->>>>>>> 72bd9be (massive update to latest tech)
         
         // Always set spriteData, even if there's no sprite sheet
         this.spriteData = data;
@@ -390,7 +384,6 @@ class Character extends GameObject {
         // Set the object's width and height to the new size (object is a square)
         this.width = this.size;
         this.height = this.size;
-<<<<<<< HEAD
 
         // Ensure the object stays fully on screen after resize
         // Clamp position to keep character visible
@@ -406,8 +399,6 @@ class Character extends GameObject {
         if (this.position.y < 0) {
             this.position.y = 0;
         }
-=======
->>>>>>> 72bd9be (massive update to latest tech)
     }
     
 
