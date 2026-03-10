@@ -89,7 +89,10 @@ class Character extends GameObject {
             // Use as pixel values (backward compatibility)
             this.position = { ...initPos };
         }
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 668c118 (support for relative position)
         
         // Always set spriteData, even if there's no sprite sheet
         this.spriteData = data;
