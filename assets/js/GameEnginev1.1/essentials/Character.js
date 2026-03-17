@@ -70,7 +70,10 @@ class Character extends GameObject {
         this.frame = 0;
         
         // Initialize the object's properties 
+<<<<<<< HEAD
         this.visible = data?.visible !== undefined ? data.visible : true;
+=======
+>>>>>>> 5951a9a (update for v1.1)
         this.scale = { width: this.gameEnv.innerWidth, height: this.gameEnv.innerHeight };
         this.scaleFactor = data.SCALE_FACTOR || SCALE_FACTOR;
         this.stepFactor = data.STEP_FACTOR || STEP_FACTOR;
@@ -169,10 +172,19 @@ class Character extends GameObject {
             return;
         }
 
+<<<<<<< HEAD
         // Match v1 update order so collision checks use current rendered bounds.
         this.draw();
         this.collisionChecks();
         this.move();
+=======
+        // this.applyPhysics();     // gravity, friction
+        this.move();                // integrate velocity → position
+        this.collisionChecks();     // resolve collisions
+        //this.interactReact();     // triggers, state changes, callbacks
+        //this.updateAnimation();   // update sprite frames based on state
+        this.draw();                // render final state
+>>>>>>> 5951a9a (update for v1.1)
 
     }
 
@@ -229,9 +241,15 @@ class Character extends GameObject {
         const frameY = (directionData.row || 0) * frameHeight;
 
         // Set the canvas dimensions based on the frame size
+<<<<<<< HEAD
         // Set the canvas dimensions based on the frame size (integers)
         this.canvas.width = frameWidth;
         this.canvas.height = frameHeight;
+=======
+    // Set the canvas dimensions based on the frame size (integers)
+    this.canvas.width = frameWidth;
+    this.canvas.height = frameHeight;
+>>>>>>> 5951a9a (update for v1.1)
 
         // Apply transformations (rotation, mirroring, spinning)
         this.applyTransformations(directionData);
@@ -240,7 +258,10 @@ class Character extends GameObject {
         this.applyFilters(directionData);
 
         // Draw the sprite sheet frame
+<<<<<<< HEAD
         if (!this.visible) return; // Skip drawing if not visible
+=======
+>>>>>>> 5951a9a (update for v1.1)
         this.ctx.drawImage(
             this.spriteSheet,
             frameX, frameY, frameWidth, frameHeight, // Source rectangle
@@ -267,7 +288,10 @@ class Character extends GameObject {
      * Draws a default red square on the canvas.
      */
     drawDefaultSquare() {
+<<<<<<< HEAD
         if (!this.visible) return; // Skip drawing if not visible
+=======
+>>>>>>> 5951a9a (update for v1.1)
         this.ctx.fillStyle = this.data?.fillStyle || 'red';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
@@ -284,14 +308,18 @@ class Character extends GameObject {
         
         // Use the zIndex from data if provided, otherwise use a default of 10
         this.canvas.style.zIndex = (this.data && this.data.zIndex !== undefined) ? this.data.zIndex : "10";
+<<<<<<< HEAD
         this.canvas.style.filter = this.data?.canvasFilter || 'none';
         this.canvas.style.boxShadow = this.data?.boxShadow || 'none';
+=======
+>>>>>>> 5951a9a (update for v1.1)
     }
 
     /**
      * Applies transformations like rotation, mirroring, and spinning.
      */
     applyTransformations(directionData) {
+<<<<<<< HEAD
         if (directionData.rotate || directionData.mirror || directionData.spin || directionData.wiggle) {
             // Translate to the center of the sprite
             this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
@@ -313,6 +341,12 @@ class Character extends GameObject {
                 this.ctx.rotate(angle);
             }
 
+=======
+        if (directionData.rotate || directionData.mirror || directionData.spin) {
+            // Translate to the center of the sprite
+            this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
+
+>>>>>>> 5951a9a (update for v1.1)
             // Apply rotation
             if (directionData.rotate) {
                 this.ctx.rotate(directionData.rotate);

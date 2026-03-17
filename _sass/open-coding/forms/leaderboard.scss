@@ -37,11 +37,16 @@
 /**
  * Leaderboard Header
  */
+<<<<<<< HEAD
 
 .leaderboard-header {
   @include header-bar(16px, 20px);
   display: flex;
   align-items: center;
+=======
+.leaderboard-header {
+  @include header-bar(16px, 20px);
+>>>>>>> 5951a9a (update for v1.1)
 }
 
 /**
@@ -170,6 +175,7 @@
 }
 
 /**
+<<<<<<< HEAD
  * Save Score Button (Icon-only)
  */
 .save-score-btn {
@@ -189,6 +195,8 @@
 }
 
 /**
+=======
+>>>>>>> 5951a9a (update for v1.1)
  * Loading and Error States
  */
 .loading,
@@ -204,6 +212,7 @@
 }
 
 /**
+<<<<<<< HEAD
  * Back Button (Icon-only)
  */
 .back-btn {
@@ -216,15 +225,31 @@
   align-items: center;
   justify-content: center;
   
+=======
+ * Back Button
+ */
+.back-btn {
+  @include text-button;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 10px;
+
+>>>>>>> 5951a9a (update for v1.1)
   &:hover {
     background: var(--panel-mid, #4a4a4a);
     border-color: var(--ui-border, #666);
   }
 
   @media (max-width: 768px) {
+<<<<<<< HEAD
     width: 36px;
     height: 36px;
     font-size: 16px;
+=======
+    padding: 6px 12px;
+    font-size: 13px;
+>>>>>>> 5951a9a (update for v1.1)
   }
 }
 

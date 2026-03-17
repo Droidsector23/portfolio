@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import NPC from './Npc.js';
 import Player from './Player.js';
 
 class Enemy extends NPC {
+=======
+import Character from './Character.js';
+import Player from './Player.js';
+
+class Enemy extends Character {
+>>>>>>> 5951a9a (update for v1.1)
     constructor(data = null, gameEnv = null) {
         super(data, gameEnv);
         this.playerDestroyed = false; // Tracks if the player has been "killed"
@@ -11,7 +18,12 @@ class Enemy extends NPC {
      * Override the update method to handle collision detection.
      */
     update() {
+<<<<<<< HEAD
         super.update(); // Call the parent update method for movement and drawing 
+=======
+        // Update begins by drawing the object
+        this.draw();
+>>>>>>> 5951a9a (update for v1.1)
 
         if (this.spriteData && typeof this.spriteData.update === 'function') {
             this.spriteData.update.call(this);

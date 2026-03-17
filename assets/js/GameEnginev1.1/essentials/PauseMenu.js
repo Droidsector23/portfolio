@@ -7,14 +7,23 @@ export default class PauseMenu {
         this.gameControl = gameControl;
         this.options = options;
         this.container = null;
+<<<<<<< HEAD
         this.overlay = null;
         this.isVisible = false;
         this.leaderboardContainer = null;
         this._saveStatusNode = null;
+=======
+        this.isVisible = false;
+        this.leaderboard = null;
+        this.scoreFeature = null;
+        this.score = 0;
+        this.stats = {};
+>>>>>>> 5951a9a (update for v1.1)
         
         this.init();
     }
 
+<<<<<<< HEAD
     /**
      * Run an action with consistent error handling and optional status feedback
      */
@@ -51,6 +60,19 @@ export default class PauseMenu {
             const style = document.createElement('style');
             style.id = 'pause-menu-styles';
             style.textContent = `
+=======
+    init() {
+        this.createStyles();
+        this.createMenuUI();
+    }
+
+    createStyles() {
+        if (document.getElementById('pause-menu-styles')) return;
+
+        const style = document.createElement('style');
+        style.id = 'pause-menu-styles';
+        style.textContent = `
+>>>>>>> 5951a9a (update for v1.1)
             .pause-menu-overlay {
                 position: fixed;
                 top: 0;
@@ -157,6 +179,7 @@ export default class PauseMenu {
                 margin: 0 0 16px 0;
             }
         `;
+<<<<<<< HEAD
             document.head.appendChild(style);
         } catch (error) {
             console.error('Error creating or appending styles:', error);
@@ -237,12 +260,65 @@ export default class PauseMenu {
         const saveScoreBtn = this._createSaveScoreButton();
         const skipBtn = this._createSkipLevelButton();
         const leaderboardBtn = this._createToggleLeaderboardButton();
+=======
+        document.head.appendChild(style);
+    }
+
+    createMenuUI() {
+        // Create overlay
+        this.overlay = document.createElement('div');
+        this.overlay.className = 'pause-menu-overlay';
+
+        // Create menu container
+        this.container = document.createElement('div');
+        this.container.className = 'pause-menu-container';
+
+        // Header
+        const header = document.createElement('div');
+        header.className = 'pause-menu-header';
+        header.textContent = '⏸ PAUSED';
+
+        // Content
+        const content = document.createElement('div');
+        content.className = 'pause-menu-content';
+
+        // Buttons section
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'pause-menu-buttons';
+
+        // Resume button
+        const resumeBtn = document.createElement('button');
+        resumeBtn.className = 'pause-menu-btn primary';
+        resumeBtn.textContent = '▶ Resume Game (ESC)';
+        resumeBtn.addEventListener('click', () => this.hide());
+
+        // Save Score button
+        const saveScoreBtn = document.createElement('button');
+        saveScoreBtn.id = 'pause-menu-save-score-btn';
+        saveScoreBtn.className = 'pause-menu-btn';
+        saveScoreBtn.textContent = '💾 Save Score';
+        saveScoreBtn.addEventListener('click', () => this.saveScore());
+
+        // Skip level button
+        const skipBtn = document.createElement('button');
+        skipBtn.className = 'pause-menu-btn';
+        skipBtn.textContent = '⏭ Skip Level';
+        skipBtn.addEventListener('click', () => this.skipLevel());
+
+        // Toggle leaderboard button
+        const leaderboardBtn = document.createElement('button');
+        leaderboardBtn.id = 'pause-menu-toggle-leaderboard-btn';
+        leaderboardBtn.className = 'pause-menu-btn';
+        leaderboardBtn.textContent = '📊 Toggle Leaderboard';
+        leaderboardBtn.addEventListener('click', () => this.toggleLeaderboard());
+>>>>>>> 5951a9a (update for v1.1)
 
         buttonsDiv.appendChild(resumeBtn);
         buttonsDiv.appendChild(saveScoreBtn);
         buttonsDiv.appendChild(skipBtn);
         buttonsDiv.appendChild(leaderboardBtn);
 
+<<<<<<< HEAD
         return buttonsDiv;
     }
 
@@ -296,10 +372,14 @@ export default class PauseMenu {
      * Create the status message area
      */
     _createStatusArea() {
+=======
+        // Status message
+>>>>>>> 5951a9a (update for v1.1)
         const statusDiv = document.createElement('div');
         statusDiv.id = 'pause-menu-status';
         statusDiv.className = 'pause-menu-status';
         this._saveStatusNode = statusDiv;
+<<<<<<< HEAD
         return statusDiv;
     }
 
@@ -307,10 +387,18 @@ export default class PauseMenu {
      * Create the leaderboard section container
      */
     _createLeaderboardSection() {
+=======
+
+        content.appendChild(buttonsDiv);
+        content.appendChild(statusDiv);
+
+        // Leaderboard section (will be populated if leaderboard exists)
+>>>>>>> 5951a9a (update for v1.1)
         const leaderboardSection = document.createElement('div');
         leaderboardSection.className = 'pause-menu-leaderboard-section';
         leaderboardSection.id = 'pause-menu-leaderboard-section';
         leaderboardSection.style.display = 'none';
+<<<<<<< HEAD
         this.leaderboardContainer = leaderboardSection;
         return leaderboardSection;
     }
@@ -319,6 +407,18 @@ export default class PauseMenu {
      * Attach event listeners to the overlay for closing
      */
     _attachEventListeners() {
+=======
+        content.appendChild(leaderboardSection);
+        this.leaderboardContainer = leaderboardSection;
+
+        // Assemble
+        this.container.appendChild(header);
+        this.container.appendChild(content);
+        this.overlay.appendChild(this.container);
+        document.body.appendChild(this.overlay);
+
+        // Close on overlay click
+>>>>>>> 5951a9a (update for v1.1)
         this.overlay.addEventListener('click', (e) => {
             if (e.target === this.overlay) {
                 this.hide();
@@ -326,6 +426,7 @@ export default class PauseMenu {
         });
     }
 
+<<<<<<< HEAD
     /**
      * Show the pause menu overlay and pause the game
      */
@@ -563,6 +664,65 @@ export default class PauseMenu {
             }, 3000);
         } catch (error) {
             console.error('Error displaying status message:', error);
+=======
+    show() {
+        if (this.isVisible) return;
+        
+        this.isVisible = true;
+        this.overlay.classList.add('visible');
+        
+        // Pause the game
+        if (this.gameControl && !this.gameControl.isPaused) {
+            this.gameControl.pause();
+        }
+    }
+
+    hide() {
+        if (!this.isVisible) return;
+        
+        this.isVisible = false;
+        this.overlay.classList.remove('visible');
+        
+        // Resume the game
+        if (this.gameControl && this.gameControl.isPaused) {
+            this.gameControl.resume();
+        }
+    }
+
+    saveScore() {
+        // Try to use ScoreFeature if available
+        if (window.scoreFeature && typeof window.scoreFeature.saveScore === 'function') {
+            const btn = document.getElementById('pause-menu-save-score-btn');
+            window.scoreFeature.saveScore(btn);
+        } else {
+            alert('Score feature not yet loaded. Please try again in a moment.');
+        }
+    }
+
+    toggleLeaderboard() {
+        const section = this.leaderboardContainer;
+        const isHidden = section.style.display === 'none';
+        
+        if (isHidden) {
+            // Show leaderboard
+            section.style.display = 'block';
+            if (window.leaderboardInstance && typeof window.leaderboardInstance.toggle === 'function') {
+                window.leaderboardInstance.toggle();
+            }
+        } else {
+            // Hide leaderboard
+            if (window.leaderboardInstance && typeof window.leaderboardInstance.toggle === 'function') {
+                window.leaderboardInstance.toggle();
+            }
+            section.style.display = 'none';
+        }
+    }
+
+    skipLevel() {
+        if (this.gameControl && typeof this.gameControl.endLevel === 'function') {
+            this.hide(); // Hide menu first
+            this.gameControl.endLevel();
+>>>>>>> 5951a9a (update for v1.1)
         }
     }
 }

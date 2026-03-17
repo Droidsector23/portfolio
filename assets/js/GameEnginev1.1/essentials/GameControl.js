@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // CanvasClickHandler: enables click-to-interact for all game objects
 class CanvasClickHandler {
     constructor(gameEnv, gameContainer) {
@@ -64,6 +65,8 @@ class CanvasClickHandler {
         }
     }
 }
+=======
+>>>>>>> 5951a9a (update for v1.1)
 // GameControl.js with improved level transition handling
 import GameLevel from "./GameLevel.js";
 
@@ -109,6 +112,7 @@ class GameControl {
         this._loopRunning = false;
     }
 
+<<<<<<< HEAD
     /**
      * Set up canvas click handler for object interaction
      */
@@ -140,13 +144,21 @@ class GameControl {
             }
         }
 
+=======
+    
+    start() {
+>>>>>>> 5951a9a (update for v1.1)
         // Mark this GameControl as the currently active control on the Game host
         try {
             if (this.game) this.game.activeGameControl = this;
         } catch (e) {}
+<<<<<<< HEAD
 
         this.addExitKeyListener();
         this.setupCanvasClickHandler();
+=======
+        this.addExitKeyListener();
+>>>>>>> 5951a9a (update for v1.1)
         this.transitionToLevel();
     }
 
@@ -262,6 +274,7 @@ class GameControl {
         const GameLevelClass = this.levelClasses[this.currentLevelIndex];
         this.currentLevel = new GameLevel(this);
         this.currentLevel.create(GameLevelClass);
+<<<<<<< HEAD
 
         // Set gameEnv after level is created (if not already set by GameLevel)
         if (this.currentLevel && this.currentLevel.gameEnv) {
@@ -271,6 +284,8 @@ class GameControl {
         // Now that gameEnv is set, set up the canvas click handler
         this.setupCanvasClickHandler();
 
+=======
+>>>>>>> 5951a9a (update for v1.1)
         // Only start the game loop if it's not already running to avoid duplicate loops
         if (!this._loopRunning) {
             this.gameLoop();
@@ -325,11 +340,19 @@ class GameControl {
         // Ensure the running-loop flag is cleared so new transitions can start the loop
         this._loopRunning = false;
 
+<<<<<<< HEAD
         // Notify the user that the level has ended
         if (this.currentLevelIndex < this.levelClasses.length - 1) {
             console.log("Level ended.");
         } else {
             console.log("All levels or sublevels completed.");
+=======
+        // Alert the user that the level has ended
+        if (this.currentLevelIndex < this.levelClasses.length - 1) {
+            alert("Level ended.");
+        } else {
+            alert("All levels completed.");
+>>>>>>> 5951a9a (update for v1.1)
         }
         
         // Clean up any lingering interaction handlers
@@ -361,6 +384,7 @@ class GameControl {
                 // transitionToLevel() would destroy and recreate the level, resetting player position
                 if (typeof this.parentControl.resume === 'function') {
                     this.parentControl.resume();
+<<<<<<< HEAD
                     // The parent may have had its canvases hidden when the nested
                     // game started. Explicitly restore the parent's canvases so the
                     // screen is visible again.
@@ -373,6 +397,8 @@ class GameControl {
                     } catch (e) {
                         console.warn('Failed to restore parent canvas state after nested game:', e);
                     }
+=======
+>>>>>>> 5951a9a (update for v1.1)
                 }
             } catch (e) {
                 console.warn('Failed to restore parent control after nested game ended:', e);
@@ -410,6 +436,7 @@ class GameControl {
             if (this.isPaused) {
                 this.resume();
             } else {
+<<<<<<< HEAD
                 // Prefer showing the host game's pause modal when available
                 try {
                     if (this.game && typeof this.game.showPauseModal === 'function') {
@@ -421,6 +448,9 @@ class GameControl {
                     console.warn('Error invoking pause menu or pause():', e);
                     if (typeof this.pause === 'function') this.pause();
                 }
+=======
+                this.pauseMenu();
+>>>>>>> 5951a9a (update for v1.1)
             }
         }
     }
@@ -502,6 +532,7 @@ class GameControl {
         //     return;
         // }
         
+<<<<<<< HEAD
         console.log('Pause called on GameControl', {
             isNested: this.isNested,
             parentPresent: !!this.parentControl,
@@ -513,6 +544,13 @@ class GameControl {
         // Do not save or hide canvas state on pause. Pausing should only
         // freeze updates and remove input handlers; saving/restoring
         // canvas image data can reintroduce stale layers and duplicate NPCs.
+=======
+        console.log('Pause called');
+        this.isPaused = true;
+        this.removeExitKeyListener();
+        this.saveCanvasState();
+        //this.hideCanvasState();
+>>>>>>> 5951a9a (update for v1.1)
         
         // Save interaction handlers before cleaning up for game-in-game
         this.cleanupInteractionHandlers(true);
@@ -534,6 +572,7 @@ class GameControl {
       * 3. Start the game loop
       */
     resume() {
+<<<<<<< HEAD
         console.log('Resume called on GameControl', {
             isNested: this.isNested,
             parentPresent: !!this.parentControl,
@@ -545,6 +584,12 @@ class GameControl {
         // Do not restore saved canvas image data here. Resuming should
         // only restore input handlers and let the existing rendering
         // continue from the current canvas state.
+=======
+        console.log('Resume called - restoring handlers');
+        this.isPaused = false;
+        this.addExitKeyListener();
+        this.showCanvasState();
+>>>>>>> 5951a9a (update for v1.1)
         // Do NOT call gameLoop() here. The main loop continues to run while
         // paused (it skips updates when `isPaused` is true). Restarting the
         // loop here can create duplicate loops and speed up game objects.

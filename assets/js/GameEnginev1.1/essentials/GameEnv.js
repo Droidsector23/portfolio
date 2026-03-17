@@ -103,7 +103,11 @@ class GameEnv {
         
         try {
             console.log('GameEnv: Importing GameEnvScore module...');
+<<<<<<< HEAD
             const module = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameEnvScore.js`);
+=======
+            const module = await import('./GameEnvScore.js');
+>>>>>>> 5951a9a (update for v1.1)
             console.log('GameEnv: Module imported successfully', module);
             const GameEnvScore = module.default;
             console.log('GameEnv: Creating GameEnvScore instance...');
