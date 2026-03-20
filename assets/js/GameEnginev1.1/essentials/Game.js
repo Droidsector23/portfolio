@@ -81,10 +81,14 @@ class GameCore {
     async _initializeGameControlAsync(gameLevelClasses) {
         try {
 <<<<<<< HEAD
+<<<<<<< HEAD
             const mod = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameControl.js`);
 =======
             const mod = await import('./GameControl.js');
 >>>>>>> 5951a9a (update for v1.1)
+=======
+            const mod = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameControl.js`);
+>>>>>>> 16ca53c (fix import('./. for case of base url in project)
             const DefaultGameControl = mod.default || mod;
             this.gameControl = new DefaultGameControl(this, gameLevelClasses);
             this.gameControl.start();
@@ -170,10 +174,14 @@ class GameCore {
         try {
             // v1.1 stores the pause code in PauseMenu.js (not "PauseFeature").
 <<<<<<< HEAD
+<<<<<<< HEAD
             import(`${this.path}/assets/js/GameEnginev1.1/essentials/PauseMenu.js`).then(mod => {
 =======
             import('./PauseMenu.js').then(mod => {
 >>>>>>> 5951a9a (update for v1.1)
+=======
+            import(`${this.path}/assets/js/GameEnginev1.1/essentials/PauseMenu.js`).then(mod => {
+>>>>>>> 16ca53c (fix import('./. for case of base url in project)
                 const PauseMenu = mod.default;
                 // PauseMenu expects the gameControl instance directly
                 const pauseMenuInstance = new PauseMenu(this.gameControl, {});
@@ -649,6 +657,7 @@ class GameCore {
             
             const ctrlForLeaderboard = this.getActiveControl();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             const instantiateLeaderboard = (LeaderboardClass) => {
                 const leaderboardOptions = {
@@ -688,6 +697,9 @@ class GameCore {
             }
 =======
             import('../Leaderboard.js')
+=======
+            import(`${this.path}/assets/js/GameEnginev1.1/Leaderboard.js`)
+>>>>>>> 16ca53c (fix import('./. for case of base url in project)
                 .then(mod => {
                     // Determine parent - use gameContainer if available
                     let parentId = 'gameContainer';
