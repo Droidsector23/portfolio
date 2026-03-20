@@ -1,8 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Transform from './Transform.js';
 
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+import Transform from './Transform.js';
+
+>>>>>>> 744ce5e (Latest leaderboard)
 /**
  * The GameObject class serves as a base class for all game objects.
  * It mimics an interface by defining abstract methods that must be implemented
@@ -31,9 +36,13 @@ class GameObject {
         }
         this.gameEnv = gameEnv; 
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.transform = new Transform(0, 0);
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        this.transform = new Transform(0, 0);
+>>>>>>> 744ce5e (Latest leaderboard)
         this.collisionWidth = 0;
         this.collisionHeight = 0;
         this.collisionData = {};
@@ -45,6 +54,9 @@ class GameObject {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
     get position() {
         return this.transform.position;
     }
@@ -105,8 +117,11 @@ class GameObject {
         this.transform.resetToSpawn();
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
     /**
      * Updates the object's state.
      * This method must be implemented by subclasses.

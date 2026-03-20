@@ -146,16 +146,21 @@ export default class GameEnvScore {
      */
     _createScoreCounter() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Remove any legacy fixed score counter overlays from previous versions
 =======
         // Clean up any existing score counters (from previous instances)
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        // Remove any legacy fixed score counter overlays from previous versions
+>>>>>>> 744ce5e (Latest leaderboard)
         const existingCounters = document.querySelectorAll('.pause-score-counter');
         existingCounters.forEach(counter => {
             if (counter.parentNode) {
                 counter.parentNode.removeChild(counter);
             }
         });
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         this._scoreCounter = null;
@@ -204,6 +209,13 @@ export default class GameEnvScore {
         
         console.log(`${this.classId}: Score counter created and appended to`, parent.tagName || parent.id || 'unknown parent');
 >>>>>>> 5951a9a (update for v1.1)
+=======
+
+        this._scoreCounter = null;
+        this._scoreValue = null;
+        this._scoreLabel = null;
+        this._currentValue = 0;
+>>>>>>> 744ce5e (Latest leaderboard)
     }
 
     /**
@@ -236,12 +248,16 @@ export default class GameEnvScore {
      */
     toggleScoreDisplay() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
         this.isVisible = true;
         const leaderboardScore = document.getElementById('leaderboard-current-score');
         if (leaderboardScore) {
             const labelText = this._getCounterLabel();
             leaderboardScore.style.display = 'inline';
             leaderboardScore.textContent = `${labelText}: ${Number(this._currentValue || 0).toLocaleString()}`;
+<<<<<<< HEAD
         }
 
         console.log(`${this.classId}: Leaderboard score text synced with leaderboard visibility`);
@@ -254,6 +270,11 @@ export default class GameEnvScore {
         this._scoreCounter.style.display = this.isVisible ? 'block' : 'none';
         console.log(`${this.classId}: Score counter toggled to`, this.isVisible ? 'visible' : 'hidden');
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        }
+
+        console.log(`${this.classId}: Leaderboard score text synced with leaderboard visibility`);
+>>>>>>> 744ce5e (Latest leaderboard)
     }
 
     /**
@@ -268,6 +289,9 @@ export default class GameEnvScore {
      */
     updateScoreDisplay(value) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
         this._currentValue = Number(value || 0);
 
         const leaderboardScore = document.getElementById('leaderboard-current-score');
@@ -275,10 +299,13 @@ export default class GameEnvScore {
             const labelText = this._getCounterLabel();
             leaderboardScore.style.display = 'inline';
             leaderboardScore.textContent = `${labelText}: ${this._currentValue.toLocaleString()}`;
+<<<<<<< HEAD
 =======
         if (this._scoreValue) {
             this._scoreValue.innerText = String(value || 0);
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
         }
     }
 

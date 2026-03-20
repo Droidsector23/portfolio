@@ -144,15 +144,21 @@ class GameControl {
             }
         }
 
+<<<<<<< HEAD
 =======
     
     start() {
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
         // Mark this GameControl as the currently active control on the Game host
         try {
             if (this.game) this.game.activeGameControl = this;
         } catch (e) {}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
 
         this.addExitKeyListener();
         this.setupCanvasClickHandler();
@@ -385,6 +391,9 @@ class GameControl {
                 if (typeof this.parentControl.resume === 'function') {
                     this.parentControl.resume();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
                     // The parent may have had its canvases hidden when the nested
                     // game started. Explicitly restore the parent's canvases so the
                     // screen is visible again.
@@ -397,8 +406,11 @@ class GameControl {
                     } catch (e) {
                         console.warn('Failed to restore parent canvas state after nested game:', e);
                     }
+<<<<<<< HEAD
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
                 }
             } catch (e) {
                 console.warn('Failed to restore parent control after nested game ended:', e);
@@ -437,6 +449,9 @@ class GameControl {
                 this.resume();
             } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
                 // Prefer showing the host game's pause modal when available
                 try {
                     if (this.game && typeof this.game.showPauseModal === 'function') {
@@ -448,9 +463,12 @@ class GameControl {
                     console.warn('Error invoking pause menu or pause():', e);
                     if (typeof this.pause === 'function') this.pause();
                 }
+<<<<<<< HEAD
 =======
                 this.pauseMenu();
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
             }
         }
     }
@@ -533,12 +551,16 @@ class GameControl {
         // }
         
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
         console.log('Pause called on GameControl', {
             isNested: this.isNested,
             parentPresent: !!this.parentControl,
             currentLevelIndex: this.currentLevelIndex,
             canvasCount: document.querySelectorAll('canvas').length
         });
+<<<<<<< HEAD
         this.isPaused = true;
         this.removeExitKeyListener();
         // Do not save or hide canvas state on pause. Pausing should only
@@ -551,6 +573,13 @@ class GameControl {
         this.saveCanvasState();
         //this.hideCanvasState();
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        this.isPaused = true;
+        this.removeExitKeyListener();
+        // Do not save or hide canvas state on pause. Pausing should only
+        // freeze updates and remove input handlers; saving/restoring
+        // canvas image data can reintroduce stale layers and duplicate NPCs.
+>>>>>>> 744ce5e (Latest leaderboard)
         
         // Save interaction handlers before cleaning up for game-in-game
         this.cleanupInteractionHandlers(true);
@@ -573,12 +602,16 @@ class GameControl {
       */
     resume() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
         console.log('Resume called on GameControl', {
             isNested: this.isNested,
             parentPresent: !!this.parentControl,
             currentLevelIndex: this.currentLevelIndex,
             canvasCount: document.querySelectorAll('canvas').length
         });
+<<<<<<< HEAD
         this.isPaused = false;
         this.addExitKeyListener();
         // Do not restore saved canvas image data here. Resuming should
@@ -590,6 +623,13 @@ class GameControl {
         this.addExitKeyListener();
         this.showCanvasState();
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        this.isPaused = false;
+        this.addExitKeyListener();
+        // Do not restore saved canvas image data here. Resuming should
+        // only restore input handlers and let the existing rendering
+        // continue from the current canvas state.
+>>>>>>> 744ce5e (Latest leaderboard)
         // Do NOT call gameLoop() here. The main loop continues to run while
         // paused (it skips updates when `isPaused` is true). Restarting the
         // loop here can create duplicate loops and speed up game objects.

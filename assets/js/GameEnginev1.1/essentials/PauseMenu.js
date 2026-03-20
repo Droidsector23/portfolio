@@ -8,6 +8,7 @@ export default class PauseMenu {
         this.options = options;
         this.container = null;
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.overlay = null;
         this.isVisible = false;
         this.leaderboardContainer = null;
@@ -19,11 +20,20 @@ export default class PauseMenu {
         this.score = 0;
         this.stats = {};
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        this.overlay = null;
+        this.isVisible = false;
+        this.leaderboardContainer = null;
+        this._saveStatusNode = null;
+>>>>>>> 744ce5e (Latest leaderboard)
         
         this.init();
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
     /**
      * Run an action with consistent error handling and optional status feedback
      */
@@ -38,6 +48,7 @@ export default class PauseMenu {
             }
             return false;
         }
+<<<<<<< HEAD
     }
 
     /**
@@ -64,15 +75,37 @@ export default class PauseMenu {
     init() {
         this.createStyles();
         this.createMenuUI();
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
     }
 
+    /**
+     * Initialize the pause menu by creating styles and UI elements
+     */
+    init() {
+        this._runAction('initializing PauseMenu', () => {
+            this.createStyles();
+            this.createMenuUI();
+        });
+    }
+
+    /**
+     * Create and inject CSS styles for the pause menu
+     */
     createStyles() {
         if (document.getElementById('pause-menu-styles')) return;
 
+<<<<<<< HEAD
         const style = document.createElement('style');
         style.id = 'pause-menu-styles';
         style.textContent = `
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        try {
+            const style = document.createElement('style');
+            style.id = 'pause-menu-styles';
+            style.textContent = `
+>>>>>>> 744ce5e (Latest leaderboard)
             .pause-menu-overlay {
                 position: fixed;
                 top: 0;
@@ -180,10 +213,14 @@ export default class PauseMenu {
             }
         `;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
             document.head.appendChild(style);
         } catch (error) {
             console.error('Error creating or appending styles:', error);
         }
+<<<<<<< HEAD
     }
 
     /**
@@ -262,30 +299,81 @@ export default class PauseMenu {
         const leaderboardBtn = this._createToggleLeaderboardButton();
 =======
         document.head.appendChild(style);
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
     }
 
+    /**
+     * Create the complete pause menu UI by assembling components
+     */
     createMenuUI() {
-        // Create overlay
+        this._runAction('creating menu UI', () => {
+            this._createOverlay();
+            this._createContainer();
+            this._attachEventListeners();
+        });
+    }
+
+    /**
+     * Create the overlay background element
+     */
+    _createOverlay() {
         this.overlay = document.createElement('div');
         this.overlay.className = 'pause-menu-overlay';
+    }
 
-        // Create menu container
+    /**
+     * Create the main container with header and content
+     */
+    _createContainer() {
         this.container = document.createElement('div');
         this.container.className = 'pause-menu-container';
 
-        // Header
+        const header = this._createHeader();
+        const content = this._createContent();
+
+        this.container.appendChild(header);
+        this.container.appendChild(content);
+        this.overlay.appendChild(this.container);
+        document.body.appendChild(this.overlay);
+    }
+
+    /**
+     * Create the pause menu header element
+     */
+    _createHeader() {
         const header = document.createElement('div');
         header.className = 'pause-menu-header';
         header.textContent = '⏸ PAUSED';
+        return header;
+    }
 
-        // Content
+    /**
+     * Create the content section with buttons and status area
+     */
+    _createContent() {
         const content = document.createElement('div');
         content.className = 'pause-menu-content';
 
-        // Buttons section
+        const buttonsSection = this._createButtonsSection();
+        const statusArea = this._createStatusArea();
+        const leaderboardSection = this._createLeaderboardSection();
+
+        content.appendChild(buttonsSection);
+        content.appendChild(statusArea);
+        content.appendChild(leaderboardSection);
+
+        return content;
+    }
+
+    /**
+     * Create the buttons section containing all action buttons
+     */
+    _createButtonsSection() {
         const buttonsDiv = document.createElement('div');
         buttonsDiv.className = 'pause-menu-buttons';
 
+<<<<<<< HEAD
         // Resume button
         const resumeBtn = document.createElement('button');
         resumeBtn.className = 'pause-menu-btn primary';
@@ -312,6 +400,12 @@ export default class PauseMenu {
         leaderboardBtn.textContent = '📊 Toggle Leaderboard';
         leaderboardBtn.addEventListener('click', () => this.toggleLeaderboard());
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        const resumeBtn = this._createResumeButton();
+        const saveScoreBtn = this._createSaveScoreButton();
+        const skipBtn = this._createSkipLevelButton();
+        const leaderboardBtn = this._createToggleLeaderboardButton();
+>>>>>>> 744ce5e (Latest leaderboard)
 
         buttonsDiv.appendChild(resumeBtn);
         buttonsDiv.appendChild(saveScoreBtn);
@@ -319,6 +413,9 @@ export default class PauseMenu {
         buttonsDiv.appendChild(leaderboardBtn);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
         return buttonsDiv;
     }
 
@@ -372,13 +469,17 @@ export default class PauseMenu {
      * Create the status message area
      */
     _createStatusArea() {
+<<<<<<< HEAD
 =======
         // Status message
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
         const statusDiv = document.createElement('div');
         statusDiv.id = 'pause-menu-status';
         statusDiv.className = 'pause-menu-status';
         this._saveStatusNode = statusDiv;
+<<<<<<< HEAD
 <<<<<<< HEAD
         return statusDiv;
     }
@@ -394,10 +495,20 @@ export default class PauseMenu {
 
         // Leaderboard section (will be populated if leaderboard exists)
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        return statusDiv;
+    }
+
+    /**
+     * Create the leaderboard section container
+     */
+    _createLeaderboardSection() {
+>>>>>>> 744ce5e (Latest leaderboard)
         const leaderboardSection = document.createElement('div');
         leaderboardSection.className = 'pause-menu-leaderboard-section';
         leaderboardSection.id = 'pause-menu-leaderboard-section';
         leaderboardSection.style.display = 'none';
+<<<<<<< HEAD
 <<<<<<< HEAD
         this.leaderboardContainer = leaderboardSection;
         return leaderboardSection;
@@ -409,8 +520,13 @@ export default class PauseMenu {
     _attachEventListeners() {
 =======
         content.appendChild(leaderboardSection);
+=======
+>>>>>>> 744ce5e (Latest leaderboard)
         this.leaderboardContainer = leaderboardSection;
+        return leaderboardSection;
+    }
 
+<<<<<<< HEAD
         // Assemble
         this.container.appendChild(header);
         this.container.appendChild(content);
@@ -419,6 +535,12 @@ export default class PauseMenu {
 
         // Close on overlay click
 >>>>>>> 5951a9a (update for v1.1)
+=======
+    /**
+     * Attach event listeners to the overlay for closing
+     */
+    _attachEventListeners() {
+>>>>>>> 744ce5e (Latest leaderboard)
         this.overlay.addEventListener('click', (e) => {
             if (e.target === this.overlay) {
                 this.hide();
@@ -426,6 +548,7 @@ export default class PauseMenu {
         });
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     /**
      * Show the pause menu overlay and pause the game
@@ -665,64 +788,252 @@ export default class PauseMenu {
         } catch (error) {
             console.error('Error displaying status message:', error);
 =======
+=======
+    /**
+     * Show the pause menu overlay and pause the game
+     */
+>>>>>>> 744ce5e (Latest leaderboard)
     show() {
         if (this.isVisible) return;
-        
-        this.isVisible = true;
+
+        this._runAction('showing pause menu', () => {
+            this._showMenuOverlay();
+            this._pauseGame();
+            this._setVisibility(true);
+        });
+    }
+
+    /**
+     * Set current menu visibility state
+     */
+    _setVisibility(isVisible) {
+        this.isVisible = isVisible;
+    }
+
+    /**
+     * Display the menu overlay
+     */
+    _showMenuOverlay() {
+        if (!this.overlay) {
+            throw new Error('Pause menu overlay not initialized');
+        }
         this.overlay.classList.add('visible');
-        
-        // Pause the game
-        if (this.gameControl && !this.gameControl.isPaused) {
-            this.gameControl.pause();
+    }
+
+    /**
+     * Pause the active game control
+     */
+    _pauseGame() {
+        if (!this.gameControl) {
+            console.warn('GameControl not available for pause');
+            return;
+        }
+
+        if (this.gameControl.isPaused) return;
+
+        try {
+            if (typeof this.gameControl.pause === 'function') {
+                this.gameControl.pause();
+            }
+        } catch (error) {
+            console.error('Error pausing game:', error);
         }
     }
 
+    /**
+     * Hide the pause menu overlay and resume the game
+     */
     hide() {
         if (!this.isVisible) return;
-        
-        this.isVisible = false;
+
+        this._runAction('hiding pause menu', () => {
+            this._hideMenuOverlay();
+            this._resumeGame();
+            this._setVisibility(false);
+        });
+    }
+
+    /**
+     * Hide the menu overlay
+     */
+    _hideMenuOverlay() {
+        if (!this.overlay) {
+            throw new Error('Pause menu overlay not initialized');
+        }
         this.overlay.classList.remove('visible');
-        
-        // Resume the game
-        if (this.gameControl && this.gameControl.isPaused) {
-            this.gameControl.resume();
+    }
+
+    /**
+     * Resume the active game control
+     */
+    _resumeGame() {
+        if (!this.gameControl) {
+            console.warn('GameControl not available for resume');
+            return;
+        }
+
+        if (!this.gameControl.isPaused) return;
+
+        try {
+            if (typeof this.gameControl.resume === 'function') {
+                this.gameControl.resume();
+            }
+        } catch (error) {
+            console.error('Error resuming game:', error);
         }
     }
 
+    /**
+     * Save the current score using the ScoreFeature instance
+     */
     saveScore() {
-        // Try to use ScoreFeature if available
-        if (window.scoreFeature && typeof window.scoreFeature.saveScore === 'function') {
-            const btn = document.getElementById('pause-menu-save-score-btn');
-            window.scoreFeature.saveScore(btn);
-        } else {
-            alert('Score feature not yet loaded. Please try again in a moment.');
+        this._runAction(
+            'saving score',
+            () => {
+            this._validateScoreFeatureAvailable();
+                const saveButton = this._getSaveScoreButton();
+                this._saveScoreWithFeature(saveButton);
+            },
+            'Error saving score. Please try again.'
+        );
+    }
+
+    /**
+     * Get save score button element
+     */
+    _getSaveScoreButton() {
+        return document.getElementById('pause-menu-save-score-btn');
+    }
+
+    /**
+     * Persist score using score feature
+     */
+    _saveScoreWithFeature(buttonElement) {
+        window.scoreFeature.saveScore(buttonElement);
+    }
+
+    /**
+     * Validate that ScoreFeature is available and accessible
+     */
+    _validateScoreFeatureAvailable() {
+        if (!window.scoreFeature) {
+            throw new Error('ScoreFeature not loaded');
+        }
+        if (typeof window.scoreFeature.saveScore !== 'function') {
+            throw new Error('saveScore function not available on ScoreFeature');
         }
     }
 
+    /**
+     * Toggle the leaderboard section visibility
+     */
     toggleLeaderboard() {
-        const section = this.leaderboardContainer;
-        const isHidden = section.style.display === 'none';
-        
-        if (isHidden) {
-            // Show leaderboard
-            section.style.display = 'block';
+        this._runAction(
+            'toggling leaderboard',
+            () => {
+            const isCurrentlyHidden = this.leaderboardContainer.style.display === 'none';
+
+                if (isCurrentlyHidden) {
+                    this._showLeaderboard();
+                } else {
+                    this._hideLeaderboard();
+                }
+            },
+            'Error toggling leaderboard.'
+        );
+    }
+
+    /**
+     * Show the leaderboard section
+     */
+    _showLeaderboard() {
+        this.leaderboardContainer.style.display = 'block';
+        this._syncLeaderboardInstanceToggle();
+    }
+
+    /**
+     * Hide the leaderboard section
+     */
+    _hideLeaderboard() {
+        this._syncLeaderboardInstanceToggle();
+        this.leaderboardContainer.style.display = 'none';
+    }
+
+    /**
+     * Toggle external leaderboard instance if available
+     */
+    _syncLeaderboardInstanceToggle() {
+        try {
             if (window.leaderboardInstance && typeof window.leaderboardInstance.toggle === 'function') {
                 window.leaderboardInstance.toggle();
             }
-        } else {
-            // Hide leaderboard
-            if (window.leaderboardInstance && typeof window.leaderboardInstance.toggle === 'function') {
-                window.leaderboardInstance.toggle();
-            }
-            section.style.display = 'none';
+        } catch (error) {
+            console.warn('Error toggling leaderboard instance:', error);
         }
     }
 
+    /**
+     * End the current level and advance to the next one
+     */
     skipLevel() {
+<<<<<<< HEAD
         if (this.gameControl && typeof this.gameControl.endLevel === 'function') {
             this.hide(); // Hide menu first
             this.gameControl.endLevel();
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        this._runAction(
+            'skipping level',
+            () => {
+            this._validateGameControlAvailable();
+                this._closeMenuBeforeSkip();
+                this._endCurrentLevel();
+            },
+            'Error skipping level. Please try again.'
+        );
+    }
+
+    /**
+     * Close menu before skipping level
+     */
+    _closeMenuBeforeSkip() {
+        this.hide();
+    }
+
+    /**
+     * End current level through game control
+     */
+    _endCurrentLevel() {
+        this.gameControl.endLevel();
+    }
+
+    /**
+     * Validate that GameControl is available and has the endLevel method
+     */
+    _validateGameControlAvailable() {
+        if (!this.gameControl) {
+            throw new Error('GameControl not available');
+        }
+        if (typeof this.gameControl.endLevel !== 'function') {
+            throw new Error('endLevel function not available on GameControl');
+        }
+    }
+
+    /**
+     * Display a status message to the user
+     */
+    _showStatusMessage(message) {
+        if (!this._saveStatusNode) return;
+
+        try {
+            this._saveStatusNode.textContent = message;
+            // Auto-clear after 3 seconds
+            setTimeout(() => {
+                this._saveStatusNode.textContent = '';
+            }, 3000);
+        } catch (error) {
+            console.error('Error displaying status message:', error);
+>>>>>>> 744ce5e (Latest leaderboard)
         }
     }
 }
