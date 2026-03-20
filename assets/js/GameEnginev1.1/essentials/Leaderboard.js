@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Leaderboard - Dual-Mode Leaderboard Widget for GameEngine v1.1
  * ================================================================
@@ -114,6 +115,9 @@ import { javaURI, fetchOptions } from '../../api/config.js';
 =======
 import { javaURI, fetchOptions } from '/assets/js/api/config.js';
 >>>>>>> 5951a9a (update for v1.1)
+=======
+import { javaURI, fetchOptions } from '../../api/config.js';
+>>>>>>> d2330e2 (more path issues on scoreboard)
 
 export default class Leaderboard {
     constructor(gameControl = null, options = {}) {
