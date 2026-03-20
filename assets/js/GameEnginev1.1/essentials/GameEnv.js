@@ -104,10 +104,14 @@ class GameEnv {
         try {
             console.log('GameEnv: Importing GameEnvScore module...');
 <<<<<<< HEAD
+<<<<<<< HEAD
             const module = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameEnvScore.js`);
 =======
             const module = await import('./GameEnvScore.js');
 >>>>>>> 5951a9a (update for v1.1)
+=======
+            const module = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameEnvScore.js`);
+>>>>>>> df9294a (fix for baseurl situation)
             console.log('GameEnv: Module imported successfully', module);
             const GameEnvScore = module.default;
             console.log('GameEnv: Creating GameEnvScore instance...');
