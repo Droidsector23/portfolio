@@ -192,6 +192,7 @@ createDialogueBox() {
     styleSheet.id = 'dialogue-animations-' + this.safeId;
     styleSheet.textContent = `
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       @keyframes glow-pulse-${this.safeId} {
         0%, 100% {
@@ -212,6 +213,8 @@ createDialogueBox() {
       }
     
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
       @keyframes char-pop-${this.safeId} {
         0% {
           opacity: 0;
@@ -227,12 +230,15 @@ createDialogueBox() {
       }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       .dialogue-text-animated-${this.safeId} {
         animation: text-glow-${this.safeId} 2s ease-in-out infinite;
       }
     
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
       .dialogue-char-${this.safeId} {
         display: inline-block;
         animation: char-pop-${this.safeId} 0.3s ease-out;
@@ -252,6 +258,7 @@ createDialogueBox() {
     padding: "20px",
     maxWidth: "80%",
 <<<<<<< HEAD
+<<<<<<< HEAD
     fontFamily: "'Press Start 2P', cursive, monospace",
     fontSize: "14px",
     textAlign: "center",
@@ -260,14 +267,18 @@ createDialogueBox() {
 =======
     background: "rgba(0, 0, 0, 0.85)",
     color: "#00FFFF",
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     fontFamily: "'Press Start 2P', cursive, monospace",
     fontSize: "14px",
     textAlign: "center",
-    border: "2px solid #4a86e8",
     borderRadius: "12px",
     zIndex: "9999",
+<<<<<<< HEAD
     animation: `glow-pulse-${this.safeId} 2s ease-in-out infinite`,
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     display: "none"
   });
 
@@ -296,9 +307,12 @@ createDialogueBox() {
   Object.assign(speakerName.style, {
     fontWeight: "bold",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     color: "#4a86e8",
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     marginBottom: "10px",
     fontSize: "16px"
   });
@@ -321,19 +335,26 @@ createDialogueBox() {
   // Create close button
   this.closeBtn = document.createElement("button");
 <<<<<<< HEAD
+<<<<<<< HEAD
   this.closeBtn.id = "dialogue-close-btn-" + this.safeId;
   this.closeBtn.innerText = "Close";
   Object.assign(this.closeBtn.style, {
     marginTop: "0",
     padding: "10px 20px",
 =======
+=======
+  this.closeBtn.id = "dialogue-close-btn-" + this.safeId;
+>>>>>>> 3453da9 (refresh for AI NPC and more)
   this.closeBtn.innerText = "Close";
   Object.assign(this.closeBtn.style, {
     marginTop: "15px",
     padding: "10px 20px",
+<<<<<<< HEAD
     background: "#4a86e8",
     color: "#fff",
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
@@ -443,11 +464,14 @@ typewriteText(element, text, speed = this.typewriterSpeed) {
       charIndex++;
       this.typewriterTimeoutId = setTimeout(typeNextChar, speed);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     } else {
       // Add glow animation to the complete text
       element.classList.add(`dialogue-text-animated-${this.safeId}`);
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     }
   };
    typeNextChar();
@@ -458,10 +482,14 @@ typewriteText(element, text, speed = this.typewriterSpeed) {
 
 // Show a specific dialogue message
 <<<<<<< HEAD
+<<<<<<< HEAD
 showDialogue(message, speaker = "", avatarSrc = null, spriteData = null) {
 =======
 showDialogue(message, speaker = "", avatarSrc = null) {
 >>>>>>> 5951a9a (update for v1.1)
+=======
+showDialogue(message, speaker = "", avatarSrc = null, spriteData = null) {
+>>>>>>> 3453da9 (refresh for AI NPC and more)
   // Clear any existing typewriter timeout
   if (this.typewriterTimeoutId) {
     clearTimeout(this.typewriterTimeoutId);
@@ -479,6 +507,9 @@ showDialogue(message, speaker = "", avatarSrc = null) {
       avatarElement.style.backgroundImage = `url('${avatarSrc}')`;
       avatarElement.style.display = "block";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
       
       // If sprite data provided with orientation (sprite sheet), show only down row, column 0
       if (spriteData && spriteData.orientation && spriteData.pixels && spriteData.down) {
@@ -524,14 +555,18 @@ showDialogue(message, speaker = "", avatarSrc = null) {
         avatarElement.style.backgroundSize = "contain";
         avatarElement.style.backgroundPosition = "center";
       }
+<<<<<<< HEAD
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     } else {
       avatarElement.style.display = "none";
     }
   }
    // Apply typewriter effect or set text directly
   if (this.enableTypewriter) {
+<<<<<<< HEAD
 <<<<<<< HEAD
     this.typewriteText(this.dialogueText, message, this.typewriterSpeed);
   } else {
@@ -543,6 +578,11 @@ showDialogue(message, speaker = "", avatarSrc = null) {
     this.dialogueText.textContent = message;
     this.dialogueText.classList.add(`dialogue-text-animated-${this.safeId}`);
 >>>>>>> 5951a9a (update for v1.1)
+=======
+    this.typewriteText(this.dialogueText, message, this.typewriterSpeed);
+  } else {
+    this.dialogueText.textContent = message;
+>>>>>>> 3453da9 (refresh for AI NPC and more)
   }
    // Show the dialogue box
   this.dialogueBox.style.display = "block";
@@ -572,6 +612,7 @@ showDialogue(message, speaker = "", avatarSrc = null) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Show the next dialogue from the dialogues array (cycles through sequentially)
 showRandomDialogue(speaker = "", avatarSrc = null, spriteData = null) {
   if (this.dialogues.length === 0) return;
@@ -583,22 +624,22 @@ showRandomDialogue(speaker = "", avatarSrc = null, spriteData = null) {
 =======
 // Show a random dialogue from the dialogues array
 showRandomDialogue(speaker = "", avatarSrc = null) {
+=======
+// Show the next dialogue from the dialogues array (cycles through sequentially)
+showRandomDialogue(speaker = "", avatarSrc = null, spriteData = null) {
+>>>>>>> 3453da9 (refresh for AI NPC and more)
   if (this.dialogues.length === 0) return;
-   // Pick a random index that's different from the last one
-  let randomIndex;
-  if (this.dialogues.length > 1) {
-    do {
-      randomIndex = Math.floor(Math.random() * this.dialogues.length);
-    } while (randomIndex === this.lastShownIndex);
-  } else {
-    randomIndex = 0; // Only one dialogue available
-  }
-   // Store the current index to avoid repetition next time
-  this.lastShownIndex = randomIndex;
+   // Increment to next dialogue, wrapping around to 0 when reaching the end
+  this.lastShownIndex = (this.lastShownIndex + 1) % this.dialogues.length;
    // Show the dialogue
+<<<<<<< HEAD
   const randomDialogue = this.dialogues[randomIndex];
   return this.showDialogue(randomDialogue, speaker, avatarSrc);
 >>>>>>> 5951a9a (update for v1.1)
+=======
+  const dialogue = this.dialogues[this.lastShownIndex];
+  return this.showDialogue(dialogue, speaker, avatarSrc, spriteData);
+>>>>>>> 3453da9 (refresh for AI NPC and more)
 }
 
 
@@ -777,9 +818,8 @@ addButtons(buttons) {
       
         const btn = document.createElement('button');
         btn.textContent = button.text;
+        btn.className = button.primary ? 'primary-button' : 'secondary-button';
         btn.style.padding = '8px 15px';
-        btn.style.background = button.primary ? '#4a86e8' : '#666';
-        btn.style.color = 'white';
         btn.style.border = 'none';
         btn.style.borderRadius = '5px';
         btn.style.cursor = 'pointer';

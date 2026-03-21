@@ -89,11 +89,19 @@
  * Main text area for dialogue messages
  */
 [id^="dialogue-text-"] {
+<<<<<<< HEAD
+=======
+  margin-bottom: 15px;
+>>>>>>> 3453da9 (refresh for AI NPC and more)
   line-height: 1.5;
   min-height: 40px;
   color: var(--pref-text-color, #FFF);
   
   @media (max-width: 768px) {
+<<<<<<< HEAD
+=======
+    margin-bottom: 12px;
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     min-height: 30px;
   }
 }
@@ -105,13 +113,21 @@
 [id^="custom-dialogue-box-"] button {
   @include text-button;
   
+<<<<<<< HEAD
   margin-top: 10px;
+=======
+  margin-top: 15px;
+>>>>>>> 3453da9 (refresh for AI NPC and more)
   padding: 10px 20px;
   font-family: 'Press Start 2P', cursive, monospace;
   font-size: 12px;
   
   @media (max-width: 768px) {
+<<<<<<< HEAD
     margin-top: 8px;
+=======
+    margin-top: 12px;
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     padding: 8px 16px;
     font-size: 11px;
   }

@@ -173,10 +173,14 @@ class Character extends GameObject {
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
         // Match v1 update order so collision checks use current rendered bounds.
         this.draw();
         this.collisionChecks();
         this.move();
+<<<<<<< HEAD
 =======
         // this.applyPhysics();     // gravity, friction
         this.move();                // integrate velocity → position
@@ -185,6 +189,8 @@ class Character extends GameObject {
         //this.updateAnimation();   // update sprite frames based on state
         this.draw();                // render final state
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3453da9 (refresh for AI NPC and more)
 
     }
 

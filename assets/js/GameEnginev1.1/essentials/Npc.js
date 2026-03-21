@@ -226,10 +226,14 @@ class Npc extends Character {
             return;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.dialogueSystem.showDialogue(greeting, npcName, npcAvatar, this.spriteData);
 =======
         this.dialogueSystem.showDialogue(greeting, npcName, npcAvatar);
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        this.dialogueSystem.showDialogue(greeting, npcName, npcAvatar, this.spriteData);
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     }
     
     // Method for showing random interaction dialogue
@@ -242,10 +246,14 @@ class Npc extends Character {
         
         // Show random dialogue
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.dialogueSystem.showRandomDialogue(npcName, npcAvatar, this.spriteData);
 =======
         this.dialogueSystem.showRandomDialogue(npcName, npcAvatar);
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        this.dialogueSystem.showRandomDialogue(npcName, npcAvatar, this.spriteData);
+>>>>>>> 3453da9 (refresh for AI NPC and more)
     }
 
     // Clean up event listeners when NPC is destroyed
