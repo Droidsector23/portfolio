@@ -90,18 +90,24 @@
  */
 [id^="dialogue-text-"] {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   margin-bottom: 15px;
 >>>>>>> 3453da9 (refresh for AI NPC and more)
+=======
+>>>>>>> 8ac4c51 (leaderboard corrections)
   line-height: 1.5;
   min-height: 40px;
   color: var(--pref-text-color, #FFF);
   
   @media (max-width: 768px) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     margin-bottom: 12px;
 >>>>>>> 3453da9 (refresh for AI NPC and more)
+=======
+>>>>>>> 8ac4c51 (leaderboard corrections)
     min-height: 30px;
   }
 }
@@ -114,20 +120,28 @@
   @include text-button;
   
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin-top: 10px;
 =======
   margin-top: 15px;
 >>>>>>> 3453da9 (refresh for AI NPC and more)
+=======
+  margin-top: 10px;
+>>>>>>> 8ac4c51 (leaderboard corrections)
   padding: 10px 20px;
   font-family: 'Press Start 2P', cursive, monospace;
   font-size: 12px;
   
   @media (max-width: 768px) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-top: 8px;
 =======
     margin-top: 12px;
 >>>>>>> 3453da9 (refresh for AI NPC and more)
+=======
+    margin-top: 8px;
+>>>>>>> 8ac4c51 (leaderboard corrections)
     padding: 8px 16px;
     font-size: 11px;
   }

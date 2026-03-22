@@ -797,6 +797,7 @@ class GameCore {
             const ctrlForLeaderboard = this.getActiveControl();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             const instantiateLeaderboard = (LeaderboardClass) => {
                 const leaderboardOptions = {
@@ -839,6 +840,9 @@ class GameCore {
 =======
             import(`${this.path}/assets/js/GameEnginev1.1/Leaderboard.js`)
 >>>>>>> 16ca53c (fix import('./. for case of base url in project)
+=======
+            import(`${this.path}/assets/js/GameEnginev1.1/essentials/Leaderboard.js`)
+>>>>>>> 8ac4c51 (leaderboard corrections)
                 .then(mod => {
                     // Determine parent - use gameContainer if available
                     let parentId = 'gameContainer';

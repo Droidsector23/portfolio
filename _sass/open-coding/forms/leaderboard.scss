@@ -38,15 +38,21 @@
  * Leaderboard Header
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8ac4c51 (leaderboard corrections)
 
 .leaderboard-header {
   @include header-bar(16px, 20px);
   display: flex;
   align-items: center;
+<<<<<<< HEAD
 =======
 .leaderboard-header {
   @include header-bar(16px, 20px);
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 8ac4c51 (leaderboard corrections)
 }
 
 /**
@@ -176,6 +182,9 @@
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8ac4c51 (leaderboard corrections)
  * Save Score Button (Icon-only)
  */
 .save-score-btn {
@@ -195,8 +204,11 @@
 }
 
 /**
+<<<<<<< HEAD
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 8ac4c51 (leaderboard corrections)
  * Loading and Error States
  */
 .loading,
@@ -212,6 +224,7 @@
 }
 
 /**
+<<<<<<< HEAD
 <<<<<<< HEAD
  * Back Button (Icon-only)
  */
@@ -236,12 +249,27 @@
   margin-right: 10px;
 
 >>>>>>> 5951a9a (update for v1.1)
+=======
+ * Back Button (Icon-only)
+ */
+.back-btn {
+  @include icon-button(32px, 0);
+  margin-right: 8px;
+  font-size: 18px;
+  line-height: 1;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+>>>>>>> 8ac4c51 (leaderboard corrections)
   &:hover {
     background: var(--panel-mid, #4a4a4a);
     border-color: var(--ui-border, #666);
   }
 
   @media (max-width: 768px) {
+<<<<<<< HEAD
 <<<<<<< HEAD
     width: 36px;
     height: 36px;
@@ -250,6 +278,11 @@
     padding: 6px 12px;
     font-size: 13px;
 >>>>>>> 5951a9a (update for v1.1)
+=======
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+>>>>>>> 8ac4c51 (leaderboard corrections)
   }
 }
 
