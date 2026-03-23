@@ -71,9 +71,13 @@ class Character extends GameObject {
         
         // Initialize the object's properties 
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.visible = data?.visible !== undefined ? data.visible : true;
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        this.visible = data?.visible !== undefined ? data.visible : true;
+>>>>>>> 484f091 (Support v1.1 comic style)
         this.scale = { width: this.gameEnv.innerWidth, height: this.gameEnv.innerHeight };
         this.scaleFactor = data.SCALE_FACTOR || SCALE_FACTOR;
         this.stepFactor = data.STEP_FACTOR || STEP_FACTOR;
@@ -248,6 +252,7 @@ class Character extends GameObject {
 
         // Set the canvas dimensions based on the frame size
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Set the canvas dimensions based on the frame size (integers)
         this.canvas.width = frameWidth;
         this.canvas.height = frameHeight;
@@ -256,6 +261,11 @@ class Character extends GameObject {
     this.canvas.width = frameWidth;
     this.canvas.height = frameHeight;
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        // Set the canvas dimensions based on the frame size (integers)
+        this.canvas.width = frameWidth;
+        this.canvas.height = frameHeight;
+>>>>>>> 484f091 (Support v1.1 comic style)
 
         // Apply transformations (rotation, mirroring, spinning)
         this.applyTransformations(directionData);
@@ -265,9 +275,13 @@ class Character extends GameObject {
 
         // Draw the sprite sheet frame
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!this.visible) return; // Skip drawing if not visible
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        if (!this.visible) return; // Skip drawing if not visible
+>>>>>>> 484f091 (Support v1.1 comic style)
         this.ctx.drawImage(
             this.spriteSheet,
             frameX, frameY, frameWidth, frameHeight, // Source rectangle
@@ -295,9 +309,13 @@ class Character extends GameObject {
      */
     drawDefaultSquare() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!this.visible) return; // Skip drawing if not visible
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        if (!this.visible) return; // Skip drawing if not visible
+>>>>>>> 484f091 (Support v1.1 comic style)
         this.ctx.fillStyle = this.data?.fillStyle || 'red';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }

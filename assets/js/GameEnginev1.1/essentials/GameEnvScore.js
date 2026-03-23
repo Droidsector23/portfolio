@@ -467,10 +467,14 @@ export default class GameEnvScore {
      */
     saveScore(buttonEl) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!buttonEl) return Promise.reject(new Error('No button element provided'));
 =======
         if (!buttonEl) return;
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        if (!buttonEl) return Promise.reject(new Error('No button element provided'));
+>>>>>>> 484f091 (Support v1.1 comic style)
         buttonEl.disabled = true;
         const prevText = buttonEl.innerText;
         buttonEl.innerText = 'Saving...';
@@ -479,6 +483,7 @@ export default class GameEnvScore {
         const currentScore = this.gameEnv.stats[cv] || 0;
         console.log(`${this.classId}: ${cv} = ${currentScore}`, this.gameEnv.stats);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         // If backend not configured, return rejected promise
         if (!javaURI) {
@@ -501,11 +506,18 @@ export default class GameEnvScore {
                 });
         } else {
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        // If backend not configured, return rejected promise
+        if (!javaURI) {
+>>>>>>> 484f091 (Support v1.1 comic style)
             console.warn(`${this.classId}:`, this.ERROR_HANDLERS.BACKEND_NOT_CONFIGURED.message);
             alert(this.ERROR_HANDLERS.BACKEND_NOT_CONFIGURED.userMessage);
             buttonEl.disabled = false;
             buttonEl.innerText = prevText;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 484f091 (Support v1.1 comic style)
             return Promise.reject(new Error(this.ERROR_HANDLERS.BACKEND_NOT_CONFIGURED.message));
         }
 
@@ -524,8 +536,11 @@ export default class GameEnvScore {
                 buttonEl.disabled = false;
                 buttonEl.innerText = prevText;
             });
+<<<<<<< HEAD
 =======
         }
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 484f091 (Support v1.1 comic style)
     }
 }
