@@ -934,7 +934,7 @@ class GameLevelDesert {
         pixels: {width: 150, height: 255},
         INIT_POSITION: { x: 0.67, y: 0.1 },  // 67% from left, 10% from top
         orientation: {rows: 1, columns: 1 },
-        down: {row: 0, start: 0, columns: 1 },
+        down: {row: 0, start: 0, columns: 1, wiggle: 0.10 },
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
         dialogues: [
             "BAWK BAWK BAWK BAWK BAWK?!?!?!?",
@@ -996,7 +996,7 @@ class GameLevelDesert {
         pixels: {height: 441, width: 339},
         INIT_POSITION: { x: 0.75, y: 0.6 },  // 75% from left, 60% from top
         orientation: {rows: 1, columns: 1},
-        down: {row: 0, start: 0, columns: 1 },
+        down: {row: 0, start: 0, columns: 1, wiggle: { angle: 0.05, speed: 0.03 } },
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
         // Add dialogues array for random messages
         dialogues: [
@@ -1113,6 +1113,7 @@ class GameLevelDesert {
        ANIMATION_RATE: 50,
        pixels: {height: 600, width: 600},
 <<<<<<< HEAD
+<<<<<<< HEAD
        INIT_POSITION: { x: 0.10, y: 0.53 },  // 33% from left, 33% from top
        orientation: {rows: 1, columns: 1},
        down: {row: 0, start: 0, columns: 1, wiggle: { angle: Math.PI, speed: 0.03 } }, // 180 degree wiggle for crypto coin
@@ -1121,6 +1122,11 @@ class GameLevelDesert {
        orientation: {rows: 1, columns: 1},
        down: {row: 0, start: 0, columns: 1 },
 >>>>>>> 5951a9a (update for v1.1)
+=======
+       INIT_POSITION: { x: 0.10, y: 0.53 },  // 33% from left, 33% from top
+       orientation: {rows: 1, columns: 1},
+       down: {row: 0, start: 0, columns: 1, wiggle: { angle: 3, speed: 0.03 } },
+>>>>>>> c4e3382 (adding a little wiggle to static characters)
        hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
        // Add dialogues array for random messages
        dialogues: [
