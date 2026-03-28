@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import NPC from './Npc.js';
 import Player from './Player.js';
 
@@ -9,6 +10,12 @@ import Player from './Player.js';
 
 class Enemy extends Character {
 >>>>>>> 5951a9a (update for v1.1)
+=======
+import NPC from './Npc.js';
+import Player from './Player.js';
+
+class Enemy extends NPC {
+>>>>>>> c49aaf2 (patrol and wiggle latest)
     constructor(data = null, gameEnv = null) {
         super(data, gameEnv);
         this.playerDestroyed = false; // Tracks if the player has been "killed"
@@ -19,11 +26,15 @@ class Enemy extends Character {
      */
     update() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         super.update(); // Call the parent update method for movement and drawing 
 =======
         // Update begins by drawing the object
         this.draw();
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        super.update(); // Call the parent update method for movement and drawing 
+>>>>>>> c49aaf2 (patrol and wiggle latest)
 
         if (this.spriteData && typeof this.spriteData.update === 'function') {
             this.spriteData.update.call(this);

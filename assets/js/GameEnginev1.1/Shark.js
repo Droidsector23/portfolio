@@ -5,6 +5,7 @@ class Shark extends Enemy {
     constructor(data = null, gameEnv = null) {
         super(data, gameEnv);
 <<<<<<< HEAD
+<<<<<<< HEAD
     }
 
     // No need to override update or patrol logic; handled by Npc now
@@ -60,6 +61,11 @@ class Shark extends Enemy {
         }
     }
 >>>>>>> 5951a9a (update for v1.1)
+=======
+    }
+
+    // No need to override update or patrol logic; handled by Npc now
+>>>>>>> c49aaf2 (patrol and wiggle latest)
 
     handleCollisionEvent() {
         //extract player object
