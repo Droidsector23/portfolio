@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 65352b8 (Clicker implementation)
 // CanvasClickHandler: enables click-to-interact for all game objects
 class CanvasClickHandler {
     constructor(gameEnv, gameContainer) {
@@ -65,8 +68,11 @@ class CanvasClickHandler {
         }
     }
 }
+<<<<<<< HEAD
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 65352b8 (Clicker implementation)
 // GameControl.js with improved level transition handling
 import GameLevel from "./GameLevel.js";
 
@@ -113,6 +119,9 @@ class GameControl {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 65352b8 (Clicker implementation)
     /**
      * Set up canvas click handler for object interaction
      */
@@ -162,9 +171,12 @@ class GameControl {
 
         this.addExitKeyListener();
         this.setupCanvasClickHandler();
+<<<<<<< HEAD
 =======
         this.addExitKeyListener();
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 65352b8 (Clicker implementation)
         this.transitionToLevel();
     }
 
@@ -281,6 +293,9 @@ class GameControl {
         this.currentLevel = new GameLevel(this);
         this.currentLevel.create(GameLevelClass);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 65352b8 (Clicker implementation)
 
         // Set gameEnv after level is created (if not already set by GameLevel)
         if (this.currentLevel && this.currentLevel.gameEnv) {
@@ -290,8 +305,11 @@ class GameControl {
         // Now that gameEnv is set, set up the canvas click handler
         this.setupCanvasClickHandler();
 
+<<<<<<< HEAD
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 65352b8 (Clicker implementation)
         // Only start the game loop if it's not already running to avoid duplicate loops
         if (!this._loopRunning) {
             this.gameLoop();

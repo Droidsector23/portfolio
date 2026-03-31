@@ -25,6 +25,7 @@ import { pythonURI, fetchOptions } from '../api/config.js';
 // Import PlatformerMini (game-in-game)
 import PlatformerMini from './PlatformerMini.js';
 import Clicker from './essentials/Clicker.js';
+<<<<<<< HEAD
 =======
 import AINpc from './essentials/AiNpc.js'
 =======
@@ -40,6 +41,8 @@ import Background from './essentials/Background.js';
 // Import PlatformerMini (game-in-game)
 import PlatformerMini from './PlatformerMini.js';
 >>>>>>> 3453da9 (refresh for AI NPC and more)
+=======
+>>>>>>> 65352b8 (Clicker implementation)
 
 class GameLevelDesert {
  constructor(gameEnv) {
@@ -120,8 +123,12 @@ class GameLevelDesert {
    };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
+=======
+
+>>>>>>> 65352b8 (Clicker implementation)
        // Clicker box-button object literal
    const sprite_src_clicker = path + "/images/gamify/box-button.png";
    const sprite_data_clicker = {
@@ -1320,6 +1327,7 @@ class GameLevelDesert {
    };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const sprite_src_r2d2 = path + "/images/gamify/r2_idle.png";
   const sprite_greet_r2d2 = "Hi I am R2D2. Leave this planet and help defend the rebel base on Hoth!";
   const sprite_data_r2d2 = {
@@ -1544,6 +1552,8 @@ class GameLevelDesert {
    // PlatformerMini is a game-in-game launched by Chicken Jockey NPC
 =======
 
+=======
+>>>>>>> 65352b8 (Clicker implementation)
   const sprite_src_r2d2 = path + "/images/gamify/r2_idle.png";
   const sprite_greet_r2d2 = "Hi I am R2D2. Leave this planet and help defend the rebel base on Hoth!";
   const sprite_data_r2d2 = {
@@ -1820,20 +1830,21 @@ class GameLevelDesert {
 =======
 
 // List of objects defnitions for this level
-   this.classes = [
-     { class: GamEnvBackground, data: image_data_desert },
-     { class: Player, data: sprite_data_chillguy },
-     { class: Coin, data: sprite_data_coin },
-     { class: Npc, data: sprite_data_tux },
-     { class: Npc, data: sprite_data_octocat },
-     { class: Npc, data: sprite_data_robot },
-     { class: Npc, data: sprite_data_r2d2 },
-     { class: Npc, data: sprite_data_stocks },
-     { class: Npc, data: sprite_data_crypto },
-     { class: Npc, data: sprite_data_chickenj },
-     { class: Npc, data: sprite_data_endportal },
-     { class: Npc, data: sprite_data_historian },
-   ];
+     this.classes = [
+         { class: GamEnvBackground, data: image_data_desert },
+         { class: Player, data: sprite_data_chillguy },
+         { class: Coin, data: sprite_data_coin },
+         { class: Clicker, data: sprite_data_clicker },
+         { class: Npc, data: sprite_data_tux },
+         { class: Npc, data: sprite_data_octocat },
+         { class: Npc, data: sprite_data_robot },
+         { class: Npc, data: sprite_data_r2d2 },
+         { class: Npc, data: sprite_data_stocks },
+         { class: Npc, data: sprite_data_crypto },
+         { class: Npc, data: sprite_data_chickenj },
+         { class: Npc, data: sprite_data_endportal },
+         { class: Npc, data: sprite_data_historian },
+     ];
 
 >>>>>>> 3453da9 (refresh for AI NPC and more)
  }

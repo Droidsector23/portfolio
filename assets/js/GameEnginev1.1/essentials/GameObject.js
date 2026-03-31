@@ -26,10 +26,14 @@ import Transform from './Transform.js';
  */
 class GameObject {
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
     
 >>>>>>> 5951a9a (update for v1.1)
+=======
+ 
+>>>>>>> 65352b8 (Clicker implementation)
     constructor(gameEnv = null) {
         if (new.target === GameObject) {
             throw new TypeError("Cannot construct GameObject instances directly");
@@ -159,6 +163,9 @@ class GameObject {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 65352b8 (Clicker implementation)
     /**
      * Check if a point (canvas/game coordinates) is inside this object's hitbox.
      * @param {number} x - X coordinate (canvas/game space)
@@ -181,6 +188,7 @@ class GameObject {
         // Default: do nothing. Subclasses can override for interactivity.
     }
 
+<<<<<<< HEAD
     /**
      * Returns the center point of this object.
      */
@@ -215,6 +223,8 @@ class GameObject {
 
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 65352b8 (Clicker implementation)
     /** Collision checks
      * uses Player isCollision to detect hit
      * calls collisionAction on hit
