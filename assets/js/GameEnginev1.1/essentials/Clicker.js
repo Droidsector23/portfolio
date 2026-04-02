@@ -5,9 +5,13 @@ class Clicker extends Npc {
     constructor(data = {}, gameEnv = null) {
         super(data, gameEnv);
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.drawCounter = data.drawCounter !== undefined ? data.drawCounter : true;   
 =======
 >>>>>>> 65352b8 (Clicker implementation)
+=======
+        this.drawCounter = data.drawCounter !== undefined ? data.drawCounter : true;   
+>>>>>>> 6c77279 (Clicker added to GameLevelDesert NPC without Counter)
         this.clcks = 0;
     }
 
@@ -32,12 +36,17 @@ class Clicker extends Npc {
         // Draw the NPC sprite as usual
         super.draw();
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Draw the click counter on top of the image 
         if (this.visible &&this.drawCounter && this.ctx && this.canvas) {
 =======
         // Draw the click counter on top of the box
         if (this.ctx && this.canvas) {
 >>>>>>> 65352b8 (Clicker implementation)
+=======
+        // Draw the click counter on top of the image 
+        if (this.visible &&this.drawCounter && this.ctx && this.canvas) {
+>>>>>>> 6c77279 (Clicker added to GameLevelDesert NPC without Counter)
             this.ctx.save();
             this.ctx.font = 'bold 32px Arial';
             this.ctx.fillStyle = 'yellow';
