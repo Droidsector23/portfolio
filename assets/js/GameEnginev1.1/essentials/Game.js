@@ -71,6 +71,7 @@ class GameCore {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Leaderboard is loaded on-demand when user clicks "Toggle Leaderboard".
 =======
     // Note: Leaderboard is NOT auto-loaded here to avoid shifting the canvas
@@ -85,6 +86,9 @@ class GameCore {
         console.warn('Auto-show leaderboard failed (non-fatal):', e);
     }
 >>>>>>> 744ce5e (Latest leaderboard)
+=======
+    // Leaderboard is loaded on-demand when user clicks "Toggle Leaderboard".
+>>>>>>> ea16077 (panels and many cookies)
     }
 
     async _initializeGameControlAsync(gameLevelClasses) {
@@ -117,6 +121,7 @@ class GameCore {
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             // Leaderboard is loaded on-demand when user clicks "Toggle Leaderboard".
 =======
             // Note: Leaderboard is NOT auto-loaded here to avoid shifting the canvas
@@ -130,6 +135,9 @@ class GameCore {
                 console.warn('Auto-show leaderboard failed (non-fatal):', e);
             }
 >>>>>>> 744ce5e (Latest leaderboard)
+=======
+            // Leaderboard is loaded on-demand when user clicks "Toggle Leaderboard".
+>>>>>>> ea16077 (panels and many cookies)
         } catch (err) {
             console.error('Failed to initialize GameControl:', err);
         }
@@ -769,6 +777,7 @@ class GameCore {
                 leaderboardContainer.style.display = 'block';
                 leaderboardContainer.classList.remove('initially-hidden');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 
                 // CRITICAL: Always use fixed positioning to avoid being affected by game container
@@ -786,6 +795,8 @@ class GameCore {
                     leaderboardContainer.style.right = 'auto';
                     leaderboardContainer.style.zIndex = '1000';
 >>>>>>> 744ce5e (Latest leaderboard)
+=======
+>>>>>>> ea16077 (panels and many cookies)
             } else {
                 leaderboardContainer.style.display = 'none';
             }
@@ -795,6 +806,7 @@ class GameCore {
             console.log('Leaderboard container not found, creating new...');
             
             const ctrlForLeaderboard = this.getActiveControl();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -851,35 +863,49 @@ class GameCore {
                     } else if (this.gameContainer instanceof HTMLElement) {
                         parentId = this.gameContainer.id || 'gameContainer';
                     }
+=======
+>>>>>>> ea16077 (panels and many cookies)
 
-                    this.leaderboardInstance = new mod.default(ctrlForLeaderboard || this.gameControl, { 
-                        gameName: 'AdventureGame',
-                        parentId: parentId,
-                        initiallyHidden: false
-                    });
+            const instantiateLeaderboard = (LeaderboardClass) => {
+                const leaderboardOptions = {
+                    gameName: 'AdventureGame',
+                    // Default to body/fixed overlay so leaderboard never shifts game layout.
+                    // Can still be overridden per page via environment.leaderboardOptions.parentId.
+                    parentId: null,
+                    initiallyHidden: false,
+                    ...(this.environment.leaderboardOptions || {})
+                };
 
-                    this._ensureActiveScoreManager().catch(err => {
-                        console.warn('Failed to sync active ScoreManager after leaderboard creation:', err);
-                    });
+                this.leaderboardInstance = new LeaderboardClass(
+                    ctrlForLeaderboard || this.gameControl,
+                    leaderboardOptions
+                );
 
-                    // Force positioning after creation - use fixed positioning
-                    setTimeout(() => {
-                        const container = document.getElementById('leaderboard-container');
-                        if (container) {
-                            container.style.position = 'fixed';
-                            container.style.top = '80px';
-                            container.style.left = '20px';
-                            container.style.right = 'auto';
-                            container.style.zIndex = '1000';
-                        }
-                    }, 100);
-
-                    console.log('Leaderboard created and shown with fixed positioning');
-                })
-                .catch(err => {
-                    console.warn('Failed to create leaderboard:', err);
+                this._ensureActiveScoreManager().catch(err => {
+                    console.warn('Failed to sync active ScoreManager after leaderboard creation:', err);
                 });
+<<<<<<< HEAD
 >>>>>>> 5951a9a (update for v1.1)
+=======
+
+                console.log('Leaderboard created and shown');
+            };
+
+            const EnvLeaderboardClass = this.environment.leaderboardClass;
+            if (EnvLeaderboardClass) {
+                try {
+                    instantiateLeaderboard(EnvLeaderboardClass);
+                } catch (err) {
+                    console.warn('Failed to create leaderboard from environment class:', err);
+                }
+            } else {
+                import(`${this.path}/assets/js/GameEnginev1.1/essentials/Leaderboard.js`)
+                    .then(mod => instantiateLeaderboard(mod.default || mod))
+                    .catch(err => {
+                        console.warn('Failed to create leaderboard:', err);
+                    });
+            }
+>>>>>>> ea16077 (panels and many cookies)
         }
     }
 

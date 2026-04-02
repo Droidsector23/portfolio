@@ -11,6 +11,9 @@ class GameLevel {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ea16077 (panels and many cookies)
   /** Spawning Object Literals to Class */
   /**
    * Normalize a class entry into object descriptor format.
@@ -235,8 +238,11 @@ class GameLevel {
   }
   /** End Spawning */
 
+<<<<<<< HEAD
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> ea16077 (panels and many cookies)
   create(GameLevelClass) {
     this.continue = true
     this.gameEnv.create()
@@ -248,6 +254,7 @@ class GameLevel {
         Game.setCurrentLevelInstance(this.gameLevel);
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     for (let descriptor of this.gameObjectClasses) {
       const expandedDescriptors = this.expandDescriptor(descriptor)
@@ -262,6 +269,15 @@ class GameLevel {
         let gameObject = new gameObjectClass.class(gameObjectClass.data, this.gameEnv)
         this.gameEnv.gameObjects.push(gameObject)
 >>>>>>> 5951a9a (update for v1.1)
+=======
+    for (let descriptor of this.gameObjectClasses) {
+      const expandedDescriptors = this.expandDescriptor(descriptor)
+      for (let gameObjectClass of expandedDescriptors) {
+        if (!gameObjectClass.data) gameObjectClass.data = {}
+        let gameObject = new gameObjectClass.class(gameObjectClass.data, this.gameEnv)
+        this.gameEnv.gameObjects.push(gameObject)
+      }
+>>>>>>> ea16077 (panels and many cookies)
     }
 
     if (typeof this.gameLevel.initialize === "function") {

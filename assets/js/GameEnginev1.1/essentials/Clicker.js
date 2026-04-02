@@ -15,11 +15,16 @@ class Clicker extends Npc {
         if (this.interact) {
             this.clcks++;
 <<<<<<< HEAD
+<<<<<<< HEAD
             // Backward compatible: callbacks that only use the first arg still work.
             this.interact(this.clcks, this.spriteData?.id || this.uniqueId || 'unknown', this);
 =======
              this.interact(this.clcks);
 >>>>>>> 65352b8 (Clicker implementation)
+=======
+            // Backward compatible: callbacks that only use the first arg still work.
+            this.interact(this.clcks, this.spriteData?.id || this.uniqueId || 'unknown', this);
+>>>>>>> ea16077 (panels and many cookies)
         }
     }
 
