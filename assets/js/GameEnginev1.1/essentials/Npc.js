@@ -295,6 +295,9 @@ class Npc extends Character {
             this.gameEnv.gameControl.unregisterInteractionHandler(this);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 
         // Remove per-NPC dialogue DOM elements from document.body.
         if (this.dialogueSystem && typeof this.dialogueSystem.destroy === 'function') {
@@ -302,9 +305,12 @@ class Npc extends Character {
             this.dialogueSystem = null;
         }
 
+<<<<<<< HEAD
 =======
         
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
         this.removeInteractKeyListeners();
         super.destroy();
     }

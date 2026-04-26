@@ -1,4 +1,5 @@
 # Project Auto-Registration
+<<<<<<< HEAD
 # List enabled projects (one per line)
 # Supports both flat and nested structures:
 #   - Flat: <project-name>
@@ -17,3 +18,13 @@ games/gamify:dev
 #systems/student-management-groups
 
 # === FLAT STRUCTURE (legacy/uncategorized) ===
+=======
+# List enabled projects (one per line, no paths needed)
+# Projects must have: _projects/<name>/Makefile
+# Each Makefile must provide generic targets: build, clean, docs, watch
+#
+# Format: <project-name>
+# Example: cs-pathway-game
+
+gamify
+>>>>>>> 3750c40 (_project and support for site.baseurl)

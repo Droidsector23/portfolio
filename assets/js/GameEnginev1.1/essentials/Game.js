@@ -95,6 +95,7 @@ class GameCore {
         try {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             const mod = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameControl.js`);
 =======
             const mod = await import('./GameControl.js');
@@ -102,6 +103,9 @@ class GameCore {
 =======
             const mod = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameControl.js`);
 >>>>>>> 16ca53c (fix import('./. for case of base url in project)
+=======
+            const mod = await import(`${this.path}@assets/js/GameEnginev1.1/essentials/GameControl.js`);
+>>>>>>> 3750c40 (_project and support for site.baseurl)
             const DefaultGameControl = mod.default || mod;
             this.gameControl = new DefaultGameControl(this, gameLevelClasses);
             this.gameControl.start();
@@ -200,6 +204,7 @@ class GameCore {
             // v1.1 stores the pause code in PauseMenu.js (not "PauseFeature").
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             import(`${this.path}/assets/js/GameEnginev1.1/essentials/PauseMenu.js`).then(mod => {
 =======
             import('./PauseMenu.js').then(mod => {
@@ -207,6 +212,9 @@ class GameCore {
 =======
             import(`${this.path}/assets/js/GameEnginev1.1/essentials/PauseMenu.js`).then(mod => {
 >>>>>>> 16ca53c (fix import('./. for case of base url in project)
+=======
+            import(`${this.path}@assets/js/GameEnginev1.1/essentials/PauseMenu.js`).then(mod => {
+>>>>>>> 3750c40 (_project and support for site.baseurl)
                 const PauseMenu = mod.default;
                 // PauseMenu expects the gameControl instance directly
                 const pauseMenuInstance = new PauseMenu(this.gameControl, {});
@@ -841,7 +849,7 @@ class GameCore {
                     console.warn('Failed to create leaderboard from environment class:', err);
                 }
             } else {
-                import(`${this.path}/assets/js/GameEnginev1.1/essentials/Leaderboard.js`)
+                import(`${this.path}@assets/js/GameEnginev1.1/essentials/Leaderboard.js`)
                     .then(mod => instantiateLeaderboard(mod.default || mod))
                     .catch(err => {
                         console.warn('Failed to create leaderboard:', err);

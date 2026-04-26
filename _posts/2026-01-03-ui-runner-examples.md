@@ -32,10 +32,14 @@ ctx.fillRect(100, 100, 200, 200);
 {% endcapture %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 {% include runners/ui.html 
 =======
 {% include ui-runner.html 
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+{% include runners/ui.html 
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    runner_id="visual1"
    challenge=challenge1
    code=code1
@@ -55,10 +59,14 @@ ctx.fillRect(100, 100, 200, 200);
 #### HTML Component
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - File: `_includes/runners/ui.html`
 =======
 - File: `_includes/ui-runner.html`
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+- File: `_includes/runners/ui.html`
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 - Reusable component for visual JavaScript output
 - Uses CodeMirror for syntax highlighting (JavaScript mode only)
 - Provides `outputElement` variable for DOM manipulation
@@ -116,10 +124,14 @@ ctx.fillRect(100, 100, 200, 200);
 {% endcapture %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 {% include runners/ui.html
 =======
 {% include ui-runner.html
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+{% include runners/ui.html
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    runner_id="visual1"
    challenge=challenge1
    code=code1
@@ -196,10 +208,14 @@ update();
 {% endcapture %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 {% include runners/ui.html
 =======
 {% include ui-runner.html
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+{% include runners/ui.html
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    runner_id="visual2"
    challenge=challenge2
    code=code2
@@ -247,10 +263,14 @@ outputElement.appendChild(button);
 {% endcapture %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 {% include runners/ui.html
 =======
 {% include ui-runner.html
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+{% include runners/ui.html
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    runner_id="visual3"
    challenge=challenge3
    code=code3

@@ -365,6 +365,7 @@ class GameControl {
         this._loopRunning = false;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Notify the user that the level has ended
         if (this.currentLevelIndex < this.levelClasses.length - 1) {
             console.log("Level ended.");
@@ -372,11 +373,18 @@ class GameControl {
             console.log("All levels or sublevels completed.");
 =======
         // Alert the user that the level has ended
+=======
+        // Notify the user that the level has ended
+>>>>>>> 3750c40 (_project and support for site.baseurl)
         if (this.currentLevelIndex < this.levelClasses.length - 1) {
-            alert("Level ended.");
+            console.log("Level ended.");
         } else {
+<<<<<<< HEAD
             alert("All levels completed.");
 >>>>>>> 5951a9a (update for v1.1)
+=======
+            console.log("All levels or sublevels completed.");
+>>>>>>> 3750c40 (_project and support for site.baseurl)
         }
         
         // Clean up any lingering interaction handlers

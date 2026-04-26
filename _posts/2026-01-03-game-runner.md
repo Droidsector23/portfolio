@@ -16,10 +16,14 @@ Game Runner integrates your GameEngine framework for teaching game development. 
 #### HTML Component
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - File: `_includes/runners/game.html`
 =======
 - File: `_includes/game-runner.html`
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+- File: `_includes/runners/game.html`
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 - Reusable component for GameEngine integration
 - Automatically creates gameContainer and gameCanvas
 - Provides game controls: Start, Pause/Resume, Stop, Reset
@@ -151,10 +155,14 @@ export { GameControl };
 {% endcapture %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 {% include runners/game.html
 =======
 {% include game-runner.html
 >>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
+=======
+{% include runners/game.html
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    runner_id="game1"
    challenge=challenge1
    code=code1
@@ -180,10 +188,14 @@ export { GameControl };
 {% endcapture %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 {% include runners/game.html
 =======
 {% include game-runner.html
 >>>>>>> d6775f0 (canvas issue)
+=======
+{% include runners/game.html
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    runner_id="game2"
    challenge=challenge2
    code=code2

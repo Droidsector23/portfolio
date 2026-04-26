@@ -12,6 +12,7 @@ permalink: /gamify/fortuneFindersv1-1
 <script type="module">
     // Adnventure Game assets locations
 <<<<<<< HEAD
+<<<<<<< HEAD
     import FinTech from "{{site.baseurl}}@assets/js/GameEnginev1.1/FinTech.js";
     import GameLevelAirport from "{{site.baseurl}}@assets/js/GameEnginev1.1/GameLevelAirport.js";
     import GameLevelWallstreet from "{{site.baseurl}}@assets/js/GameEnginev1.1/GameLevelWallstreet.js";
@@ -20,6 +21,11 @@ permalink: /gamify/fortuneFindersv1-1
     import GameLevelAirport from "{{site.baseurl}}/assets/js/GameEnginev1.1/GameLevelAirport.js";
     import GameLevelWallstreet from "{{site.baseurl}}/assets/js/GameEnginev1.1/GameLevelWallstreet.js";
 >>>>>>> 5951a9a (update for v1.1)
+=======
+    import FinTech from "{{site.baseurl}}@assets/js/GameEnginev1.1/FinTech.js";
+    import GameLevelAirport from "{{site.baseurl}}@assets/js/GameEnginev1.1/GameLevelAirport.js";
+    import GameLevelWallstreet from "{{site.baseurl}}@assets/js/GameEnginev1.1/GameLevelWallstreet.js";
+>>>>>>> 3750c40 (_project and support for site.baseurl)
     import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api/config.js';
 
     const gameLevelClasses = [GameLevelAirport, GameLevelWallstreet];

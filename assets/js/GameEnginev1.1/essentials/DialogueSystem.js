@@ -18,10 +18,15 @@ constructor(options = {}) {
   this.dialogueText = null;
   this.closeBtn = null;
 <<<<<<< HEAD
+<<<<<<< HEAD
   this.controlsRow = null;
   this.actionButtonGroup = null;
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+  this.controlsRow = null;
+  this.actionButtonGroup = null;
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    // Game control reference for pausing
   this.gameControl = options.gameControl || null;
   // Track if this dialogue system paused the game
@@ -40,9 +45,13 @@ constructor(options = {}) {
   this.voicePitch = options.voicePitch !== undefined ? options.voicePitch : 1.0;
   this.voiceVolume = options.voiceVolume !== undefined ? options.voiceVolume : 1.0;
 <<<<<<< HEAD
+<<<<<<< HEAD
   this.lifecycleSession = null;
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+  this.lifecycleSession = null;
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    // Create the dialogue box
   this.createDialogueBox();
    // Keep track of whether the dialogue is currently open
@@ -50,6 +59,9 @@ constructor(options = {}) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
  // Shared speech state so dialogue lines from different DialogueSystem instances
  // are spoken in sequence instead of interrupting each other.
  static getSpeechState() {
@@ -94,13 +106,17 @@ constructor(options = {}) {
  
    window.speechSynthesis.speak(nextUtterance);
  }
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 
 
 // Voice synthesis helper
 speakText(text) {
+<<<<<<< HEAD
 <<<<<<< HEAD
   if (!this.enableVoice || !window.speechSynthesis) {
     return; // Voice synthesis not available or disabled
@@ -149,37 +165,55 @@ speakText(text) {
     window.speechSynthesis.cancel();
   }
    if (!this.enableVoice || !window.speechSynthesis) {
+=======
+  if (!this.enableVoice || !window.speechSynthesis) {
+>>>>>>> 3750c40 (_project and support for site.baseurl)
     return; // Voice synthesis not available or disabled
   }
-   const utterance = new SpeechSynthesisUtterance(text);
-   // Set voice properties
+
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  // Set voice properties
   utterance.rate = this.voiceRate;
   utterance.pitch = this.voicePitch;
   utterance.volume = this.voiceVolume;
-   // Try to set Australian male voice
+
+  // Try to set Australian male voice
   const voices = window.speechSynthesis.getVoices();
-   // First, look for Australian English voices
-  let australianVoice = voices.find(voice =>
+
+  // First, look for Australian English voices
+  let australianVoice = voices.find((voice) =>
     voice.lang.includes('en-AU') && voice.name.toLowerCase().includes('male')
   );
-   // If no Australian male voice found, look for any Australian voice
+
+  // If no Australian male voice found, look for any Australian voice
   if (!australianVoice) {
-    australianVoice = voices.find(voice => voice.lang.includes('en-AU'));
+    australianVoice = voices.find((voice) => voice.lang.includes('en-AU'));
   }
-   // If still no Australian voice, look for any male voice
+
+  // If still no Australian voice, look for any male voice
   if (!australianVoice) {
-    australianVoice = voices.find(voice => voice.name.toLowerCase().includes('male'));
+    australianVoice = voices.find((voice) => voice.name.toLowerCase().includes('male'));
   }
-   // If no male voice found, just pick the first voice
+
+  // If no male voice found, just pick the first voice
   if (!australianVoice && voices.length > 0) {
     australianVoice = voices[0];
   }
-   if (australianVoice) {
+
+  if (australianVoice) {
     utterance.voice = australianVoice;
   }
+<<<<<<< HEAD
    // Speak the text
   window.speechSynthesis.speak(utterance);
 >>>>>>> 5951a9a (update for v1.1)
+=======
+
+  const state = DialogueSystem.getSpeechState();
+  state.queue.push(utterance);
+  DialogueSystem.drainSpeechQueue();
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 }
 
 
@@ -340,6 +374,7 @@ createDialogueBox() {
   this.closeBtn.innerText = "Close";
   Object.assign(this.closeBtn.style, {
     marginTop: "0",
+<<<<<<< HEAD
     padding: "10px 20px",
 =======
 =======
@@ -348,6 +383,8 @@ createDialogueBox() {
   this.closeBtn.innerText = "Close";
   Object.assign(this.closeBtn.style, {
     marginTop: "15px",
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
     padding: "10px 20px",
 <<<<<<< HEAD
     background: "#4a86e8",
@@ -360,11 +397,16 @@ createDialogueBox() {
     cursor: "pointer",
     fontFamily: "'Press Start 2P', cursive, monospace",
 <<<<<<< HEAD
+<<<<<<< HEAD
     fontSize: "12px",
     flexShrink: "0"
 =======
     fontSize: "12px"
 >>>>>>> 5951a9a (update for v1.1)
+=======
+    fontSize: "12px",
+    flexShrink: "0"
+>>>>>>> 3750c40 (_project and support for site.baseurl)
   });
    // Add click handler
   this.closeBtn.onclick = () => {
@@ -372,6 +414,9 @@ createDialogueBox() {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
   this.controlsRow = document.createElement("div");
   this.controlsRow.id = "dialogue-controls-" + this.safeId;
   Object.assign(this.controlsRow.style, {
@@ -392,8 +437,11 @@ createDialogueBox() {
     marginLeft: "auto"
   });
 
+<<<<<<< HEAD
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 
 
 
@@ -415,6 +463,7 @@ createDialogueBox() {
 
   // Assemble the dialogue box
 <<<<<<< HEAD
+<<<<<<< HEAD
   this.controlsRow.appendChild(this.closeBtn);
   this.controlsRow.appendChild(this.actionButtonGroup);
   this.dialogueBox.appendChild(contentContainer);
@@ -423,6 +472,12 @@ createDialogueBox() {
   this.dialogueBox.appendChild(contentContainer);
   this.dialogueBox.appendChild(this.closeBtn);
 >>>>>>> 5951a9a (update for v1.1)
+=======
+  this.controlsRow.appendChild(this.closeBtn);
+  this.controlsRow.appendChild(this.actionButtonGroup);
+  this.dialogueBox.appendChild(contentContainer);
+  this.dialogueBox.appendChild(this.controlsRow);
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    // Add to the document
   document.body.appendChild(this.dialogueBox);
    // Also listen for Escape key to close dialogue
@@ -434,12 +489,18 @@ createDialogueBox() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 setLifecycleSession(session) {
   this.lifecycleSession = session || null;
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 
 
 
@@ -649,12 +710,16 @@ showRandomDialogue(speaker = "", avatarSrc = null, spriteData = null) {
 closeDialogue() {
   if (!this.isOpen) return;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 
   if (this.lifecycleSession) {
     this.lifecycleSession.cancel();
     this.lifecycleSession = null;
   }
 
+<<<<<<< HEAD
    // Clear typewriter timeout
   if (this.typewriterTimeoutId) {
     clearTimeout(this.typewriterTimeoutId);
@@ -664,15 +729,24 @@ closeDialogue() {
   DialogueSystem.flushSpeechQueue();
 
 =======
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    // Clear typewriter timeout
   if (this.typewriterTimeoutId) {
     clearTimeout(this.typewriterTimeoutId);
+    this.typewriterTimeoutId = null;
   }
+<<<<<<< HEAD
    // Cancel speech synthesis
   if (window.speechSynthesis) {
     window.speechSynthesis.cancel();
   }
 >>>>>>> 5951a9a (update for v1.1)
+=======
+
+  DialogueSystem.flushSpeechQueue();
+
+>>>>>>> 3750c40 (_project and support for site.baseurl)
    // Hide the dialogue box
   this.dialogueBox.style.display = "none";
   this.isOpen = false;
@@ -682,6 +756,9 @@ closeDialogue() {
     this.didPauseGame = false; // Reset the flag
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 
   if (this.actionButtonGroup) {
     this.actionButtonGroup.innerHTML = '';
@@ -696,6 +773,7 @@ closeDialogue() {
     this.closeBtn.style.marginLeft = '0';
     this.closeBtn.style.float = 'none';
   }
+<<<<<<< HEAD
 =======
    // Remove any custom buttons
   const buttonContainers = this.dialogueBox.querySelectorAll('div[style*="display: flex"]');
@@ -708,10 +786,62 @@ closeDialogue() {
   });
 >>>>>>> 5951a9a (update for v1.1)
 }
+=======
+}
 
 
 
 
+/**
+ * Remove all DOM nodes injected by this DialogueSystem instance.
+ * Call this when the owning NPC or level is destroyed so elements
+ * do not persist in document.body across level transitions.
+ */
+destroy() {
+    // Close first so any pending typewriter/speech is cancelled cleanly.
+    if (this.isOpen) {
+      try { this.closeDialogue(); } catch (_) { /* ignore */ }
+    }
+>>>>>>> 3750c40 (_project and support for site.baseurl)
+
+    // Remove the dialogue box from document.body forcibly.
+    try {
+      if (this.dialogueBox) {
+        // Try parentNode removal first
+        if (this.dialogueBox.parentNode) {
+          this.dialogueBox.parentNode.removeChild(this.dialogueBox);
+        }
+        // If element is still in document, remove it directly
+        if (document.body.contains(this.dialogueBox)) {
+          document.body.removeChild(this.dialogueBox);
+        }
+      }
+    } catch (e) {
+      console.warn('DialogueSystem: error removing dialogueBox', e);
+    }
+
+    this.dialogueBox = null;
+    this.dialogueText = null;
+    this.closeBtn = null;
+    this.controlsRow = null;
+    this.actionButtonGroup = null;
+
+    // Remove the injected <style> animation block.
+    try {
+      const styleEl = document.getElementById('dialogue-animations-' + this.safeId);
+      if (styleEl) {
+        if (styleEl.parentNode) {
+          styleEl.parentNode.removeChild(styleEl);
+        } else if (document.head.contains(styleEl)) {
+          document.head.removeChild(styleEl);
+        }
+      }
+    } catch (e) {
+      console.warn('DialogueSystem: error removing style element', e);
+    }
+  }
+
+<<<<<<< HEAD
 <<<<<<< HEAD
 /**
  * Remove all DOM nodes injected by this DialogueSystem instance.
@@ -761,10 +891,13 @@ destroy() {
     }
   }
 
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
   // Check if dialogue is currently open
   isDialogueOpen() {
     return this.isOpen;
   }
+<<<<<<< HEAD
 
   // Add buttons to the dialogue
   addButtons(buttons) {
@@ -799,41 +932,37 @@ destroy() {
 isDialogueOpen() {
   return this.isOpen;
 }
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 
+  // Add buttons to the dialogue
+  addButtons(buttons) {
+    if (!this.isOpen || !buttons || !Array.isArray(buttons) || buttons.length === 0 || !this.actionButtonGroup) return;
 
-
-
-// Add buttons to the dialogue
-addButtons(buttons) {
-    if (!this.isOpen || !buttons || !Array.isArray(buttons) || buttons.length === 0) return;
-  
-    const buttonContainer = document.createElement('div');
-    buttonContainer.style.display = 'flex';
-    buttonContainer.style.justifyContent = 'space-between';
-    buttonContainer.style.marginTop = '10px';
+    this.actionButtonGroup.innerHTML = '';
   
     // Add each button
     buttons.forEach(button => {
-        if (!button || !button.text) return;
+      if (!button || !button.text) return;
       
-        const btn = document.createElement('button');
-        btn.textContent = button.text;
-        btn.className = button.primary ? 'primary-button' : 'secondary-button';
-        btn.style.padding = '8px 15px';
-        btn.style.border = 'none';
-        btn.style.borderRadius = '5px';
-        btn.style.cursor = 'pointer';
-        btn.style.marginRight = '10px';
+      const btn = document.createElement('button');
+      btn.textContent = button.text;
+      btn.className = button.primary ? 'primary-button' : 'secondary-button';
+      btn.style.padding = '8px 15px';
+      btn.style.border = 'none';
+      btn.style.borderRadius = '5px';
+      btn.style.cursor = 'pointer';
       
-        // Add click handler
-        btn.onclick = () => {
-            if (button.action && typeof button.action === 'function') {
-                button.action();
-            }
-        };
+      // Add click handler
+      btn.onclick = () => {
+        if (button.action && typeof button.action === 'function') {
+          button.action();
+        }
+      };
       
-        buttonContainer.appendChild(btn);
+      this.actionButtonGroup.appendChild(btn);
     });
+<<<<<<< HEAD
   
     // Insert before the close button
     if (buttonContainer.children.length > 0) {
@@ -841,6 +970,9 @@ addButtons(buttons) {
     }
 }
 >>>>>>> 5951a9a (update for v1.1)
+=======
+  }
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 }
 
 

@@ -333,10 +333,15 @@ class Character extends GameObject {
         // Use the zIndex from data if provided, otherwise use a default of 10
         this.canvas.style.zIndex = (this.data && this.data.zIndex !== undefined) ? this.data.zIndex : "10";
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.canvas.style.filter = this.data?.canvasFilter || 'none';
         this.canvas.style.boxShadow = this.data?.boxShadow || 'none';
 =======
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        this.canvas.style.filter = this.data?.canvasFilter || 'none';
+        this.canvas.style.boxShadow = this.data?.boxShadow || 'none';
+>>>>>>> 3750c40 (_project and support for site.baseurl)
     }
 
     /**

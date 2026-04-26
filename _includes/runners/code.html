@@ -27,7 +27,10 @@
         <option value="python">Python</option>
         <option value="java">Java</option>
         <option value="javascript">JavaScript</option>
+<<<<<<< HEAD
         <option value="pseudocode">Pseudocode</option>
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
       </select>
       <select class="fontSizeSelect">
         <option value="14">14px</option>
@@ -56,6 +59,7 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 <script>
 // AP CSP Pseudocode syntax highlighting mode for CodeMirror 5
 if (typeof CodeMirror !== 'undefined' && !CodeMirror.modes['pseudocode']) {
@@ -109,6 +113,10 @@ if (typeof CodeMirror !== 'undefined' && !CodeMirror.modes['pseudocode']) {
 
 <script type="module">
 import { BaseRunner, CodeExecutor, PseudocodeExecutor } from '{{site.baseurl}}/assets/js/pages/runners/index.js';
+=======
+<script type="module">
+import { BaseRunner, CodeExecutor } from '{{site.baseurl}}/assets/js/pages/runners/index.js';
+>>>>>>> 3750c40 (_project and support for site.baseurl)
 import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api/config.js';
 
 (function() {
@@ -130,8 +138,12 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
       mode: initialLang === "java" ? "text/x-java" : (initialLang || "python"),
       theme: "darcula",
       indentUnit: 4,
+<<<<<<< HEAD
       tabSize: 4,
       styleSelectedText: true
+=======
+      tabSize: 4
+>>>>>>> 3750c40 (_project and support for site.baseurl)
     }
   });
 
@@ -149,11 +161,14 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
     fetchOptions,
   });
 
+<<<<<<< HEAD
   const pseudoExecutor = new PseudocodeExecutor({
     outputElement: outputDiv,
     execTimeElement: execTimeSpan,
   });
 
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
   // Set initial language selection
   if (initialLang) {
     langSelect.value = initialLang;
@@ -174,6 +189,7 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
     editor.refresh();
   });
 
+<<<<<<< HEAD
   // Auto-substitute pseudocode shorthand as the user types
   const pseudoSubs = [['<--','←',3],['!=','≠',2],['>=','≥',2],['<=','≤',2]];
   editor.on('change', (cm, change) => {
@@ -190,6 +206,8 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
     }
   });
 
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
   // Language switcher
   langSelect.addEventListener("change", () => {
     const lang = langSelect.value;
@@ -199,8 +217,11 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
       editor.setOption("mode", "text/x-java");
     } else if (lang === "javascript") {
       editor.setOption("mode", "javascript");
+<<<<<<< HEAD
     } else if (lang === "pseudocode") {
       editor.setOption("mode", "pseudocode");
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
     }
   });
 
@@ -208,9 +229,12 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
 
   // Run button logic
   function runCode() {
+<<<<<<< HEAD
     if (langSelect.value === "pseudocode") {
       return pseudoExecutor.run(editor.getValue());
     }
+=======
+>>>>>>> 3750c40 (_project and support for site.baseurl)
     return codeExecutor.run();
   }
 
