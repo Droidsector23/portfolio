@@ -12,6 +12,8 @@ Hi! My name is Vayun Shekhar
 
 > Coding starts with tools, explore these tools and procedures with a click.
 
+[Gamified Home Pilot]({{ site.baseurl }}/cs-pathway)
+
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
     <a href="https://opencodingsociety.com" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #FA8072; border-radius: 6px; font-weight: 700; transition: all 0.3s;">
         <img src="{{ '/favicon.ico' | relative_url }}" alt="OCS logo" style="width: 16px; height: 16px;">

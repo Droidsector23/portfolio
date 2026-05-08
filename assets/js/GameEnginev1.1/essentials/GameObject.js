@@ -263,6 +263,7 @@ class GameObject {
         const otherRect = other.canvas.getBoundingClientRect();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Calculate hitbox reductions for this object (applied symmetrically from all sides)
         const thisWidthReduction = thisRect.width * (this.hitbox?.widthPercentage || 0.0) / 2;
         const thisHeightReduction = thisRect.height * (this.hitbox?.heightPercentage || 0.0) / 2;
@@ -280,21 +281,31 @@ class GameObject {
         // Calculate hitbox constants for this object
         const thisWidthReduction = thisRect.width * (this.hitbox?.widthPercentage || 0.0);
         const thisHeightReduction = thisRect.height * (this.hitbox?.heightPercentage || 0.0);
+=======
+        // Calculate hitbox reductions for this object (applied symmetrically from all sides)
+        const thisWidthReduction = thisRect.width * (this.hitbox?.widthPercentage || 0.0) / 2;
+        const thisHeightReduction = thisRect.height * (this.hitbox?.heightPercentage || 0.0) / 2;
+>>>>>>> 92722ed (migration of _profile changes)
 
-        // Calculate hitbox constants for other object
-        const otherWidthReduction = otherRect.width * (other.hitbox?.widthPercentage || 0.0);
-        const otherHeightReduction = otherRect.height * (other.hitbox?.heightPercentage || 0.0);
+        // Calculate hitbox reductions for other object (applied symmetrically from all sides)
+        const otherWidthReduction = otherRect.width * (other.hitbox?.widthPercentage || 0.0) / 2;
+        const otherHeightReduction = otherRect.height * (other.hitbox?.heightPercentage || 0.0) / 2;
 
-        // Build hitbox by subtracting reductions from the left, right, and top
+        // Build symmetric hitbox by subtracting reductions from all sides
         const thisLeft = thisRect.left + thisWidthReduction;
         const thisTop = thisRect.top + thisHeightReduction;
         const thisRight = thisRect.right - thisWidthReduction;
+<<<<<<< HEAD
         const thisBottom = thisRect.bottom;
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        const thisBottom = thisRect.bottom - thisHeightReduction;
+>>>>>>> 92722ed (migration of _profile changes)
 
         const otherLeft = otherRect.left + otherWidthReduction;
         const otherTop = otherRect.top + otherHeightReduction;
         const otherRight = otherRect.right - otherWidthReduction;
+<<<<<<< HEAD
 <<<<<<< HEAD
         const otherBottom = otherRect.bottom - otherHeightReduction;
 
@@ -322,6 +333,22 @@ class GameObject {
         );
 
 >>>>>>> 5951a9a (update for v1.1)
+=======
+        const otherBottom = otherRect.bottom - otherHeightReduction;
+
+        // Circular collision detection (default and only option)
+        const thisCenterX = (thisLeft + thisRight) / 2;
+        const thisCenterY = (thisTop + thisBottom) / 2;
+        const otherCenterX = (otherLeft + otherRight) / 2;
+        const otherCenterY = (otherTop + otherBottom) / 2;
+        const thisRadiusPercent = this.hitbox?.radiusPercentage ?? 0.5;
+        const otherRadiusPercent = other.hitbox?.radiusPercentage ?? 0.5;
+        const thisRadius = Math.min(thisRight - thisLeft, thisBottom - thisTop) * thisRadiusPercent;
+        const otherRadius = Math.min(otherRight - otherLeft, otherBottom - otherTop) * otherRadiusPercent;
+        const distance = Math.hypot(thisCenterX - otherCenterX, thisCenterY - otherCenterY);
+        const hit = distance < thisRadius + otherRadius;
+      
+>>>>>>> 92722ed (migration of _profile changes)
         const touchPoints = {
             this: {
                 id: this.canvas.id,
@@ -483,6 +510,9 @@ class GameObject {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 92722ed (migration of _profile changes)
 
     /**
      * Debug method: Draw collision circle on canvas context
@@ -520,8 +550,11 @@ class GameObject {
 }
 
 export default GameObject;
+<<<<<<< HEAD
 =======
 }
 
 export default GameObject;
 >>>>>>> 5951a9a (update for v1.1)
+=======
+>>>>>>> 92722ed (migration of _profile changes)

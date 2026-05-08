@@ -187,6 +187,9 @@ export class GameExecutor {
   async run() {
     try {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 92722ed (migration of _profile changes)
       // Save both the index AND the actual class reference so we can find it
       // in the freshly-imported gameLevelClasses after restart.  This handles
       // dynamically-spliced levels (e.g. Code Hub inserted by Wayfinding World)
@@ -200,8 +203,11 @@ export class GameExecutor {
         return null;
       })();
 
+<<<<<<< HEAD
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+>>>>>>> 92722ed (migration of _profile changes)
       const preservedLevelIndex = (() => {
         if (Number.isInteger(this.gameControl?.currentLevelIndex) && this.gameControl.currentLevelIndex >= 0) {
           return this.gameControl.currentLevelIndex;
@@ -254,10 +260,15 @@ export class GameExecutor {
         if (importPath.startsWith('/')) {
           return `from '${baseUrl}${importPath}'`;
 <<<<<<< HEAD
+<<<<<<< HEAD
         } else if (!importPath.startsWith('http://') && !importPath.startsWith('https://')) {
           return `from '${baseUrl}/${importPath}'`;
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+        } else if (!importPath.startsWith('http://') && !importPath.startsWith('https://')) {
+          return `from '${baseUrl}/${importPath}'`;
+>>>>>>> 92722ed (migration of _profile changes)
         }
 
         return `from '${baseUrl}/${importPath}'`;
@@ -297,6 +308,9 @@ export class GameExecutor {
         this.gameControl = this.gameCore?.gameControl || null;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 92722ed (migration of _profile changes)
         // Resolve the best level to restore to:
         // 1. If the preserved class exists in the permanent array, use its index there.
         // 2. If it was a dynamically-spliced level (e.g. Code Hub inserted by Wayfinding
@@ -318,6 +332,7 @@ export class GameExecutor {
           }
         }
 
+<<<<<<< HEAD
         if (
           Number.isInteger(resolvedLevelIndex) &&
           this.gameControl &&
@@ -326,17 +341,20 @@ export class GameExecutor {
         ) {
           this.gameControl.currentLevelIndex = resolvedLevelIndex;
 =======
+=======
+>>>>>>> 92722ed (migration of _profile changes)
         if (
-          Number.isInteger(preservedLevelIndex) &&
+          Number.isInteger(resolvedLevelIndex) &&
           this.gameControl &&
-          Array.isArray(gameLevelClasses) &&
-          preservedLevelIndex >= 0 &&
-          preservedLevelIndex < gameLevelClasses.length &&
-          preservedLevelIndex !== this.gameControl.currentLevelIndex &&
+          resolvedLevelIndex !== this.gameControl.currentLevelIndex &&
           typeof this.gameControl.transitionToLevel === 'function'
         ) {
+<<<<<<< HEAD
           this.gameControl.currentLevelIndex = preservedLevelIndex;
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+          this.gameControl.currentLevelIndex = resolvedLevelIndex;
+>>>>>>> 92722ed (migration of _profile changes)
           this.gameControl.transitionToLevel();
         }
 
@@ -369,6 +387,9 @@ export class GameExecutor {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 92722ed (migration of _profile changes)
   _resizeGameForViewport(gameOutput, viewportHeight) {
     const currentLevel = this.gameControl?.currentLevel;
     const gameEnv = currentLevel?.gameEnv || this.gameControl?.gameEnv;
@@ -402,8 +423,11 @@ export class GameExecutor {
     }
   }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+>>>>>>> 92722ed (migration of _profile changes)
   toggleFullscreen() {
     if (!this.getGameOutput) return;
 
@@ -421,19 +445,29 @@ export class GameExecutor {
       this.fullscreenOverlay = document.createElement('div');
       this.fullscreenOverlay.className = 'game-fullscreen-overlay';
 <<<<<<< HEAD
+<<<<<<< HEAD
       this.fullscreenOverlay.style.zIndex = '9999';
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+      this.fullscreenOverlay.style.zIndex = '9999';
+>>>>>>> 92722ed (migration of _profile changes)
 
       // Create collapsible control panel header
       const controlHeader = document.createElement('div');
       controlHeader.className = 'fullscreen-control-header';
+<<<<<<< HEAD
 <<<<<<< HEAD
       controlHeader.style.position = 'relative';
       controlHeader.style.zIndex = '2';
       controlHeader.style.flexShrink = '0';
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+      controlHeader.style.position = 'relative';
+      controlHeader.style.zIndex = '2';
+      controlHeader.style.flexShrink = '0';
+>>>>>>> 92722ed (migration of _profile changes)
 
       // Add collapse toggle button
       const collapseBtn = document.createElement('button');
@@ -444,9 +478,13 @@ export class GameExecutor {
       const controlsContainer = document.createElement('div');
       controlsContainer.className = 'fullscreen-controls-container';
 <<<<<<< HEAD
+<<<<<<< HEAD
       controlsContainer.style.flexWrap = 'wrap';
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+      controlsContainer.style.flexWrap = 'wrap';
+>>>>>>> 92722ed (migration of _profile changes)
 
       // Clone control buttons
       const clonedRunBtn = this.runBtn ? this.runBtn.cloneNode(true) : null;
@@ -522,13 +560,19 @@ export class GameExecutor {
       this.fullscreenOverlay.appendChild(controlHeader);
       this.fullscreenOverlay.appendChild(gameOutput);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 92722ed (migration of _profile changes)
       gameOutput.style.position = 'relative';
       gameOutput.style.flex = '1 1 auto';
       gameOutput.style.minHeight = '0';
       gameOutput.style.width = '100%';
       gameOutput.style.zIndex = '1';
+<<<<<<< HEAD
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+>>>>>>> 92722ed (migration of _profile changes)
       document.body.appendChild(this.fullscreenOverlay);
 
       // Update canvas height to account for control header
@@ -545,12 +589,17 @@ export class GameExecutor {
       this.isFullscreen = true;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       // Resize the active level in place so fullscreen does not replay startup dialogue.
       this._resizeGameForViewport(gameOutput, viewportHeight);
 =======
       // Restart game with new dimensions
       this.run();
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+      // Resize the active level in place so fullscreen does not replay startup dialogue.
+      this._resizeGameForViewport(gameOutput, viewportHeight);
+>>>>>>> 92722ed (migration of _profile changes)
 
       // Handle ESC key to exit fullscreen
       this.escapeHandler = (e) => {
@@ -594,12 +643,17 @@ export class GameExecutor {
       }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       // Restore the active level size without reinitializing the level.
       this._resizeGameForViewport(gameOutput, this.originalGameOutput?.height || this.configuredCanvasHeight);
 =======
       // Restart game with original dimensions
       this.run();
 >>>>>>> 3750c40 (_project and support for site.baseurl)
+=======
+      // Restore the active level size without reinitializing the level.
+      this._resizeGameForViewport(gameOutput, this.originalGameOutput?.height || this.configuredCanvasHeight);
+>>>>>>> 92722ed (migration of _profile changes)
     }
   }
 }
