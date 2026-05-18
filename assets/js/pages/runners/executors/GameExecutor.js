@@ -340,6 +340,7 @@ export class GameExecutor {
           typeof this.gameControl.transitionToLevel === 'function'
         ) {
           this.gameControl.currentLevelIndex = resolvedLevelIndex;
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 92722ed (migration of _profile changes)
@@ -355,6 +356,8 @@ export class GameExecutor {
 =======
           this.gameControl.currentLevelIndex = resolvedLevelIndex;
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+>>>>>>> 1b4d221 (update for code runner features and editing.)
           this.gameControl.transitionToLevel();
         }
 
@@ -388,8 +391,11 @@ export class GameExecutor {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+>>>>>>> 1b4d221 (update for code runner features and editing.)
   _resizeGameForViewport(gameOutput, viewportHeight) {
     const currentLevel = this.gameControl?.currentLevel;
     const gameEnv = currentLevel?.gameEnv || this.gameControl?.gameEnv;
@@ -424,10 +430,13 @@ export class GameExecutor {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
 =======
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+>>>>>>> 1b4d221 (update for code runner features and editing.)
   toggleFullscreen() {
     if (!this.getGameOutput) return;
 
@@ -446,18 +455,23 @@ export class GameExecutor {
       this.fullscreenOverlay.className = 'game-fullscreen-overlay';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       this.fullscreenOverlay.style.zIndex = '9999';
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
 =======
       this.fullscreenOverlay.style.zIndex = '9999';
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+      this.fullscreenOverlay.style.zIndex = '9999';
+>>>>>>> 1b4d221 (update for code runner features and editing.)
 
       // Create collapsible control panel header
       const controlHeader = document.createElement('div');
       controlHeader.className = 'fullscreen-control-header';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       controlHeader.style.position = 'relative';
       controlHeader.style.zIndex = '2';
       controlHeader.style.flexShrink = '0';
@@ -468,6 +482,11 @@ export class GameExecutor {
       controlHeader.style.zIndex = '2';
       controlHeader.style.flexShrink = '0';
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+      controlHeader.style.position = 'relative';
+      controlHeader.style.zIndex = '2';
+      controlHeader.style.flexShrink = '0';
+>>>>>>> 1b4d221 (update for code runner features and editing.)
 
       // Add collapse toggle button
       const collapseBtn = document.createElement('button');
@@ -479,12 +498,16 @@ export class GameExecutor {
       controlsContainer.className = 'fullscreen-controls-container';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       controlsContainer.style.flexWrap = 'wrap';
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
 =======
       controlsContainer.style.flexWrap = 'wrap';
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+      controlsContainer.style.flexWrap = 'wrap';
+>>>>>>> 1b4d221 (update for code runner features and editing.)
 
       // Clone control buttons
       const clonedRunBtn = this.runBtn ? this.runBtn.cloneNode(true) : null;
@@ -561,18 +584,24 @@ export class GameExecutor {
       this.fullscreenOverlay.appendChild(gameOutput);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+>>>>>>> 1b4d221 (update for code runner features and editing.)
       gameOutput.style.position = 'relative';
       gameOutput.style.flex = '1 1 auto';
       gameOutput.style.minHeight = '0';
       gameOutput.style.width = '100%';
       gameOutput.style.zIndex = '1';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3750c40 (_project and support for site.baseurl)
 =======
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+>>>>>>> 1b4d221 (update for code runner features and editing.)
       document.body.appendChild(this.fullscreenOverlay);
 
       // Update canvas height to account for control header
@@ -590,6 +619,7 @@ export class GameExecutor {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // Resize the active level in place so fullscreen does not replay startup dialogue.
       this._resizeGameForViewport(gameOutput, viewportHeight);
 =======
@@ -600,6 +630,10 @@ export class GameExecutor {
       // Resize the active level in place so fullscreen does not replay startup dialogue.
       this._resizeGameForViewport(gameOutput, viewportHeight);
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+      // Resize the active level in place so fullscreen does not replay startup dialogue.
+      this._resizeGameForViewport(gameOutput, viewportHeight);
+>>>>>>> 1b4d221 (update for code runner features and editing.)
 
       // Handle ESC key to exit fullscreen
       this.escapeHandler = (e) => {
@@ -644,6 +678,7 @@ export class GameExecutor {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // Restore the active level size without reinitializing the level.
       this._resizeGameForViewport(gameOutput, this.originalGameOutput?.height || this.configuredCanvasHeight);
 =======
@@ -654,6 +689,10 @@ export class GameExecutor {
       // Restore the active level size without reinitializing the level.
       this._resizeGameForViewport(gameOutput, this.originalGameOutput?.height || this.configuredCanvasHeight);
 >>>>>>> 92722ed (migration of _profile changes)
+=======
+      // Restore the active level size without reinitializing the level.
+      this._resizeGameForViewport(gameOutput, this.originalGameOutput?.height || this.configuredCanvasHeight);
+>>>>>>> 1b4d221 (update for code runner features and editing.)
     }
   }
 }
