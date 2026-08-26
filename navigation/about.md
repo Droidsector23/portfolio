@@ -7,7 +7,7 @@ comments: true
 
 ## As a conversation Starter
 
-I am a 15 year old and have taught python before.
+ACSL Finals qualifier
 
 <comment>
 Flags are made using Wikipedia images
