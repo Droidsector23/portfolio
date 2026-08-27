@@ -5,7 +5,7 @@ permalink: /about/
 comments: true
 ---
 
-## As a conversation Starter
+## Coding Acheivements
 
 ACSL Finals qualifier
 
