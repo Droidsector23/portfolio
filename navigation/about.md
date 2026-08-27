@@ -10,7 +10,7 @@ comments: true
 ACSL Finals qualifier
 
 <comment>
-Flags are made using Wikipedia images
+Images in progress
 </comment>
 
 <style>
@@ -118,5 +118,5 @@ Everything for me, as for many others, revolves around family and faith.
 
 </comment>
 <div class="image-gallery">
-  <img src=
+  <!-- <img src= -->
 </div>
