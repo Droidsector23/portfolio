@@ -8,7 +8,6 @@ comments: true
 ## Coding Acheivements
 
 ACSL Finals qualifier
-test change
 
 <comment>
 Images in progress
