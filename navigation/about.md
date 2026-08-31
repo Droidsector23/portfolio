@@ -119,4 +119,5 @@ Everything for me, as for many others, revolves around family and faith.
 </comment>
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/about/Parasailing.jpeg" alt="Image 1">
+  <img src="{{site.baseurl}}/images/about/family.jpeg" alt="Image 2">
 </div>
