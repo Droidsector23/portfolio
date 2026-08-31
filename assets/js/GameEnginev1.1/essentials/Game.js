@@ -70,46 +70,22 @@ class GameCore {
         this._adjustGameContainerPosition();
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     // Leaderboard is loaded on-demand when user clicks "Toggle Leaderboard".
-=======
-    // Note: Leaderboard is NOT auto-loaded here to avoid shifting the canvas
-    // It will be loaded when user clicks "Toggle Leaderboard" in the pause menu
-<<<<<<< HEAD
->>>>>>> 5951a9a (update for v1.1)
-=======
     // Immediately create and show the leaderboard so it's loaded in (doesn't shift canvas because it's fixed)
     try {
         this._handleToggleLeaderboard();
     } catch (e) {
         console.warn('Auto-show leaderboard failed (non-fatal):', e);
     }
->>>>>>> 744ce5e (Latest leaderboard)
-=======
     // Leaderboard is loaded on-demand when user clicks "Toggle Leaderboard".
->>>>>>> ea16077 (panels and many cookies)
     }
 
     async _initializeGameControlAsync(gameLevelClasses) {
         try {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             const mod = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameControl.js`);
-=======
-            const mod = await import('./GameControl.js');
->>>>>>> 5951a9a (update for v1.1)
-=======
             const mod = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameControl.js`);
->>>>>>> 16ca53c (fix import('./. for case of base url in project)
-=======
             const mod = await import(`${this.path}@assets/js/GameEnginev1.1/essentials/GameControl.js`);
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
             const mod = await import(`${this.path}/assets/js/GameEnginev1.1/essentials/GameControl.js`);
->>>>>>> 92722ed (migration of _profile changes)
             const DefaultGameControl = mod.default || mod;
             this.gameControl = new DefaultGameControl(this, gameLevelClasses);
             this.gameControl.start();
@@ -128,24 +104,13 @@ class GameCore {
                 this._adjustGameContainerPosition();
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             // Leaderboard is loaded on-demand when user clicks "Toggle Leaderboard".
-=======
-            // Note: Leaderboard is NOT auto-loaded here to avoid shifting the canvas
-            // It will be loaded when user clicks "Toggle Leaderboard" in the pause menu
-<<<<<<< HEAD
->>>>>>> 5951a9a (update for v1.1)
-=======
             try {
                 this._handleToggleLeaderboard();
             } catch (e) {
                 console.warn('Auto-show leaderboard failed (non-fatal):', e);
             }
->>>>>>> 744ce5e (Latest leaderboard)
-=======
             // Leaderboard is loaded on-demand when user clicks "Toggle Leaderboard".
->>>>>>> ea16077 (panels and many cookies)
         } catch (err) {
             console.error('Failed to initialize GameControl:', err);
         }
@@ -206,31 +171,14 @@ class GameCore {
         
         try {
             // v1.1 stores the pause code in PauseMenu.js (not "PauseFeature").
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             import(`${this.path}/assets/js/GameEnginev1.1/essentials/PauseMenu.js`).then(mod => {
-=======
-            import('./PauseMenu.js').then(mod => {
->>>>>>> 5951a9a (update for v1.1)
-=======
             import(`${this.path}/assets/js/GameEnginev1.1/essentials/PauseMenu.js`).then(mod => {
->>>>>>> 16ca53c (fix import('./. for case of base url in project)
-=======
             import(`${this.path}@assets/js/GameEnginev1.1/essentials/PauseMenu.js`).then(mod => {
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
             import(`${this.path}/assets/js/GameEnginev1.1/essentials/PauseMenu.js`).then(mod => {
->>>>>>> 92722ed (migration of _profile changes)
                 const PauseMenu = mod.default;
                 // PauseMenu expects the gameControl instance directly
                 const pauseMenuInstance = new PauseMenu(this.gameControl, {});
                 this.gameControl.pauseFeature = pauseMenuInstance;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
                 // Prevent the PauseMenu from showing its own emoji-styled overlay.
                 // We still keep the instance so its skip/save APIs work, but
                 // override the visual show/hide so only the engine's modal is used.
@@ -240,7 +188,6 @@ class GameCore {
                         // Preserve original methods if needed for debugging
                         pm._originalShow = pm.show;
                         pm._originalHide = pm.hide;
-<<<<<<< HEAD
 
                         // Override `show` to only pause the game control (no UI)
                         pm.show = function() {
@@ -280,9 +227,6 @@ class GameCore {
                     .catch(err => {
                         console.warn('Failed to initialize ScoreManager:', err);
                     });
-=======
-=======
->>>>>>> 744ce5e (Latest leaderboard)
 
                         // Override `show` to only pause the game control (no UI)
                         pm.show = function() {
@@ -322,11 +266,8 @@ class GameCore {
                     .catch(err => {
                         console.warn('Failed to initialize ScoreManager:', err);
                     });
-<<<<<<< HEAD
                 }
 >>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
 
             }).catch(err => {
                 console.warn('Failed to load PauseMenu:', err);
@@ -342,10 +283,6 @@ class GameCore {
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
      * Ensure ScoreManager exists on the active level GameEnv and sync current value.
      */
     async _ensureActiveScoreManager() {
@@ -369,7 +306,6 @@ class GameCore {
 
     /**
      * Show the pause menu modal options:
-<<<<<<< HEAD
      * - Skip Level: skips to next level
      * - Toggle Leaderboard: shows/hides the leaderboard (including header score)
      */
@@ -380,26 +316,12 @@ class GameCore {
             activeControlObj: this.getActiveControl(),
             canvasCount: document.querySelectorAll('canvas').length
         });
-=======
-     * Show the pause menu modal with 4 options:
-     * - Show Score: displays the score counter
-     * - Save Score: saves the score to backend
-=======
->>>>>>> 744ce5e (Latest leaderboard)
      * - Skip Level: skips to next level
      * - Toggle Leaderboard: shows/hides the leaderboard (including header score)
      */
     showPauseModal() {
         if (!this.getActiveControl()) return;
-<<<<<<< HEAD
 >>>>>>> 5951a9a (update for v1.1)
-=======
-        console.log('GameCore.showPauseModal activeControl info', {
-            activeControl: this.getActiveControl() === this.gameControl ? 'root' : 'nested',
-            activeControlObj: this.getActiveControl(),
-            canvasCount: document.querySelectorAll('canvas').length
-        });
->>>>>>> 744ce5e (Latest leaderboard)
         
         // Remove existing modal if any
         const existingModal = document.getElementById('pauseModal');
@@ -407,8 +329,6 @@ class GameCore {
             existingModal.remove();
         }
         
-<<<<<<< HEAD
-<<<<<<< HEAD
         // Prefer the PauseMenu instance when available (keeps UI/logic consistent)
         const ctrl = this.getActiveControl();
         if (ctrl && ctrl.pauseFeature && typeof ctrl.pauseFeature.show === 'function') {
@@ -421,11 +341,6 @@ class GameCore {
         } else if (ctrl && typeof ctrl.pause === 'function') {
             // Fallback for controls that don't have a PauseMenu instance
             ctrl.pause();
-=======
-        // Pause the game - MUST call gameControl.pause() to properly save handlers
-=======
-        // Prefer the PauseMenu instance when available (keeps UI/logic consistent)
->>>>>>> 744ce5e (Latest leaderboard)
         const ctrl = this.getActiveControl();
         if (ctrl && ctrl.pauseFeature && typeof ctrl.pauseFeature.show === 'function') {
             try {
@@ -437,12 +352,9 @@ class GameCore {
         } else if (ctrl && typeof ctrl.pause === 'function') {
             // Fallback for controls that don't have a PauseMenu instance
             ctrl.pause();
-<<<<<<< HEAD
         } else if (ctrl.pauseFeature) {
             ctrl.pauseFeature.show();
 >>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
         }
         
         // Create the modal using CSS classes from pause-modal.scss
@@ -453,14 +365,6 @@ class GameCore {
             <div class="pause-modal-content">
                 <h2 class="pause-modal-header">Pause Menu</h2>
                 <div class="pause-modal-buttons">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    <button id="pause-toggle-score" class="pause-menu-btn">Toggle Score</button>
-                    <button id="pause-save-score" class="pause-menu-btn">Save Score</button>
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
                     <button id="pause-skip-level" class="pause-menu-btn">Exit Level</button>
                     <button id="pause-toggle-leaderboard" class="pause-menu-btn">Toggle Leaderboard</button>
                     <button id="pause-resume" class="pause-menu-btn primary">Resume</button>
@@ -472,133 +376,12 @@ class GameCore {
         document.body.appendChild(modal);
         
         // Attach event listeners
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        document.getElementById('pause-toggle-score').addEventListener('click', () => this._handleToggleScore());
-        document.getElementById('pause-save-score').addEventListener('click', () => this._handleSaveScore());
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
         document.getElementById('pause-skip-level').addEventListener('click', () => this._handleSkipLevel());
         document.getElementById('pause-toggle-leaderboard').addEventListener('click', () => this._handleToggleLeaderboard());
         document.getElementById('pause-resume').addEventListener('click', () => this._closePauseModal());
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-     * Handle Toggle Score option - shows/hides the score counter
-     */
-    async _handleToggleScore() {
-        console.log('Game: _handleToggleScore called');
-        
-        // Close modal first
-        const modal = document.getElementById('pauseModal');
-        if (modal) {
-            modal.remove();
-        }
-        
-        // Resume the game - MUST call gameControl.resume() to properly restore handlers
-        const ctrl = this.getActiveControl();
-        if (ctrl) {
-            ctrl.isPaused = false;
-            if (typeof ctrl.resume === 'function') {
-                ctrl.resume();
-            } else {
-                if (typeof ctrl.restoreInteractionHandlers === 'function') {
-                    ctrl.restoreInteractionHandlers();
-                }
-                if (typeof ctrl.gameLoop === 'function') {
-                    ctrl.gameLoop();
-                }
-            }
-        }
-        
-        // Access scoreManager from GameEnv (proper OOP) - gameEnv is on currentLevel
-        const gameEnv = ctrl?.currentLevel?.gameEnv;
-        console.log('Game: gameEnv exists?', !!gameEnv);
-        console.log('Game: scoreManager exists?', !!gameEnv?.scoreManager);
-        
-        if (gameEnv) {
-            // Auto-initialize scoreManager if not already initialized
-            if (!gameEnv.scoreManager) {
-                console.log('Game: Initializing scoreManager...');
-                await gameEnv.initScoreManager();
-                console.log('Game: After init, scoreManager exists?', !!gameEnv.scoreManager);
-            }
-            
-            if (gameEnv.scoreManager) {
-                console.log('Game: Calling toggleScoreDisplay...');
-                gameEnv.scoreManager.toggleScoreDisplay();
-            } else {
-                console.error('Game: Failed to initialize scoreManager');
-            }
-        } else {
-            console.error('Game: gameEnv not found on active control');
-        }
-    }
-
-    /**
-     * Handle Save Score option - saves the score to backend
-     */
-    async _handleSaveScore() {
-        // Close modal first
-        const modal = document.getElementById('pauseModal');
-        if (modal) {
-            modal.remove();
-        }
-        
-        // Resume the game first - MUST call gameControl.resume() to properly restore handlers
-        const ctrl = this.getActiveControl();
-        if (ctrl) {
-            ctrl.isPaused = false;
-            if (typeof ctrl.resume === 'function') {
-                ctrl.resume();
-            } else {
-                if (typeof ctrl.restoreInteractionHandlers === 'function') {
-                    ctrl.restoreInteractionHandlers();
-                }
-                if (typeof ctrl.gameLoop === 'function') {
-                    ctrl.gameLoop();
-                }
-            }
-        }
-        
-        // Access scoreManager from GameEnv (proper OOP) - gameEnv is on currentLevel
-        const gameEnv = ctrl?.currentLevel?.gameEnv;
-        if (gameEnv) {
-            // Auto-initialize scoreManager if not already initialized
-            if (!gameEnv.scoreManager) {
-                await gameEnv.initScoreManager();
-            }
-            
-            if (gameEnv.scoreManager) {
-                try {
-                    const buttonEl = document.createElement('button');
-                    await gameEnv.scoreManager.saveScore(buttonEl);
-                    
-                    // Refresh leaderboard to show the new score
-                    if (this.leaderboardInstance && typeof this.leaderboardInstance.fetchLeaderboard === 'function') {
-                        console.log('Game: Refreshing leaderboard after save');
-                        await this.leaderboardInstance.fetchLeaderboard();
-                    }
-                } catch (error) {
-                    console.error('Failed to save score:', error);
-                    alert('Failed to save score. Please try again.');
-                }
-            } else {
-                console.error('Failed to initialize scoreManager');
-                alert('Score feature not available');
-            }
-        }
-    }
-
-    /**
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
      * Handle Exit Level option - skips to the next level
      */
     _handleSkipLevel() {
@@ -608,8 +391,6 @@ class GameCore {
             modal.remove();
         }
         
-<<<<<<< HEAD
-<<<<<<< HEAD
         // Close the pause UI and delegate skip to PauseMenu if present,
         // otherwise try known control methods to advance levels.
         const ctrl = this.getActiveControl();
@@ -638,12 +419,6 @@ class GameCore {
             // methods can run safely without reinitializing the level.
             if (typeof ctrl.restoreInteractionHandlers === 'function') {
                 try { ctrl.restoreInteractionHandlers(); } catch (e) { console.warn('restoreInteractionHandlers failed:', e); }
-=======
-        // Unpause the active control first - MUST call resume() to properly restore handlers
-=======
-        // Close the pause UI and delegate skip to PauseMenu if present,
-        // otherwise try known control methods to advance levels.
->>>>>>> 744ce5e (Latest leaderboard)
         const ctrl = this.getActiveControl();
         console.log('GameCore._handleSkipLevel active control:', {
             isNested: !!(ctrl && ctrl.isNested),
@@ -663,7 +438,6 @@ class GameCore {
                 }
             }
 
-<<<<<<< HEAD
             if (typeof ctrl.resume === 'function') {
                 ctrl.resume();
             } else {
@@ -674,15 +448,6 @@ class GameCore {
                     ctrl.gameLoop();
                 }
 >>>>>>> 5951a9a (update for v1.1)
-=======
-            // Do NOT call `resume()` here. Resuming a nested GameControl
-            // before ending it can cause the nested control to re-enter its
-            // loop or transition flow and produce black screens. Instead,
-            // restore any saved interaction handlers so skip/transition
-            // methods can run safely without reinitializing the level.
-            if (typeof ctrl.restoreInteractionHandlers === 'function') {
-                try { ctrl.restoreInteractionHandlers(); } catch (e) { console.warn('restoreInteractionHandlers failed:', e); }
->>>>>>> 744ce5e (Latest leaderboard)
             }
 
             // Try to find and call the correct method to skip level on the active control
@@ -769,20 +534,11 @@ class GameCore {
         // Get the game container element
         const gameContainer = this.gameContainer instanceof HTMLElement ? 
             this.gameContainer : document.getElementById('gameContainer');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
 
         // Keep score text synced to active game state from the moment leaderboard is used
         this._ensureActiveScoreManager().catch(err => {
             console.warn('Failed to sync active ScoreManager while toggling leaderboard:', err);
         });
-<<<<<<< HEAD
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
         
         // Try to find leaderboard container
         let leaderboardContainer = document.getElementById('leaderboard-container');
@@ -792,27 +548,11 @@ class GameCore {
             if (leaderboardContainer.style.display === 'none' || leaderboardContainer.classList.contains('initially-hidden')) {
                 leaderboardContainer.style.display = 'block';
                 leaderboardContainer.classList.remove('initially-hidden');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                
-                // CRITICAL: Always use fixed positioning to avoid being affected by game container
-<<<<<<< HEAD
-                leaderboardContainer.style.position = 'fixed';
-                leaderboardContainer.style.top = '80px';
-                leaderboardContainer.style.right = '20px';
-                leaderboardContainer.style.left = 'auto';
-                leaderboardContainer.style.zIndex = '1000';
->>>>>>> 5951a9a (update for v1.1)
-=======
                     leaderboardContainer.style.position = 'fixed';
                     leaderboardContainer.style.top = '80px';
                     leaderboardContainer.style.left = '20px';
                     leaderboardContainer.style.right = 'auto';
                     leaderboardContainer.style.zIndex = '1000';
->>>>>>> 744ce5e (Latest leaderboard)
-=======
->>>>>>> ea16077 (panels and many cookies)
             } else {
                 leaderboardContainer.style.display = 'none';
             }
@@ -822,10 +562,6 @@ class GameCore {
             console.log('Leaderboard container not found, creating new...');
             
             const ctrlForLeaderboard = this.getActiveControl();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
             const instantiateLeaderboard = (LeaderboardClass) => {
                 const leaderboardOptions = {
@@ -863,14 +599,7 @@ class GameCore {
                         console.warn('Failed to create leaderboard:', err);
                     });
             }
-=======
-            import('../Leaderboard.js')
-=======
-            import(`${this.path}/assets/js/GameEnginev1.1/Leaderboard.js`)
->>>>>>> 16ca53c (fix import('./. for case of base url in project)
-=======
             import(`${this.path}/assets/js/GameEnginev1.1/essentials/Leaderboard.js`)
->>>>>>> 8ac4c51 (leaderboard corrections)
                 .then(mod => {
                     // Determine parent - use gameContainer if available
                     let parentId = 'gameContainer';
@@ -879,8 +608,6 @@ class GameCore {
                     } else if (this.gameContainer instanceof HTMLElement) {
                         parentId = this.gameContainer.id || 'gameContainer';
                     }
-=======
->>>>>>> ea16077 (panels and many cookies)
 
             const instantiateLeaderboard = (LeaderboardClass) => {
                 const leaderboardOptions = {
@@ -900,28 +627,7 @@ class GameCore {
                 this._ensureActiveScoreManager().catch(err => {
                     console.warn('Failed to sync active ScoreManager after leaderboard creation:', err);
                 });
-<<<<<<< HEAD
 >>>>>>> 5951a9a (update for v1.1)
-=======
-
-                console.log('Leaderboard created and shown');
-            };
-
-            const EnvLeaderboardClass = this.environment.leaderboardClass;
-            if (EnvLeaderboardClass) {
-                try {
-                    instantiateLeaderboard(EnvLeaderboardClass);
-                } catch (err) {
-                    console.warn('Failed to create leaderboard from environment class:', err);
-                }
-            } else {
-                import(`${this.path}/assets/js/GameEnginev1.1/essentials/Leaderboard.js`)
-                    .then(mod => instantiateLeaderboard(mod.default || mod))
-                    .catch(err => {
-                        console.warn('Failed to create leaderboard:', err);
-                    });
-            }
->>>>>>> ea16077 (panels and many cookies)
         }
     }
 
@@ -977,29 +683,10 @@ class GameCore {
                 // If there's already a pause modal open, close it and resume
                 const existingModal = document.getElementById('pauseModal');
                     if (existingModal) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
                         // Use the standard close path so PauseMenu and handlers
                         // are consistently cleaned up.
                         try { this._closePauseModal(); } catch (e) { existingModal.remove(); }
                         return;
-<<<<<<< HEAD
-=======
-                        existingModal.remove();
-                        // Resume the active control - MUST call resume() to properly restore handlers
-                        const ctrl = this.getActiveControl();
-                        if (ctrl) {
-                            ctrl.isPaused = false;
-                            if (typeof ctrl.resume === 'function') {
-                                ctrl.resume();
-                            }
-                        }
-                    return;
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
                 }
                 
                 // Show pause modal if method exists (adventure game)

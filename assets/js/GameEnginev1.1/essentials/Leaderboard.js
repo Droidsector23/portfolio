@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
 /**
  * Leaderboard - Dual-Mode Leaderboard Widget for GameEngine v1.1
  * ================================================================
@@ -115,23 +110,14 @@
  */
 
 import { javaURI, fetchOptions } from '../../api/config.js';
-=======
 import { javaURI, fetchOptions } from '/assets/js/api/config.js';
->>>>>>> 5951a9a (update for v1.1)
-=======
 import { javaURI, fetchOptions } from '../../api/config.js';
->>>>>>> d2330e2 (more path issues on scoreboard)
 
 export default class Leaderboard {
     constructor(gameControl = null, options = {}) {
         this.gameControl = gameControl;
         this.gameName = options.gameName || 'Global';
         this.parentId = options.parentId || null;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ea16077 (panels and many cookies)
         // Modular visibility options (backward compatible):
         // - initiallyHidden: boolean (legacy)
         // - initiallyVisible: boolean
@@ -165,32 +151,17 @@ export default class Leaderboard {
             JSON.parse(localStorage.getItem(this.deletedElementaryIdsStorageKey) || '[]')
                 .map((v) => String(v))
         );
-<<<<<<< HEAD
-=======
-        this.isOpen = false;
-=======
-        // Default: visible unless explicitly requested hidden via options.initiallyHidden === true
-        this.initiallyHidden = options.initiallyHidden === true;
-        this.isOpen = false; // Always start collapsed
->>>>>>> 8ac4c51 (leaderboard corrections)
         this.mounted = false;
         this.mode = 'dynamic'; // Default to dynamic leaderboard
         this.showingTypeSelection = false;
         this.elementaryEntries = []; // Store elementary entries locally
-<<<<<<< HEAD
         this.initiallyHidden = options.initiallyHidden !== false; // Default to hidden
 >>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
-=======
->>>>>>> ea16077 (panels and many cookies)
 
         // Flag whether a backend URI is available; allow UI to mount even when
         // backend is unreachable so leaderboard can operate in offline/local mode.
         this.hasBackend = Boolean(javaURI);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.init();
     }
 
@@ -205,19 +176,7 @@ export default class Leaderboard {
     _applyDeletedElementaryFilter(entries = []) {
         if (!this.deletedElementaryIds.size) return entries;
         return entries.filter((entry) => !this.deletedElementaryIds.has(String(entry.id)));
-<<<<<<< HEAD
-=======
-        try {
-            this.init();
-        } catch (error) {
-            console.error('[Leaderboard] Initialization error:', error);
-        }
->>>>>>> 5951a9a (update for v1.1)
-=======
         this.init();
->>>>>>> 8ac4c51 (leaderboard corrections)
-=======
->>>>>>> ea16077 (panels and many cookies)
     }
 
     init() {
@@ -231,15 +190,10 @@ export default class Leaderboard {
     mount() {
         if (this.mounted) return;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ea16077 (panels and many cookies)
         // Mount inside provided parent when available; fallback to body.
         const appendTarget = (this.parentId && document.getElementById(this.parentId)) || document.body;
         const canUseAbsoluteInParent = appendTarget !== document.body
             && window.getComputedStyle(appendTarget).position !== 'static';
-<<<<<<< HEAD
         
         const container = document.createElement('div');
         container.id = 'leaderboard-container';
@@ -259,22 +213,6 @@ export default class Leaderboard {
             container.style.right = 'auto';
             container.style.zIndex = '1000';
         }
-=======
-        // CRITICAL: Always append to body and use fixed positioning
-        // This ensures the leaderboard is not affected by game container position changes
-        const appendTarget = document.body;
-        
-        const container = document.createElement('div');
-        container.id = 'leaderboard-container';
-        
-        // CRITICAL: Always use fixed positioning to avoid game container position affecting it
-        container.style.position = 'fixed';
-        container.style.top = '80px';
-        container.style.left = '20px';
-        container.style.right = 'auto';
-        container.style.zIndex = '1000';
->>>>>>> 5951a9a (update for v1.1)
-=======
         
         const container = document.createElement('div');
         container.id = 'leaderboard-container';
@@ -294,16 +232,11 @@ export default class Leaderboard {
             container.style.right = 'auto';
             container.style.zIndex = '1000';
         }
->>>>>>> ea16077 (panels and many cookies)
         
         // Add the widget class for styling
         container.className = 'leaderboard-widget' + (this.initiallyHidden ? ' initially-hidden' : '');
 
         container.innerHTML = `
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
             <div class="leaderboard-header" style="padding:12px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
                 <div style="display:flex;flex-direction:column;gap:6px;">
                     <div style="display:flex;align-items:center;gap:8px;">
@@ -320,35 +253,17 @@ export default class Leaderboard {
                 <div style="display:flex;align-items:center;gap:8px;">
                     <button id="leaderboard-save-score" class="save-score-btn" aria-label="Save score" title="Save score">💾</button>
                     <button id="toggle-leaderboard" class="toggle-btn" aria-label="Toggle leaderboard" title="Toggle leaderboard">+</button>
-<<<<<<< HEAD
                 </div>
             </div>
             <div class="leaderboard-content hidden" id="leaderboard-content" style="padding:12px 16px;">
-=======
-            <div class="leaderboard-header">
-                <div>
-                    <button id="back-btn" class="back-btn" style="display:none;">← Back</button>
-                    <span id="leaderboard-title">Leaderboard</span>
-                    <span id="leaderboard-preview"
-                          style="font-size:16px;font-weight:700;margin-left:8px;display:none;">Collapse to choose a leaderboard</span>
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
                 </div>
             </div>
-<<<<<<< HEAD
             <div class="leaderboard-content hidden" id="leaderboard-content">
 >>>>>>> 5951a9a (update for v1.1)
-=======
-            <div class="leaderboard-content hidden" id="leaderboard-content" style="padding:12px 16px;">
->>>>>>> 8ac4c51 (leaderboard corrections)
                 <div id="leaderboard-list"></div>
             </div>
         `;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ea16077 (panels and many cookies)
         (canUseAbsoluteInParent ? appendTarget : document.body).appendChild(container);
         // Apply initial open/closed state immediately to avoid needing a separate preload
         const contentEl = container.querySelector('#leaderboard-content');
@@ -369,31 +284,8 @@ export default class Leaderboard {
                 }
             }
         }
-=======
         appendTarget.appendChild(container);
-<<<<<<< HEAD
 >>>>>>> 5951a9a (update for v1.1)
-=======
-        // Apply initial open/closed state immediately to avoid needing a separate preload
-        const contentEl = container.querySelector('#leaderboard-content');
-        const toggleBtn = container.querySelector('#toggle-leaderboard');
-        const previewEl = container.querySelector('#leaderboard-preview');
-        const titleEl = container.querySelector('#leaderboard-title');
-
-        if (contentEl && toggleBtn) {
-            contentEl.classList.toggle('hidden', !this.isOpen);
-            toggleBtn.textContent = this.isOpen ? '−' : '+';
-            if (previewEl && titleEl) {
-                if (this.isOpen) {
-                    titleEl.style.display = 'inline';
-                    previewEl.style.display = 'none';
-                } else {
-                    titleEl.style.display = 'none';
-                    previewEl.style.display = 'inline';
-                }
-            }
-        }
->>>>>>> 8ac4c51 (leaderboard corrections)
         this.mounted = true;
 
         document
@@ -404,10 +296,6 @@ export default class Leaderboard {
             .getElementById('back-btn')
             .addEventListener('click', () => this.goBack());
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
         document
             .getElementById('leaderboard-save-score')
             .addEventListener('click', (e) => this.handleSaveScoreFromLeaderboard(e.currentTarget));
@@ -456,12 +344,6 @@ export default class Leaderboard {
                 console.error('Failed to save score from leaderboard:', error);
                 alert('Failed to save score. Please try again.');
             });
-<<<<<<< HEAD
-=======
-        this.showTypeSelection();
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
     }
 
     toggle() {
@@ -474,19 +356,10 @@ export default class Leaderboard {
         content.classList.toggle('hidden', !this.isOpen);
         btn.textContent = this.isOpen ? '−' : '+';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
         // Always hide back button when collapsed
         const backBtn = document.getElementById('back-btn');
         if (backBtn) backBtn.style.display = (this.isOpen && !this.showingTypeSelection) ? 'inline-block' : 'none';
 
-<<<<<<< HEAD
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
         if (preview && title) {
             if (this.isOpen) {
                 // When open: show title, hide preview
@@ -541,36 +414,24 @@ export default class Leaderboard {
             this.mode = 'dynamic';
             this.showingTypeSelection = false;
             this.setupDynamicMode();
-<<<<<<< HEAD
-<<<<<<< HEAD
             // Show back button only in open mode
             const backBtn = document.getElementById('back-btn');
             if (backBtn) backBtn.style.display = (this.isOpen) ? 'inline-block' : 'none';
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
             // Show back button only in open mode
             const backBtn = document.getElementById('back-btn');
             if (backBtn) backBtn.style.display = (this.isOpen) ? 'inline-block' : 'none';
->>>>>>> 8ac4c51 (leaderboard corrections)
         });
 
         document.getElementById('elementary-btn').addEventListener('click', () => {
             this.mode = 'elementary';
             this.showingTypeSelection = false;
             this.setupElementaryMode();
-<<<<<<< HEAD
-<<<<<<< HEAD
             // Show back button only in open mode
             const backBtn = document.getElementById('back-btn');
             if (backBtn) backBtn.style.display = (this.isOpen) ? 'inline-block' : 'none';
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
             // Show back button only in open mode
             const backBtn = document.getElementById('back-btn');
             if (backBtn) backBtn.style.display = (this.isOpen) ? 'inline-block' : 'none';
->>>>>>> 8ac4c51 (leaderboard corrections)
         });
     }
 
@@ -586,48 +447,28 @@ export default class Leaderboard {
 
         list.innerHTML = '<p class="loading">Loading dynamic leaderboard…</p>';
         
-<<<<<<< HEAD
-<<<<<<< HEAD
         // Show back button only if open
         const backBtn = document.getElementById('back-btn');
         if (backBtn) backBtn.style.display = (this.isOpen) ? 'inline-block' : 'none';
 
-=======
-        // Show back button
-        const backBtn = document.getElementById('back-btn');
-        if (backBtn) backBtn.style.display = 'inline-block';
-        
->>>>>>> 5951a9a (update for v1.1)
-=======
         // Show back button only if open
         const backBtn = document.getElementById('back-btn');
         if (backBtn) backBtn.style.display = (this.isOpen) ? 'inline-block' : 'none';
 
->>>>>>> 8ac4c51 (leaderboard corrections)
         // Start auto-updating
         this.fetchLeaderboard();
         this.refreshInterval = setInterval(() => this.fetchLeaderboard(), 30000);
     }
 
     setupElementaryMode() {
-<<<<<<< HEAD
-<<<<<<< HEAD
         // Show back button only if open
         const backBtn = document.getElementById('back-btn');
         if (backBtn) backBtn.style.display = (this.isOpen) ? 'inline-block' : 'none';
 
-=======
-        // Show back button
-        const backBtn = document.getElementById('back-btn');
-        if (backBtn) backBtn.style.display = 'inline-block';
-        
->>>>>>> 5951a9a (update for v1.1)
-=======
         // Show back button only if open
         const backBtn = document.getElementById('back-btn');
         if (backBtn) backBtn.style.display = (this.isOpen) ? 'inline-block' : 'none';
 
->>>>>>> 8ac4c51 (leaderboard corrections)
         // Fetch existing data from backend
         this.fetchElementaryLeaderboard().then(() => {
             this.showElementaryForm();
@@ -677,15 +518,8 @@ export default class Leaderboard {
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     addElementaryScore() {
-=======
-    async addElementaryScore() {
->>>>>>> 5951a9a (update for v1.1)
-=======
     addElementaryScore() {
->>>>>>> 8ac4c51 (leaderboard corrections)
         console.log('=== ADD ELEMENTARY SCORE ===');
         const nameInput = document.getElementById('player-name');
         const scoreInput = document.getElementById('player-score');
@@ -716,8 +550,6 @@ export default class Leaderboard {
             // Clear inputs and refresh local display
             nameInput.value = '';
             scoreInput.value = '';
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.fetchElementaryLeaderboard();
             return;
         }
@@ -775,11 +607,6 @@ export default class Leaderboard {
     }
 
     deleteElementaryScore(id) {
-=======
-            await this.fetchElementaryLeaderboard();
-=======
-            this.fetchElementaryLeaderboard();
->>>>>>> 8ac4c51 (leaderboard corrections)
             return;
         }
 
@@ -835,12 +662,8 @@ export default class Leaderboard {
             });
     }
 
-<<<<<<< HEAD
     async deleteElementaryScore(id) {
 >>>>>>> 5951a9a (update for v1.1)
-=======
-    deleteElementaryScore(id) {
->>>>>>> 8ac4c51 (leaderboard corrections)
         if (!confirm('Are you sure you want to delete this score?')) {
             return;
         }
@@ -848,9 +671,6 @@ export default class Leaderboard {
         console.log('=== DELETE SCORE ===');
         console.log('Deleting ID:', id);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         const deleteLocal = () => {
             const storageKey = `elementary_leaderboard_${this.gameName}`;
             const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
@@ -924,50 +744,6 @@ export default class Leaderboard {
             const storageKey = `elementary_leaderboard_${this.gameName}`;
             const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
             this.elementaryEntries = this._applyDeletedElementaryFilter(stored
-=======
-        try {
-            // If backend unavailable, delete from localStorage
-            if (!this.hasBackend) {
-                const storageKey = `elementary_leaderboard_${this.gameName}`;
-                const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
-                const filtered = stored.filter(e => e.id !== id);
-                localStorage.setItem(storageKey, JSON.stringify(filtered));
-                await this.fetchElementaryLeaderboard();
-                return;
-            }
-
-            const url = `${javaURI}/api/events/ELEMENTARY_LEADERBOARD/${id}`;
-            console.log('DELETE URL:', url);
-
-            // DELETE from backend - using fetchOptions for proper authentication
-            const res = await fetch(
-                url,
-                {
-                    ...fetchOptions,
-                    method: 'DELETE'
-                }
-            );
-
-            if (!res.ok) {
-                const errorText = await res.text();
-                console.error('Delete failed:', res.status, errorText);
-                throw new Error(`Failed to delete: ${res.status} - ${errorText}`);
-            }
-
-            console.log('Score deleted successfully');
-
-            // Fetch updated leaderboard from backend
-            await this.fetchElementaryLeaderboard();
-
-        } catch (error) {
-            console.error('Error deleting score:', error);
-            alert(`Failed to delete score: ${error.message}`);
-=======
-        // If backend unavailable, delete from localStorage
-        if (!this.hasBackend) {
-=======
-        const deleteLocal = () => {
->>>>>>> ea16077 (panels and many cookies)
             const storageKey = `elementary_leaderboard_${this.gameName}`;
             const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
             const filtered = stored.filter(e => String(e.id) !== String(id));
@@ -993,7 +769,6 @@ export default class Leaderboard {
         if (!this.syncElementaryDeleteWithBackend) {
             deleteLocal();
             return;
->>>>>>> 8ac4c51 (leaderboard corrections)
         }
 
         const url = `${javaURI}/api/events/ELEMENTARY_LEADERBOARD/${id}`;
@@ -1035,7 +810,6 @@ export default class Leaderboard {
 
     fetchElementaryLeaderboard() {
         console.log('=== FETCHING ELEMENTARY LEADERBOARD ===');
-<<<<<<< HEAD
         try {
             // If backend unavailable, load from localStorage
             if (!this.hasBackend) {
@@ -1077,7 +851,6 @@ export default class Leaderboard {
                     gameName: event.payload?.gameName || this.gameName,
                     timestamp: event.timestamp
                 }))
-<<<<<<< HEAD
                 .sort((a, b) => b.score - a.score));
 
             this.displayElementaryLeaderboard();
@@ -1137,29 +910,6 @@ export default class Leaderboard {
                     .sort((a, b) => b.score - a.score));
                 this.displayElementaryLeaderboard();
             });
-=======
-                .sort((a, b) => b.score - a.score); // Sort by score descending
-            
-            console.log('Transformed elementaryEntries:', this.elementaryEntries);
-            
-            // Force display update
-            this.displayElementaryLeaderboard();
-        } catch (error) {
-            console.error('Error fetching leaderboard:', error);
-            // Check for authentication errors (401 or 403 status)
-            if (error.message && (error.message.includes('401') || error.message.includes('403'))) {
-                const list = document.getElementById('leaderboard-list');
-                if (list) {
-                    list.innerHTML = '<p class="error">Please login to access this feature.</p>';
-                }
-                return;
-            }
-            // Fallback to local data if fetch fails
-=======
-        
-        // If backend unavailable, load from localStorage
-        if (!this.hasBackend) {
->>>>>>> 8ac4c51 (leaderboard corrections)
             const storageKey = `elementary_leaderboard_${this.gameName}`;
             const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
             this.elementaryEntries = this._applyDeletedElementaryFilter(stored
@@ -1175,64 +925,7 @@ export default class Leaderboard {
             this.displayElementaryLeaderboard();
             return Promise.resolve();
         }
-<<<<<<< HEAD
 >>>>>>> 5951a9a (update for v1.1)
-=======
-
-        const url = `${javaURI}/api/events/ELEMENTARY_LEADERBOARD`;
-        console.log('Fetching from:', url);
-
-        return fetch(url, fetchOptions)
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-                return res.json();
-            })
-            .then(data => {
-                console.log('Received data:', data);
-                console.log('Number of entries:', data.length);
-                
-                // Transform backend data to frontend format
-                // Backend returns AlgorithmicEvent with payload field
-                this.elementaryEntries = this._applyDeletedElementaryFilter(data
-                    .map(event => ({
-                        id: event.id,
-                        user: event.payload?.user || 'Anonymous',
-                        score: event.payload?.score || 0,
-                        gameName: event.payload?.gameName || this.gameName,
-                        timestamp: event.timestamp
-                    }))
-                    .sort((a, b) => b.score - a.score)); // Sort by score descending
-                
-                console.log('Transformed elementaryEntries:', this.elementaryEntries);
-                
-                // Force display update
-                this.displayElementaryLeaderboard();
-            })
-            .catch(error => {
-                console.error('Error fetching leaderboard:', error);
-                // Check for authentication errors (401 or 403 status)
-                if (error.message && (error.message.includes('401') || error.message.includes('403'))) {
-                    const list = document.getElementById('leaderboard-list');
-                    if (list) {
-                        list.innerHTML = '<p class="error">Please login to access this feature.</p>';
-                    }
-                    return;
-                }
-                // Fallback to local data if fetch fails
-                const storageKey = `elementary_leaderboard_${this.gameName}`;
-                const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
-                this.elementaryEntries = this._applyDeletedElementaryFilter(stored
-                    .map(event => ({
-                        id: event.id,
-                        user: event.payload?.user || 'Anonymous',
-                        score: event.payload?.score || 0,
-                        gameName: event.payload?.gameName || this.gameName,
-                        timestamp: event.timestamp
-                    }))
-                    .sort((a, b) => b.score - a.score));
-                this.displayElementaryLeaderboard();
-            });
->>>>>>> 8ac4c51 (leaderboard corrections)
     }
 
     displayElementaryLeaderboard() {
@@ -1323,23 +1016,12 @@ export default class Leaderboard {
         });
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     fetchLeaderboard() {
-=======
-    async fetchLeaderboard() {
->>>>>>> 5951a9a (update for v1.1)
-=======
     fetchLeaderboard() {
->>>>>>> 8ac4c51 (leaderboard corrections)
         if (this.mode !== 'dynamic') return;
 
         const list = document.getElementById('leaderboard-list');
         if (!list) return;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
         
         // If backend unavailable, load local scores
         if (!this.hasBackend) {
@@ -1352,7 +1034,6 @@ export default class Leaderboard {
             }));
             this.displayLeaderboard(transformed);
             return;
-<<<<<<< HEAD
         }
 
         fetch(`${javaURI}/api/events/SCORE_COUNTER`, fetchOptions)
@@ -1372,37 +1053,6 @@ export default class Leaderboard {
                     list.innerHTML = `<p class="error">Failed to load leaderboard</p>`;
                 }
             });
-=======
-        try {
-            // If backend unavailable, load local scores
-            if (!this.hasBackend) {
-                const storageKey = `score_counter_${this.gameName}`;
-                const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
-                const transformed = stored.map(e => ({
-                    id: e.id,
-                    payload: { user: e.payload.user, score: e.payload.score, gameName: e.payload.gameName },
-                    timestamp: e.timestamp
-                }));
-                this.displayLeaderboard(transformed);
-                return;
-            }
-
-            const res = await fetch(`${javaURI}/api/events/SCORE_COUNTER`, fetchOptions);
-
-            if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-            const data = await res.json();
-            this.displayLeaderboard(data);
-        } catch (err) {
-            console.error('Error fetching dynamic leaderboard:', err);
-            // Check for authentication errors (401 or 403 status)
-            if (err.message && (err.message.includes('401') || err.message.includes('403'))) {
-                list.innerHTML = `<p class="error">Please login to access this feature.</p>`;
-            } else {
-                list.innerHTML = `<p class="error">Failed to load leaderboard</p>`;
-            }
-        }
->>>>>>> 5951a9a (update for v1.1)
-=======
         }
 
         fetch(`${javaURI}/api/events/SCORE_COUNTER`, fetchOptions)
@@ -1422,54 +1072,32 @@ export default class Leaderboard {
                     list.innerHTML = `<p class="error">Failed to load leaderboard</p>`;
                 }
             });
->>>>>>> 8ac4c51 (leaderboard corrections)
     }
 
     /**
      * Submit a score to the SCORE_COUNTER endpoint
-<<<<<<< HEAD
-<<<<<<< HEAD
      * Uses API chaining pattern for elegant error handling
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
      * Uses API chaining pattern for elegant error handling
->>>>>>> 8ac4c51 (leaderboard corrections)
      * @param {string} username - Player username
      * @param {number} score - Player score
      * @param {string} gameName - Name of the game (optional, uses this.gameName if not provided)
      * @returns {Promise<Object>} The saved score entry
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     submitScore(username, score, gameName = null) {
         console.log('=== SUBMIT SCORE TO SCORE_COUNTER ===');
         
         if (!username || isNaN(score)) {
             return Promise.reject(new Error('Invalid username or score'));
-=======
-    async submitScore(username, score, gameName = null) {
-        console.log('=== SUBMIT SCORE TO SCORE_COUNTER ===');
-        
-        if (!username || isNaN(score)) {
-            throw new Error('Invalid username or score');
->>>>>>> 5951a9a (update for v1.1)
-=======
     submitScore(username, score, gameName = null) {
         console.log('=== SUBMIT SCORE TO SCORE_COUNTER ===');
         
         if (!username || isNaN(score)) {
             return Promise.reject(new Error('Invalid username or score'));
->>>>>>> 8ac4c51 (leaderboard corrections)
         }
 
         const endpoint = '/api/events/SCORE_COUNTER';
         console.log('POST endpoint:', endpoint);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
         // If backend unavailable, store locally and update display
         if (!this.hasBackend) {
             const storageKey = `score_counter_${gameName || this.gameName}`;
@@ -1478,7 +1106,6 @@ export default class Leaderboard {
                 id: `local-${Date.now()}`,
                 payload: { user: username, score: score, gameName: gameName || this.gameName },
                 timestamp: new Date().toISOString()
-<<<<<<< HEAD
             };
             stored.push(entry);
             localStorage.setItem(storageKey, JSON.stringify(stored));
@@ -1528,36 +1155,6 @@ export default class Leaderboard {
 
                 return savedEntry;
             });
-=======
-        try {
-            // If backend unavailable, store locally and update display
-            if (!this.hasBackend) {
-                const storageKey = `score_counter_${gameName || this.gameName}`;
-                const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
-                const entry = {
-                    id: `local-${Date.now()}`,
-                    payload: { user: username, score: score, gameName: gameName || this.gameName },
-                    timestamp: new Date().toISOString()
-                };
-                stored.push(entry);
-                localStorage.setItem(storageKey, JSON.stringify(stored));
-
-                if (this.mode === 'dynamic') await this.fetchLeaderboard();
-                return entry;
-            }
-
-            const url = `${javaURI}${endpoint}`;
-            console.log('Full URL:', url);
-
-            // Create payload matching Java backend AlgorithmicEvent structure
-            const requestBody = {
-                payload: {
-                    user: username,
-                    score: score,
-                    gameName: gameName || this.gameName
-                }
-=======
->>>>>>> 8ac4c51 (leaderboard corrections)
             };
             stored.push(entry);
             localStorage.setItem(storageKey, JSON.stringify(stored));
@@ -1565,52 +1162,7 @@ export default class Leaderboard {
             if (this.mode === 'dynamic') this.fetchLeaderboard();
             return Promise.resolve(entry);
         }
-<<<<<<< HEAD
 >>>>>>> 5951a9a (update for v1.1)
-=======
-
-        const url = `${javaURI}${endpoint}`;
-        console.log('Full URL:', url);
-
-        // Create payload matching Java backend AlgorithmicEvent structure
-        const requestBody = {
-            payload: {
-                user: username,
-                score: score,
-                gameName: gameName || this.gameName
-            }
-        };
-        console.log('Payload:', JSON.stringify(requestBody));
-
-        // POST to backend using API chaining pattern
-        return fetch(
-            url,
-            {
-                ...fetchOptions,
-                method: 'POST',
-                body: JSON.stringify(requestBody)
-            }
-        )
-            .then(res => {
-                if (!res.ok) {
-                    return res.text().then(errorText => {
-                        console.error('Server error:', errorText);
-                        throw new Error(`Failed to save score: ${res.status} - ${errorText}`);
-                    });
-                }
-                return res.json();
-            })
-            .then(savedEntry => {
-                console.log('Score saved successfully to SCORE_COUNTER:', savedEntry);
-
-                // Refresh leaderboard if we're in dynamic mode
-                if (this.mode === 'dynamic') {
-                    return this.fetchLeaderboard().then(() => savedEntry);
-                }
-
-                return savedEntry;
-            });
->>>>>>> 8ac4c51 (leaderboard corrections)
     }
 
     displayLeaderboard(data) {
@@ -1709,11 +1261,5 @@ export default class Leaderboard {
         return container && container.style.display !== 'none' && !container.classList.contains('initially-hidden');
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
 
->>>>>>> 8ac4c51 (leaderboard corrections)

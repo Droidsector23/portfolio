@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Transform from './Transform.js';
 
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
 import Transform from './Transform.js';
 
->>>>>>> 744ce5e (Latest leaderboard)
 /**
  * The GameObject class serves as a base class for all game objects.
  * It mimics an interface by defining abstract methods that must be implemented
@@ -25,28 +19,15 @@ import Transform from './Transform.js';
  * @method handleReaction - Handles player reaction / state updates to the collision.
  */
 class GameObject {
-<<<<<<< HEAD
-<<<<<<< HEAD
  
-=======
-    
->>>>>>> 5951a9a (update for v1.1)
-=======
  
->>>>>>> 65352b8 (Clicker implementation)
     constructor(gameEnv = null) {
         if (new.target === GameObject) {
             throw new TypeError("Cannot construct GameObject instances directly");
         }
         this.gameEnv = gameEnv; 
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.transform = new Transform(0, 0);
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
         this.transform = new Transform(0, 0);
->>>>>>> 744ce5e (Latest leaderboard)
         this.collisionWidth = 0;
         this.collisionHeight = 0;
         this.collisionData = {};
@@ -57,10 +38,6 @@ class GameObject {
         };
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
     get position() {
         return this.transform.position;
     }
@@ -121,11 +98,6 @@ class GameObject {
         this.transform.resetToSpawn();
     }
 
-<<<<<<< HEAD
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
     /**
      * Updates the object's state.
      * This method must be implemented by subclasses.
@@ -162,10 +134,6 @@ class GameObject {
         throw new Error("Method 'destroy()' must be implemented.");
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 65352b8 (Clicker implementation)
     /**
      * Check if a point (canvas/game coordinates) is inside this object's hitbox.
      * @param {number} x - X coordinate (canvas/game space)
@@ -188,10 +156,6 @@ class GameObject {
         // Default: do nothing. Subclasses can override for interactivity.
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
     /**
      * Returns the center point of this object.
      */
@@ -224,13 +188,6 @@ class GameObject {
         return this.getDistanceTo(other) <= distance;
     }
 
-<<<<<<< HEAD
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 65352b8 (Clicker implementation)
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
     /** Collision checks
      * uses Player isCollision to detect hit
      * calls collisionAction on hit
@@ -262,8 +219,6 @@ class GameObject {
         const thisRect = this.canvas.getBoundingClientRect();
         const otherRect = other.canvas.getBoundingClientRect();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         // Calculate hitbox reductions for this object (applied symmetrically from all sides)
         const thisWidthReduction = thisRect.width * (this.hitbox?.widthPercentage || 0.0) / 2;
         const thisHeightReduction = thisRect.height * (this.hitbox?.heightPercentage || 0.0) / 2;
@@ -277,15 +232,6 @@ class GameObject {
         const thisTop = thisRect.top + thisHeightReduction;
         const thisRight = thisRect.right - thisWidthReduction;
         const thisBottom = thisRect.bottom - thisHeightReduction;
-=======
-        // Calculate hitbox constants for this object
-        const thisWidthReduction = thisRect.width * (this.hitbox?.widthPercentage || 0.0);
-        const thisHeightReduction = thisRect.height * (this.hitbox?.heightPercentage || 0.0);
-=======
-        // Calculate hitbox reductions for this object (applied symmetrically from all sides)
-        const thisWidthReduction = thisRect.width * (this.hitbox?.widthPercentage || 0.0) / 2;
-        const thisHeightReduction = thisRect.height * (this.hitbox?.heightPercentage || 0.0) / 2;
->>>>>>> 92722ed (migration of _profile changes)
 
         // Calculate hitbox reductions for other object (applied symmetrically from all sides)
         const otherWidthReduction = otherRect.width * (other.hitbox?.widthPercentage || 0.0) / 2;
@@ -295,18 +241,12 @@ class GameObject {
         const thisLeft = thisRect.left + thisWidthReduction;
         const thisTop = thisRect.top + thisHeightReduction;
         const thisRight = thisRect.right - thisWidthReduction;
-<<<<<<< HEAD
         const thisBottom = thisRect.bottom;
 >>>>>>> 5951a9a (update for v1.1)
-=======
-        const thisBottom = thisRect.bottom - thisHeightReduction;
->>>>>>> 92722ed (migration of _profile changes)
 
         const otherLeft = otherRect.left + otherWidthReduction;
         const otherTop = otherRect.top + otherHeightReduction;
         const otherRight = otherRect.right - otherWidthReduction;
-<<<<<<< HEAD
-<<<<<<< HEAD
         const otherBottom = otherRect.bottom - otherHeightReduction;
 
         // Circular collision detection (default and only option)
@@ -321,19 +261,6 @@ class GameObject {
         const distance = Math.hypot(thisCenterX - otherCenterX, thisCenterY - otherCenterY);
         const hit = distance < thisRadius + otherRadius;
       
-=======
-        const otherBottom = otherRect.bottom;
-
-        // Determine hit and touch points of hit
-        const hit = (
-            thisLeft < otherRight &&
-            thisRight > otherLeft &&
-            thisTop < otherBottom &&
-            thisBottom > otherTop
-        );
-
->>>>>>> 5951a9a (update for v1.1)
-=======
         const otherBottom = otherRect.bottom - otherHeightReduction;
 
         // Circular collision detection (default and only option)
@@ -348,7 +275,6 @@ class GameObject {
         const distance = Math.hypot(thisCenterX - otherCenterX, thisCenterY - otherCenterY);
         const hit = distance < thisRadius + otherRadius;
       
->>>>>>> 92722ed (migration of _profile changes)
         const touchPoints = {
             this: {
                 id: this.canvas.id,
@@ -382,10 +308,6 @@ class GameObject {
         if (!this.state.collisionEvents.includes(objectOther.id)) {
             // add the collisionType to the collisions array, making it the current collision
             this.state.collisionEvents.push(objectOther.id);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
             // Some games rely on preserving held inputs (for example platformers).
             // Keep legacy key clearing behavior unless an object opts out.
             if (this.clearPressedKeysOnCollision !== false) {
@@ -394,28 +316,12 @@ class GameObject {
                         if (obj && typeof obj === 'object' && obj.pressedKeys && typeof obj.pressedKeys === 'object') {
                             obj.pressedKeys = {};
                         }
-<<<<<<< HEAD
                     }
                 } catch (_) {}
             }
-=======
-            // Clear any stale pressed key state on player-like objects before running
-            // collision reactions. This avoids cases where a blocking dialog
-            // (for example `alert()`) steals focus and prevents keyup events
-            // from firing, leaving movement keys stuck.
-            try {
-                for (const obj of this.gameEnv.gameObjects) {
-                    if (obj && typeof obj === 'object' && obj.pressedKeys && typeof obj.pressedKeys === 'object') {
-                        obj.pressedKeys = {};
-                    }
-                }
-            } catch (_) {}
->>>>>>> 5951a9a (update for v1.1)
-=======
                     }
                 } catch (_) {}
             }
->>>>>>> 3750c40 (_project and support for site.baseurl)
 
             this.handleCollisionReaction(objectOther);
         }
@@ -427,10 +333,6 @@ class GameObject {
      * @param {*} other 
      */
     handleCollisionReaction(other) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
         // Avoid auto-triggering explicit interactables until the player presses E or clicks.
         const targetObject = other && other.id
             ? this.gameEnv.gameObjects.find(obj => obj.spriteData && obj.spriteData.id === other.id)
@@ -440,12 +342,6 @@ class GameObject {
         }
 
         // First check if reaction is a function that can be called
-<<<<<<< HEAD
-=======
-    // First check if reaction is a function that can be called
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
         if (other && other.reaction && typeof other.reaction === "function") {
             other.reaction();
             return;
@@ -509,10 +405,6 @@ class GameObject {
             }
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 92722ed (migration of _profile changes)
 
     /**
      * Debug method: Draw collision circle on canvas context
@@ -550,11 +442,3 @@ class GameObject {
 }
 
 export default GameObject;
-<<<<<<< HEAD
-=======
-}
-
-export default GameObject;
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 92722ed (migration of _profile changes)

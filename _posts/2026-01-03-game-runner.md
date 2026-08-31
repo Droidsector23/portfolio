@@ -15,15 +15,8 @@ Game Runner integrates your GameEngine framework for teaching game development. 
 
 #### HTML Component
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 - File: `_includes/runners/game.html`
-=======
-- File: `_includes/game-runner.html`
->>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
-=======
 - File: `_includes/runners/game.html`
->>>>>>> 3750c40 (_project and support for site.baseurl)
 - Reusable component for GameEngine integration
 - Automatically creates gameContainer and gameCanvas
 - Provides game controls: Start, Pause/Resume, Stop, Reset
@@ -75,15 +68,8 @@ export const gameLevelClasses = [GameLevelBasic];
 
 ---
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ## Basic Game: Background, Custom Player
-=======
-## Basic Game: Copied from GameBuilder
->>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
-=======
 ## Basic Game: Background, Custom Player
->>>>>>> d6775f0 (canvas issue)
 
 {% capture challenge1 %}
 Run the basic game. Use WASD or arrow keys to move Chill Guy around the desert. Walk up to R2D2 to trigger an interaction!
@@ -116,10 +102,6 @@ class CustomLevel {
       pixels: { height: 512, width: 384 },
       orientation: { rows: 4, columns: 3 },
       down: { row: 0, start: 0, columns: 3 },
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d6775f0 (canvas issue)
       downRight: { row: 1, start: 0, columns: 3, rotate: Math.PI/16 },
       downLeft: { row: 2, start: 0, columns: 3, rotate: -Math.PI/16 },
       right: { row: 1, start: 0, columns: 3 },
@@ -127,18 +109,6 @@ class CustomLevel {
       up: { row: 3, start: 0, columns: 3 },
       upRight: { row: 1, start: 0, columns: 3, rotate: -Math.PI/16 },
       upLeft: { row: 2, start: 0, columns: 3, rotate: Math.PI/16 },
-<<<<<<< HEAD
-=======
-      downRight: { row: Math.min(1, 4 - 1), start: 0, columns: 3, rotate: Math.PI/16 },
-      downLeft: { row: Math.min(2, 4 - 1), start: 0, columns: 3, rotate: -Math.PI/16 },
-      right: { row: Math.min(1, 4 - 1), start: 0, columns: 3 },
-      left: { row: Math.min(2, 4 - 1), start: 0, columns: 3 },
-      up: { row: Math.min(3, 4 - 1), start: 0, columns: 3 },
-      upRight: { row: Math.min(1, 4 - 1), start: 0, columns: 3, rotate: -Math.PI/16 },
-      upLeft: { row: Math.min(2, 4 - 1), start: 0, columns: 3, rotate: Math.PI/16 },
->>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
-=======
->>>>>>> d6775f0 (canvas issue)
       hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
       keypress: { up: 87, left: 65, down: 83, right: 68 }
     };
@@ -154,25 +124,14 @@ export const gameLevelClasses = [CustomLevel];
 export { GameControl };
 {% endcapture %}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 {% include runners/game.html
-=======
-{% include game-runner.html
->>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
-=======
 {% include runners/game.html
->>>>>>> 3750c40 (_project and support for site.baseurl)
    runner_id="game1"
    challenge=challenge1
    code=code1
    height="150px"
 %}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d6775f0 (canvas issue)
 ## Combine Game Levels: Connected levels via ESC key
 
 {% capture challenge2 %}
@@ -187,25 +146,13 @@ export const gameLevelClasses = [GameLevelWater, GameLevelParallaxFish];
 export { GameControl };
 {% endcapture %}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 {% include runners/game.html
-=======
-{% include game-runner.html
->>>>>>> d6775f0 (canvas issue)
-=======
 {% include runners/game.html
->>>>>>> 3750c40 (_project and support for site.baseurl)
    runner_id="game2"
    challenge=challenge2
    code=code2
 %}
 
-<<<<<<< HEAD
-=======
->>>>>>> 9d3aeb3 (relocate items for simplicity of portfolio repo)
-=======
->>>>>>> d6775f0 (canvas issue)
 ## Best Practices
 
 ### Import Structure

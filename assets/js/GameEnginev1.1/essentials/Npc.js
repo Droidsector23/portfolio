@@ -13,46 +13,22 @@ class Npc extends Character {
         this.handleKeyDownBound = this.handleKeyDown.bind(this);
         this.handleKeyUpBound = this.handleKeyUp.bind(this);
         this.bindInteractKeyListeners();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c49aaf2 (patrol and wiggle latest)
 
         // --- Patrol/Movement properties from data ---
         this.walkingArea = data?.walkingArea || null;
         this.speed = data?.speed || 1;
         this.moveDirection = data?.moveDirection || { x: 1, y: 1 };
 
-<<<<<<< HEAD
-=======
-        
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> c49aaf2 (patrol and wiggle latest)
         // IMPORTANT: Create a unique ID for each NPC to avoid conflicts
         // Sanitize id to remove/replace spaces (spaces are not valid in DOM tokens)
         const sanitizedId = (data?.id || "").replace(/\s+/g, "_");
         this.uniqueId = sanitizedId + "_" + Math.random().toString(36).substr(2, 9);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 5951a9a (update for v1.1)
-=======
 
->>>>>>> c49aaf2 (patrol and wiggle latest)
         // IMPORTANT: Create a local dialogue system for this NPC specifically
         if (data?.dialogues) {
             this.dialogueSystem = new DialogueSystem({
                 dialogues: data.dialogues,
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> c49aaf2 (patrol and wiggle latest)
                 id: this.uniqueId
             });
         } else {
@@ -68,15 +44,8 @@ class Npc extends Character {
                 id: this.uniqueId
             });
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 5951a9a (update for v1.1)
-=======
 
->>>>>>> c49aaf2 (patrol and wiggle latest)
         // Register with game control for cleanup during transitions
         if (gameEnv && gameEnv.gameControl) {
             gameEnv.gameControl.registerInteractionHandler(this);
@@ -84,41 +53,21 @@ class Npc extends Character {
     }
 
     update() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c49aaf2 (patrol and wiggle latest)
         // General patrol logic for any NPC with walkingArea
         if (this.walkingArea) {
             this.patrol();
         }
-<<<<<<< HEAD
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> c49aaf2 (patrol and wiggle latest)
         this.draw();
         // Check if player is still in collision - add null checks
         const players = this.gameEnv.gameObjects.filter(
             obj => obj && obj.state && obj.state.collisionEvents && obj.state.collisionEvents.includes(this.spriteData.id)
         );
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> c49aaf2 (patrol and wiggle latest)
         // Reset interaction state if player moved away
         if (players.length === 0 && this.isInteracting) {
             this.isInteracting = false;
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c49aaf2 (patrol and wiggle latest)
     /**
      * General patrol movement within defined walking area (bouncing behavior)
      */
@@ -153,11 +102,6 @@ class Npc extends Character {
         }
     }
 
-<<<<<<< HEAD
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> c49aaf2 (patrol and wiggle latest)
     bindInteractKeyListeners() {
         // Add event listeners for keydown and keyup
         document.addEventListener('keydown', this.handleKeyDownBound);
@@ -257,15 +201,8 @@ class Npc extends Character {
             console.log("Greeting set to false!")
             return;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.dialogueSystem.showDialogue(greeting, npcName, npcAvatar, this.spriteData);
-=======
-        this.dialogueSystem.showDialogue(greeting, npcName, npcAvatar);
->>>>>>> 5951a9a (update for v1.1)
-=======
         this.dialogueSystem.showDialogue(greeting, npcName, npcAvatar, this.spriteData);
->>>>>>> 3453da9 (refresh for AI NPC and more)
     }
     
     // Method for showing random interaction dialogue
@@ -277,15 +214,8 @@ class Npc extends Character {
         const npcAvatar = this.spriteData?.src || null;
         
         // Show random dialogue
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.dialogueSystem.showRandomDialogue(npcName, npcAvatar, this.spriteData);
-=======
-        this.dialogueSystem.showRandomDialogue(npcName, npcAvatar);
->>>>>>> 5951a9a (update for v1.1)
-=======
         this.dialogueSystem.showRandomDialogue(npcName, npcAvatar, this.spriteData);
->>>>>>> 3453da9 (refresh for AI NPC and more)
     }
 
     // Clean up event listeners when NPC is destroyed
@@ -294,10 +224,6 @@ class Npc extends Character {
         if (this.gameEnv && this.gameEnv.gameControl) {
             this.gameEnv.gameControl.unregisterInteractionHandler(this);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
 
         // Remove per-NPC dialogue DOM elements from document.body.
         if (this.dialogueSystem && typeof this.dialogueSystem.destroy === 'function') {
@@ -305,12 +231,6 @@ class Npc extends Character {
             this.dialogueSystem = null;
         }
 
-<<<<<<< HEAD
-=======
-        
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
         this.removeInteractKeyListeners();
         super.destroy();
     }

@@ -6,14 +6,8 @@ import GameObject from './GameObject.js';
 export class GameEnvBackground extends GameObject {
     constructor(data = null, gameEnv = null) {
         super(gameEnv);
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.data = data; // Store the data for identification
-=======
->>>>>>> 5951a9a (update for v1.1)
-=======
         this.data = data; // Store the data for identification
->>>>>>> 3750c40 (_project and support for site.baseurl)
         if (data.src) {
             this.image = new Image();
             this.image.src = data.src;

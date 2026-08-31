@@ -7,33 +7,18 @@ export default class PauseMenu {
         this.gameControl = gameControl;
         this.options = options;
         this.container = null;
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.overlay = null;
         this.isVisible = false;
         this.leaderboardContainer = null;
         this._saveStatusNode = null;
-=======
-        this.isVisible = false;
-        this.leaderboard = null;
-        this.scoreFeature = null;
-        this.score = 0;
-        this.stats = {};
->>>>>>> 5951a9a (update for v1.1)
-=======
         this.overlay = null;
         this.isVisible = false;
         this.leaderboardContainer = null;
         this._saveStatusNode = null;
->>>>>>> 744ce5e (Latest leaderboard)
         
         this.init();
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
     /**
      * Run an action with consistent error handling and optional status feedback
      */
@@ -48,7 +33,6 @@ export default class PauseMenu {
             }
             return false;
         }
-<<<<<<< HEAD
     }
 
     /**
@@ -71,12 +55,6 @@ export default class PauseMenu {
             const style = document.createElement('style');
             style.id = 'pause-menu-styles';
             style.textContent = `
-=======
-    init() {
-        this.createStyles();
-        this.createMenuUI();
-=======
->>>>>>> 744ce5e (Latest leaderboard)
     }
 
     /**
@@ -95,17 +73,10 @@ export default class PauseMenu {
     createStyles() {
         if (document.getElementById('pause-menu-styles')) return;
 
-<<<<<<< HEAD
         const style = document.createElement('style');
         style.id = 'pause-menu-styles';
         style.textContent = `
 >>>>>>> 5951a9a (update for v1.1)
-=======
-        try {
-            const style = document.createElement('style');
-            style.id = 'pause-menu-styles';
-            style.textContent = `
->>>>>>> 744ce5e (Latest leaderboard)
             .pause-menu-overlay {
                 position: fixed;
                 top: 0;
@@ -212,15 +183,10 @@ export default class PauseMenu {
                 margin: 0 0 16px 0;
             }
         `;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
             document.head.appendChild(style);
         } catch (error) {
             console.error('Error creating or appending styles:', error);
         }
-<<<<<<< HEAD
     }
 
     /**
@@ -297,10 +263,6 @@ export default class PauseMenu {
         const saveScoreBtn = this._createSaveScoreButton();
         const skipBtn = this._createSkipLevelButton();
         const leaderboardBtn = this._createToggleLeaderboardButton();
-=======
-        document.head.appendChild(style);
-=======
->>>>>>> 744ce5e (Latest leaderboard)
     }
 
     /**
@@ -373,7 +335,6 @@ export default class PauseMenu {
         const buttonsDiv = document.createElement('div');
         buttonsDiv.className = 'pause-menu-buttons';
 
-<<<<<<< HEAD
         // Resume button
         const resumeBtn = document.createElement('button');
         resumeBtn.className = 'pause-menu-btn primary';
@@ -400,22 +361,12 @@ export default class PauseMenu {
         leaderboardBtn.textContent = '📊 Toggle Leaderboard';
         leaderboardBtn.addEventListener('click', () => this.toggleLeaderboard());
 >>>>>>> 5951a9a (update for v1.1)
-=======
-        const resumeBtn = this._createResumeButton();
-        const saveScoreBtn = this._createSaveScoreButton();
-        const skipBtn = this._createSkipLevelButton();
-        const leaderboardBtn = this._createToggleLeaderboardButton();
->>>>>>> 744ce5e (Latest leaderboard)
 
         buttonsDiv.appendChild(resumeBtn);
         buttonsDiv.appendChild(saveScoreBtn);
         buttonsDiv.appendChild(skipBtn);
         buttonsDiv.appendChild(leaderboardBtn);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
         return buttonsDiv;
     }
 
@@ -469,18 +420,10 @@ export default class PauseMenu {
      * Create the status message area
      */
     _createStatusArea() {
-<<<<<<< HEAD
-=======
-        // Status message
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
         const statusDiv = document.createElement('div');
         statusDiv.id = 'pause-menu-status';
         statusDiv.className = 'pause-menu-status';
         this._saveStatusNode = statusDiv;
-<<<<<<< HEAD
-<<<<<<< HEAD
         return statusDiv;
     }
 
@@ -488,14 +431,6 @@ export default class PauseMenu {
      * Create the leaderboard section container
      */
     _createLeaderboardSection() {
-=======
-
-        content.appendChild(buttonsDiv);
-        content.appendChild(statusDiv);
-
-        // Leaderboard section (will be populated if leaderboard exists)
->>>>>>> 5951a9a (update for v1.1)
-=======
         return statusDiv;
     }
 
@@ -503,13 +438,10 @@ export default class PauseMenu {
      * Create the leaderboard section container
      */
     _createLeaderboardSection() {
->>>>>>> 744ce5e (Latest leaderboard)
         const leaderboardSection = document.createElement('div');
         leaderboardSection.className = 'pause-menu-leaderboard-section';
         leaderboardSection.id = 'pause-menu-leaderboard-section';
         leaderboardSection.style.display = 'none';
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.leaderboardContainer = leaderboardSection;
         return leaderboardSection;
     }
@@ -518,15 +450,10 @@ export default class PauseMenu {
      * Attach event listeners to the overlay for closing
      */
     _attachEventListeners() {
-=======
-        content.appendChild(leaderboardSection);
-=======
->>>>>>> 744ce5e (Latest leaderboard)
         this.leaderboardContainer = leaderboardSection;
         return leaderboardSection;
     }
 
-<<<<<<< HEAD
         // Assemble
         this.container.appendChild(header);
         this.container.appendChild(content);
@@ -535,12 +462,6 @@ export default class PauseMenu {
 
         // Close on overlay click
 >>>>>>> 5951a9a (update for v1.1)
-=======
-    /**
-     * Attach event listeners to the overlay for closing
-     */
-    _attachEventListeners() {
->>>>>>> 744ce5e (Latest leaderboard)
         this.overlay.addEventListener('click', (e) => {
             if (e.target === this.overlay) {
                 this.hide();
@@ -548,8 +469,6 @@ export default class PauseMenu {
         });
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     /**
      * Show the pause menu overlay and pause the game
      */
@@ -787,12 +706,6 @@ export default class PauseMenu {
             }, 3000);
         } catch (error) {
             console.error('Error displaying status message:', error);
-=======
-=======
-    /**
-     * Show the pause menu overlay and pause the game
-     */
->>>>>>> 744ce5e (Latest leaderboard)
     show() {
         if (this.isVisible) return;
 
@@ -976,64 +889,10 @@ export default class PauseMenu {
      * End the current level and advance to the next one
      */
     skipLevel() {
-<<<<<<< HEAD
         if (this.gameControl && typeof this.gameControl.endLevel === 'function') {
             this.hide(); // Hide menu first
             this.gameControl.endLevel();
 >>>>>>> 5951a9a (update for v1.1)
-=======
-        this._runAction(
-            'skipping level',
-            () => {
-            this._validateGameControlAvailable();
-                this._closeMenuBeforeSkip();
-                this._endCurrentLevel();
-            },
-            'Error skipping level. Please try again.'
-        );
-    }
-
-    /**
-     * Close menu before skipping level
-     */
-    _closeMenuBeforeSkip() {
-        this.hide();
-    }
-
-    /**
-     * End current level through game control
-     */
-    _endCurrentLevel() {
-        this.gameControl.endLevel();
-    }
-
-    /**
-     * Validate that GameControl is available and has the endLevel method
-     */
-    _validateGameControlAvailable() {
-        if (!this.gameControl) {
-            throw new Error('GameControl not available');
-        }
-        if (typeof this.gameControl.endLevel !== 'function') {
-            throw new Error('endLevel function not available on GameControl');
-        }
-    }
-
-    /**
-     * Display a status message to the user
-     */
-    _showStatusMessage(message) {
-        if (!this._saveStatusNode) return;
-
-        try {
-            this._saveStatusNode.textContent = message;
-            // Auto-clear after 3 seconds
-            setTimeout(() => {
-                this._saveStatusNode.textContent = '';
-            }, 3000);
-        } catch (error) {
-            console.error('Error displaying status message:', error);
->>>>>>> 744ce5e (Latest leaderboard)
         }
     }
 }

@@ -82,15 +82,8 @@
  * this.gameEnv.stats.coinsCollected++;
  */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { javaURI, fetchOptions } from '../../api/config.js';
-=======
-import { javaURI, fetchOptions } from '/assets/js/api/config.js';
->>>>>>> 5951a9a (update for v1.1)
-=======
 import { javaURI, fetchOptions } from '../../api/config.js';
->>>>>>> d2330e2 (more path issues on scoreboard)
 
 export default class GameEnvScore {
     constructor(gameEnv) {
@@ -145,77 +138,24 @@ export default class GameEnvScore {
      * Create the score counter UI element
      */
     _createScoreCounter() {
-<<<<<<< HEAD
-<<<<<<< HEAD
         // Remove any legacy fixed score counter overlays from previous versions
-=======
-        // Clean up any existing score counters (from previous instances)
->>>>>>> 5951a9a (update for v1.1)
-=======
         // Remove any legacy fixed score counter overlays from previous versions
->>>>>>> 744ce5e (Latest leaderboard)
         const existingCounters = document.querySelectorAll('.pause-score-counter');
         existingCounters.forEach(counter => {
             if (counter.parentNode) {
                 counter.parentNode.removeChild(counter);
             }
         });
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         this._scoreCounter = null;
         this._scoreValue = null;
         this._scoreLabel = null;
         this._currentValue = 0;
-=======
-        
-        const parent = this.gameEnv.gameContainer || document.getElementById('gameContainer') || document.body;
-
-        const scoreCounter = document.createElement('div');
-        scoreCounter.className = 'pause-score-counter';
-        scoreCounter.style.position = 'fixed';
-        scoreCounter.style.top = '80px';
-        scoreCounter.style.left = '10px';
-        scoreCounter.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-        scoreCounter.style.color = '#fff';
-        scoreCounter.style.padding = '10px 15px';
-        scoreCounter.style.borderRadius = '5px';
-        scoreCounter.style.fontSize = '16px';
-        scoreCounter.style.fontWeight = 'bold';
-        scoreCounter.style.zIndex = '9998';
-        scoreCounter.style.minWidth = '150px';
-        scoreCounter.style.textAlign = 'center';
-        scoreCounter.style.display = 'none';
-        
-        const scoreLabel = document.createElement('div');
-        scoreLabel.style.fontSize = '12px';
-        scoreLabel.style.color = '#aaa';
-        scoreLabel.style.marginBottom = '5px';
-        const labelText = this._getCounterLabel();
-        scoreLabel.innerText = labelText;
-        
-        const scoreValue = document.createElement('div');
-        scoreValue.className = 'pause-score-value';
-        scoreValue.style.fontSize = '24px';
-        scoreValue.innerText = '0';
-        
-        scoreCounter.appendChild(scoreLabel);
-        scoreCounter.appendChild(scoreValue);
-        parent.appendChild(scoreCounter);
-        
-        this._scoreValue = scoreValue;
-        this._scoreLabel = scoreLabel;
-        this._scoreCounter = scoreCounter;
-        
-        console.log(`${this.classId}: Score counter created and appended to`, parent.tagName || parent.id || 'unknown parent');
->>>>>>> 5951a9a (update for v1.1)
-=======
 
         this._scoreCounter = null;
         this._scoreValue = null;
         this._scoreLabel = null;
         this._currentValue = 0;
->>>>>>> 744ce5e (Latest leaderboard)
     }
 
     /**
@@ -247,34 +187,18 @@ export default class GameEnvScore {
      * Toggle visibility of the score counter
      */
     toggleScoreDisplay() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
         this.isVisible = true;
         const leaderboardScore = document.getElementById('leaderboard-current-score');
         if (leaderboardScore) {
             const labelText = this._getCounterLabel();
             leaderboardScore.style.display = 'inline';
             leaderboardScore.textContent = `${labelText}: ${Number(this._currentValue || 0).toLocaleString()}`;
-<<<<<<< HEAD
         }
 
         console.log(`${this.classId}: Leaderboard score text synced with leaderboard visibility`);
-=======
-        if (!this._scoreCounter) {
-            console.error(`${this.classId}:`, this.ERROR_HANDLERS.SCORE_COUNTER_NOT_FOUND.message);
-            return;
-        }
-        this.isVisible = !this.isVisible;
-        this._scoreCounter.style.display = this.isVisible ? 'block' : 'none';
-        console.log(`${this.classId}: Score counter toggled to`, this.isVisible ? 'visible' : 'hidden');
->>>>>>> 5951a9a (update for v1.1)
-=======
         }
 
         console.log(`${this.classId}: Leaderboard score text synced with leaderboard visibility`);
->>>>>>> 744ce5e (Latest leaderboard)
     }
 
     /**
@@ -288,10 +212,6 @@ export default class GameEnvScore {
      * Update the score counter display
      */
     updateScoreDisplay(value) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 744ce5e (Latest leaderboard)
         this._currentValue = Number(value || 0);
 
         const leaderboardScore = document.getElementById('leaderboard-current-score');
@@ -299,13 +219,6 @@ export default class GameEnvScore {
             const labelText = this._getCounterLabel();
             leaderboardScore.style.display = 'inline';
             leaderboardScore.textContent = `${labelText}: ${this._currentValue.toLocaleString()}`;
-<<<<<<< HEAD
-=======
-        if (this._scoreValue) {
-            this._scoreValue.innerText = String(value || 0);
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 744ce5e (Latest leaderboard)
         }
     }
 
@@ -466,15 +379,8 @@ export default class GameEnvScore {
      * Uses API chaining pattern for clean sequential operations
      */
     saveScore(buttonEl) {
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (!buttonEl) return Promise.reject(new Error('No button element provided'));
-=======
-        if (!buttonEl) return;
->>>>>>> 5951a9a (update for v1.1)
-=======
         if (!buttonEl) return Promise.reject(new Error('No button element provided'));
->>>>>>> 484f091 (Support v1.1 comic style)
         buttonEl.disabled = true;
         const prevText = buttonEl.innerText;
         buttonEl.innerText = 'Saving...';
@@ -483,41 +389,14 @@ export default class GameEnvScore {
         const currentScore = this.gameEnv.stats[cv] || 0;
         console.log(`${this.classId}: ${cv} = ${currentScore}`, this.gameEnv.stats);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         // If backend not configured, return rejected promise
         if (!javaURI) {
-=======
-        // Attempt server save using API chaining pattern
-        if (javaURI) {
-            this._saveStatsToServer()
-                .then(resp => {
-                    console.log(`${this.classId}:`, this.ERROR_HANDLERS.SAVE_SUCCESS.message, resp);
-                    // alert(this.ERROR_HANDLERS.SAVE_SUCCESS.userMessage);
-                })
-                .catch(e => {
-                    console.error(`${this.classId}:`, this.ERROR_HANDLERS.SAVE_FAILED.message, e);
-                    // Error messages are already set in _saveStatsToServer()
-                    alert(e.message || this.ERROR_HANDLERS.DEFAULT.userMessage);
-                })
-                .finally(() => {
-                    buttonEl.disabled = false;
-                    buttonEl.innerText = prevText;
-                });
-        } else {
->>>>>>> 5951a9a (update for v1.1)
-=======
         // If backend not configured, return rejected promise
         if (!javaURI) {
->>>>>>> 484f091 (Support v1.1 comic style)
             console.warn(`${this.classId}:`, this.ERROR_HANDLERS.BACKEND_NOT_CONFIGURED.message);
             alert(this.ERROR_HANDLERS.BACKEND_NOT_CONFIGURED.userMessage);
             buttonEl.disabled = false;
             buttonEl.innerText = prevText;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 484f091 (Support v1.1 comic style)
             return Promise.reject(new Error(this.ERROR_HANDLERS.BACKEND_NOT_CONFIGURED.message));
         }
 
@@ -536,11 +415,5 @@ export default class GameEnvScore {
                 buttonEl.disabled = false;
                 buttonEl.innerText = prevText;
             });
-<<<<<<< HEAD
-=======
-        }
->>>>>>> 5951a9a (update for v1.1)
-=======
->>>>>>> 484f091 (Support v1.1 comic style)
     }
 }

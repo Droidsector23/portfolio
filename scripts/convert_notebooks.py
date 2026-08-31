@@ -22,9 +22,7 @@ else:
 ###########################################
 
 """
-=============================================================
 SIDE-BY-SIDE RUNNER LEGEND (Container Panel Composition)
-=============================================================
 
 Supported cell directives for side-by-side layout:
 - CODE_RUNNER (python/javascript/java comment marker)

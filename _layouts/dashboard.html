@@ -661,13 +661,11 @@ active_tab: dashboard
 
 <!-- ============================================================
      Admin Evaluation Module
-     ============================================================
      Moved out of the admin HTML section for readability.
      The HTML structure (cards container, modal, sliders) lives
      above in #admin-only.  This script wires up all behaviour
      and exposes window.adminFetchPeople() so the DOMContentLoaded
      handler can trigger it once admin status is confirmed.
-     ============================================================ -->
 <script type="module">
 import { javaURI, fetchOptions } from '{{ site.baseurl }}/assets/js/api/config.js';
 

@@ -3,10 +3,6 @@ import GameObject from './GameObject.js';
 class Barrier extends GameObject {
     constructor(data, gameEnv) {
         super(gameEnv);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 668c118 (support for relative position)
         
         // Handle position with relative (0-1) or absolute pixel values
         const xVal = data.x !== undefined ? data.x : 0;
@@ -46,16 +42,6 @@ class Barrier extends GameObject {
         this.relativeWidth = wVal;
         this.relativeHeight = hVal;
         
-<<<<<<< HEAD
-=======
-        // Position and size in game coordinates
-        this.x = data.x || 0;
-        this.y = data.y || 0;
-        this.width = data.width || 0;
-        this.height = data.height || 0;
->>>>>>> 72bd9be (massive update to latest tech)
-=======
->>>>>>> 668c118 (support for relative position)
         this.color = data.color || 'rgba(255, 0, 0, 0.3)';
         this.visible = data.visible !== undefined ? data.visible : true;
         this.hitbox = data.hitbox || { widthPercentage: 0.0, heightPercentage: 0.0 };
@@ -66,11 +52,7 @@ class Barrier extends GameObject {
         this.canvas.width = Math.max(1, this.width);
         this.canvas.height = Math.max(1, this.height);
         this.ctx = this.canvas.getContext('2d', { willReadFrequently: true });
-<<<<<<< HEAD
         const container = this.gameEnv?.container;
-=======
-        const container = document.getElementById('gameContainer') || this.gameEnv?.gameContainer;
->>>>>>> 72bd9be (massive update to latest tech)
         if (container) container.appendChild(this.canvas);
         this.canvas.style.imageRendering = 'pixelated';
         this.canvas.style.zIndex = (data.zIndex !== undefined) ? String(data.zIndex) : '11';
@@ -107,8 +89,6 @@ class Barrier extends GameObject {
     }
 
     resize() {
-<<<<<<< HEAD
-<<<<<<< HEAD
         // Reposition relative to new game size
         if (!this.gameEnv) return;
         
@@ -148,11 +128,6 @@ class Barrier extends GameObject {
         this.canvas.width = Math.max(1, this.width);
         this.canvas.height = Math.max(1, this.height);
         
-=======
-        // Reposition relative to new game size proportionally
-=======
-        // Reposition relative to new game size
->>>>>>> 668c118 (support for relative position)
         if (!this.gameEnv) return;
         
         // If using relative positioning (0-1), recalculate from original percentages
@@ -170,31 +145,7 @@ class Barrier extends GameObject {
                 this.y = Math.round(this.y * scaleY);
             }
         }
-<<<<<<< HEAD
 >>>>>>> 72bd9be (massive update to latest tech)
-=======
-        
-        // If using relative size (0-1), recalculate from original percentages
-        if (this.isRelativeSize) {
-            this.width = this.relativeWidth * this.gameEnv.innerWidth;
-            this.height = this.relativeHeight * this.gameEnv.innerHeight;
-        } else {
-            // For absolute size, scale proportionally (backward compatibility)
-            const newW = this.gameEnv.innerWidth;
-            const newH = this.gameEnv.innerHeight;
-            if (this.canvas && this.canvas.width && this.canvas.height) {
-                const scaleX = newW / (this.gameEnv.canvas?.width || newW);
-                const scaleY = newH / (this.gameEnv.canvas?.height || newH);
-                this.width = Math.round(this.width * scaleX);
-                this.height = Math.round(this.height * scaleY);
-            }
-        }
-        
-        // Update canvas dimensions
-        this.canvas.width = Math.max(1, this.width);
-        this.canvas.height = Math.max(1, this.height);
-        
->>>>>>> 668c118 (support for relative position)
         this.update();
     }
 

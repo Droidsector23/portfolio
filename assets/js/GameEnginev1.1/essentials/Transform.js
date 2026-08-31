@@ -1,6 +1,4 @@
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 class TransformValidation {
     // Coerce any input to a finite number by falling back when input is invalid.
     // This prevents NaN/Infinity from leaking into game state.
@@ -279,24 +277,6 @@ class Transform {
 
 export { Transform, TransformValidation, TransformState, TransformMotion };
 export default Transform;
-=======
-export class Transform {
-    constructor(spawnX, spawnY) {
-        this.spawnX = spawnX;
-        this.spawnY = spawnY;
-        this.x = this.spawnX;
-        this.y = this.spawnY;
-        this.xv = 0;
-        this.yv = 0;
-        this.speed = 0.4;
-=======
-class TransformValidation {
-    // Coerce any input to a finite number by falling back when input is invalid.
-    // This prevents NaN/Infinity from leaking into game state.
-    // Return a finite number or a safe fallback.
-    static number(value, fallback = 0) {
-        return Number.isFinite(value) ? value : fallback;
->>>>>>> 744ce5e (Latest leaderboard)
     }
 
     // Validate object-like input used by position/velocity setters.
@@ -353,14 +333,8 @@ class TransformState {
         this.position.y = TransformValidation.number(y, this.position.y);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
 >>>>>>> 5951a9a (update for v1.1)
-=======
-=======
-    // Mutate velocity safely while preserving existing values on bad input.
->>>>>>> 3453da9 (refresh for AI NPC and more)
     setVelocity(x, y) {
         this.velocity.x = TransformValidation.number(x, this.velocity.x);
         this.velocity.y = TransformValidation.number(y, this.velocity.y);
@@ -576,4 +550,3 @@ class Transform {
 
 export { Transform, TransformValidation, TransformState, TransformMotion };
 export default Transform;
->>>>>>> 744ce5e (Latest leaderboard)

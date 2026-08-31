@@ -27,14 +27,8 @@
         <option value="python">Python</option>
         <option value="java">Java</option>
         <option value="javascript">JavaScript</option>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <option value="pseudocode">Pseudocode</option>
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
         <option value="pseudocode">Pseudocode</option>
->>>>>>> 1b4d221 (update for code runner features and editing.)
       </select>
       <select class="fontSizeSelect">
         <option value="14">14px</option>
@@ -63,10 +57,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1b4d221 (update for code runner features and editing.)
 <script>
 // AP CSP Pseudocode syntax highlighting mode for CodeMirror 5
 if (typeof CodeMirror !== 'undefined' && !CodeMirror.modes['pseudocode']) {
@@ -118,17 +108,10 @@ if (typeof CodeMirror !== 'undefined' && !CodeMirror.modes['pseudocode']) {
 }
 </script>
 
-<<<<<<< HEAD
 <script type="module">
 import { BaseRunner, CodeExecutor, PseudocodeExecutor } from '{{site.baseurl}}/assets/js/pages/runners/index.js';
-=======
-<script type="module">
-import { BaseRunner, CodeExecutor } from '{{site.baseurl}}/assets/js/pages/runners/index.js';
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
 <script type="module">
 import { BaseRunner, CodeExecutor, PseudocodeExecutor } from '{{site.baseurl}}/assets/js/pages/runners/index.js';
->>>>>>> 1b4d221 (update for code runner features and editing.)
 import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api/config.js';
 
 (function() {
@@ -150,17 +133,10 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
       mode: initialLang === "java" ? "text/x-java" : (initialLang || "python"),
       theme: "darcula",
       indentUnit: 4,
-<<<<<<< HEAD
-<<<<<<< HEAD
       tabSize: 4,
       styleSelectedText: true
-=======
-      tabSize: 4
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
       tabSize: 4,
       styleSelectedText: true
->>>>>>> 1b4d221 (update for code runner features and editing.)
     }
   });
 
@@ -178,20 +154,11 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
     fetchOptions,
   });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1b4d221 (update for code runner features and editing.)
   const pseudoExecutor = new PseudocodeExecutor({
     outputElement: outputDiv,
     execTimeElement: execTimeSpan,
   });
 
-<<<<<<< HEAD
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
->>>>>>> 1b4d221 (update for code runner features and editing.)
   // Set initial language selection
   if (initialLang) {
     langSelect.value = initialLang;
@@ -212,10 +179,6 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
     editor.refresh();
   });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1b4d221 (update for code runner features and editing.)
   // Auto-substitute pseudocode shorthand as the user types
   const pseudoSubs = [['<--','←',3],['!=','≠',2],['>=','≥',2],['<=','≤',2]];
   editor.on('change', (cm, change) => {
@@ -232,11 +195,6 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
     }
   });
 
-<<<<<<< HEAD
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
->>>>>>> 1b4d221 (update for code runner features and editing.)
   // Language switcher
   langSelect.addEventListener("change", () => {
     const lang = langSelect.value;
@@ -246,16 +204,10 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
       editor.setOption("mode", "text/x-java");
     } else if (lang === "javascript") {
       editor.setOption("mode", "javascript");
-<<<<<<< HEAD
-<<<<<<< HEAD
     } else if (lang === "pseudocode") {
       editor.setOption("mode", "pseudocode");
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
     } else if (lang === "pseudocode") {
       editor.setOption("mode", "pseudocode");
->>>>>>> 1b4d221 (update for code runner features and editing.)
     }
   });
 
@@ -263,18 +215,12 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
 
   // Run button logic
   function runCode() {
-<<<<<<< HEAD
-<<<<<<< HEAD
     if (langSelect.value === "pseudocode") {
       return pseudoExecutor.run(editor.getValue());
     }
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
     if (langSelect.value === "pseudocode") {
       return pseudoExecutor.run(editor.getValue());
     }
->>>>>>> 1b4d221 (update for code runner features and editing.)
     return codeExecutor.run();
   }
 

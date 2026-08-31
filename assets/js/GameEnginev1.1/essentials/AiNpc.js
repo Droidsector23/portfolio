@@ -1,8 +1,4 @@
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3453da9 (refresh for AI NPC and more)
  * AiNpc.js - Reusable AI-powered NPC conversation system
  * 
  * Provides common behaviors for conversational NPCs powered by backend Gemini API.
@@ -18,7 +14,6 @@
  * - POST /api/ainpc/greeting - Get NPC greeting and reset conversation
  * - POST /api/ainpc/reset    - Clear conversation history
  * - GET  /api/ainpc/test     - Test API availability
-<<<<<<< HEAD
  */
 
 import DialogueSystem from './DialogueSystem.js';
@@ -400,10 +395,6 @@ class AiNpc {
                     expertise: spriteData.expertise,
                     knowledgeContext: knowledgeContext
                 })
-=======
- * AINpc.js - BASE CLASS 
-=======
->>>>>>> 3453da9 (refresh for AI NPC and more)
  */
 
 import DialogueSystem from './DialogueSystem.js';
@@ -775,7 +766,6 @@ class AiNpc {
             const pythonURL = pythonURI + '/api/ainpc/prompt';
 
             const response = await fetch(pythonURL, {
-<<<<<<< HEAD
               ...this.fetchOptions,
               method: 'POST',
               body: JSON.stringify({
@@ -786,31 +776,14 @@ class AiNpc {
                 knowledgeContext: knowledgeContext
               })
 >>>>>>> 5951a9a (update for v1.1)
-=======
-                ...fetchOptions,
-                method: 'POST',
-                signal: session?.signal,
-                body: JSON.stringify({
-                    prompt: userMessage,
-                    session_id: sessionId,
-                    npc_type: spriteData.expertise,
-                    expertise: spriteData.expertise,
-                    knowledgeContext: knowledgeContext
-                })
->>>>>>> 3453da9 (refresh for AI NPC and more)
             });
 
             const data = await response.json();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
             if (!AiNpc.canUseElement(responseArea, session)) {
                 return;
             }
 
-<<<<<<< HEAD
             if (data.status === 'error') {
                 AiNpc.showResponse(
                     data.message || "I'm having trouble thinking right now.",
@@ -952,9 +925,6 @@ class AiNpc {
 }
 
 export default AiNpc;
-=======
-=======
->>>>>>> 3750c40 (_project and support for site.baseurl)
             if (data.status === 'error') {
                 AiNpc.showResponse(
                     data.message || "I'm having trouble thinking right now.",
@@ -1095,9 +1065,5 @@ export default AiNpc;
     }
 }
 
-<<<<<<< HEAD
 export default AINpc;
 >>>>>>> 5951a9a (update for v1.1)
-=======
-export default AiNpc;
->>>>>>> 3453da9 (refresh for AI NPC and more)

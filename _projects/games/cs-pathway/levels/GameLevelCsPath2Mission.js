@@ -4,15 +4,8 @@ import FriendlyNpc from '@assets/js/GameEnginev1.1/essentials/FriendlyNpc.js';
 import AiChallengeNpc, { CHALLENGE_ERROR_TYPES, CHALLENGE_VERDICTS } from '@assets/js/GameEnginev1.1/essentials/AiChallengeNpc.js';
 import GameLevelCsPathIdentity from './GameLevelCsPathIdentity.js';
 import StatusPanel from '@assets/js/GameEnginev1.1/essentials/StatusPanel.js';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import ProfileManager from '@assets/js/projects/cs-pathway/model/ProfileManager.js';
-=======
 import ProfileManager from '/assets/js/projects/cs-pathway/model/ProfileManager.js';
->>>>>>> 92722ed (migration of _profile changes)
-=======
-import ProfileManager from '/assets/js/projects/cs-pathway/model/ProfileManager.js';
->>>>>>> c64ba74 (forgot .gitingore clean up)
 
 // Prompt templates for AI question generation and grading.
 const CHALLENGE_PROMPT_TEXT = {

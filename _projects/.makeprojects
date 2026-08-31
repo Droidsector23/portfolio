@@ -1,47 +1,6 @@
-# Project Auto-Registration
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 92722ed (migration of _profile changes)
-# List enabled projects (one per line)
-# Supports both flat and nested structures:
-#   - Flat: <project-name>
-#   - Nested: <category>/<project-name>
-# Projects with :dev suffix are auto-built in dev mode
-<<<<<<< HEAD
-#
+# Auto-registered project list
 # Format: <project-path> or <project-path>:dev
 # Example: games/cs-pathway:dev
 
-# === NESTED STRUCTURE (organized by category) ===
-# Games
 games/cs-pathway:dev
 games/gamify:dev
-
-# Systems
-#systems/student-management-groups
-
-# === FLAT STRUCTURE (legacy/uncategorized) ===
-=======
-# List enabled projects (one per line, no paths needed)
-# Projects must have: _projects/<name>/Makefile
-# Each Makefile must provide generic targets: build, clean, docs, watch
-=======
->>>>>>> 92722ed (migration of _profile changes)
-#
-# Format: <project-path> or <project-path>:dev
-# Example: games/cs-pathway:dev
-
-<<<<<<< HEAD
-gamify
->>>>>>> 3750c40 (_project and support for site.baseurl)
-=======
-# === NESTED STRUCTURE (organized by category) ===
-# Games
-games/cs-pathway:dev
-
-# Systems
-# systems/student-management-groups
-
-# === FLAT STRUCTURE (legacy/uncategorized) ===
->>>>>>> 92722ed (migration of _profile changes)
