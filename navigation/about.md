@@ -126,6 +126,5 @@ Everything for me, as for many others, revolves around family and faith.
   <img src="{{site.baseurl}}/images/about/Parasailing.jpeg" alt="Image 1">
   <img src="{{site.baseurl}}/images/about/family.jpeg" alt="Image 2">
   <img src="{{site.baseurl}}/images/about/cruise.jpg" alt="Image 3">
-  
-  <img src="{{site.baseurl}}/images/about/om.webp" alt="Image 5">
+  <img src="{{site.baseurl}}/images/about/om.webp" alt="Image 4">
 </div>
