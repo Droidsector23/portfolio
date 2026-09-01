@@ -11,8 +11,6 @@ ACSL Finals qualifier
 
 ### Countries visited
 <comment>
-<img src="{{site.baseurl}}/images/about/India.webp" alt="Image 1">
-<img src="{{site.baseurl}}/images/about/usa.webp" alt="Image 2">
 </comment>
 
 <comment>
