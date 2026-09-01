@@ -64,11 +64,10 @@ Flags are made using Wikipedia images
     var container = document.getElementById("grid_container"); // This container connects to the HTML div
 
     // 2. Define a JavaScript object for our http source and our data rows for the Living in the World grid
-    var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
-        {"flag": "images/about/usa.webp", "greeting": "Hey", "description": "Born in USA"},
-        {"flag": "images/about/India.webp", "greeting": "Hi", "description": "Traveled to India"},
-        {"flag": "e/ef/Flag_of_Hawaii.svg", "greeting": "Aloha", "description": "Visited Hawaii"},
+        {"flag": "{{site.baseurl}}/images/about/usa.webp", "greeting": "Hey", "description": "Born in USA"},
+        {"flag": "{{site.baseurl}}/images/about/India.webp", "greeting": "Hi", "description": "Traveled to India"},
+        {"flag": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Hawaii.svg", "greeting": "Aloha", "description": "Visited Hawaii"},
     ];
 
     // 3a. Consider how to update style count for size of container
@@ -81,7 +80,7 @@ Flags are made using Wikipedia images
         gridItem.className = "grid-item";  // This class name connects the gridItem to the CSS style elements
         // Add "img" HTML tag for the flag
         var img = document.createElement("img");
-        img.src = http_source + location.flag; // concatenate the source and flag
+        img.src = location.flag;
         img.alt = location.flag + " Flag"; // add alt text for accessibility
 
         // Add "p" HTML tag for the description
