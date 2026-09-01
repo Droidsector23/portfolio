@@ -8,11 +8,14 @@ comments: true
 ## Coding Acheivements
 
 ACSL Finals qualifier
-Hi I am Vayun
 
 ## As a conversation Starter xxxx
 
 Here are some place I lived. 
+
+<comment>
+Flags are made using Wikipedia images
+</comment>
 
 <comment>
 Flags are made using Wikipedia images
@@ -101,6 +104,7 @@ Flags are made using Wikipedia images
         container.appendChild(gridItem);
     }
 </script>
+
 
 ### Journey through Life
 
