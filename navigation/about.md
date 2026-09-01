@@ -13,7 +13,6 @@ ACSL Finals qualifier
 <comment>
 <img src="{{site.baseurl}}/images/about/India.webp" alt="Image 1">
 <img src="{{site.baseurl}}/images/about/usa.webp" alt="Image 2">
-<img src="{{site.baseurl}}/images/about/switzerland.png" alt="Image 3">
 </comment>
 
 <comment>
