@@ -16,7 +16,7 @@ ACSL Finals qualifier
 </comment>
 
 <comment>
-Flags are made using Wikipedia images
+Flags of places I have been to
 </comment>
 
 <style>
