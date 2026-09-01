@@ -8,7 +8,6 @@ comments: true
 ## Coding Acheivements
 
 ACSL Finals qualifier
-Hi I am Vayun
 
 ### Countries visited
 <comment>
