@@ -1,0 +1,20 @@
+// ============================================
+// LEADERBOARD STYLES
+// Converted from assets/css/leaderboard.css
+// ============================================
+
+// Import to get access to color variables
+@import "materials/main.scss";
+
+// Your styles go below...
+
+@import "materials/main.scss";
+
+// Paste your CSS here - it will work as-is!
+.leaderboard-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+}
